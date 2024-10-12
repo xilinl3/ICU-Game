@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +12,14 @@ public class Player : MonoBehaviour
     //PlayerADMove
     [SerializeField] private float moveSpeed = 5f; // 角色的移动速度
     private float xInput;
-    public bool IsRight = true;
+    private bool IsRight = true;
     private int facingDir = 1;
+
+    [SerializeField] private bool onGround;
+    public static float JUMPCOUNT = 1;
+    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float sequentialJumpForce = 3f;
+    [SerializeField] private float remJumpCount = JUMPCOUNT;
 
     void Start()
     {
@@ -27,7 +34,9 @@ public class Player : MonoBehaviour
         xInput  = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
         HandleAnimation();
+        HandleJump();
     }
+
     private void FixedUpdate()
     {
         if (Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Horizontal") > 0)
@@ -36,9 +45,52 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void HandleJump()
+    {
+        //if (Input.GetKeyDown(KeyCode.Space) && onGround)
+        //{
+        //    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (onGround)
+            {
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                remJumpCount = JUMPCOUNT;
+            }
+            else if (remJumpCount != 0)
+            {
+                remJumpCount -= 1;
+                rb.AddForce(Vector2.up * sequentialJumpForce, ForceMode2D.Impulse);
+            }
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            onGround = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            onGround = false;
+        }
+    }
     private void HandleAnimation()
     {
+        float yVel = rb.velocity.y;
+        if (Mathf.Abs(yVel) < 0.01f)  // 如果yVelocity小于0.01，则将其视为0
+        {
+            yVel = 0;
+        }
+        anim.SetFloat("yVelocity", yVel);
         anim.SetFloat("xVelocity", rb.velocity.x);
+        anim.SetFloat("yVelocity", yVel);
+        anim.SetBool("onGround", onGround);
     }
     private void Flip()
     {

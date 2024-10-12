@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponent<Animator>();
         _cameraFollowObject = CameraFllowGo.GetComponent<CameraFllowObject>();
 
         _fallSpeedYDampingChangeThreshold = CameraManager.Instance._fallSpeedYDampingChangeThreshold;
@@ -39,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!canMove || isDashing)  // 如果不能移动，则不执行移动逻辑
-            return;
+        //if (!canMove || isDashing)  // 如果不能移动，则不执行移动逻辑
+        //    return;
         float moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
 
@@ -96,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleAnimation()
     {
+        Debug.Log("HandleAnimation enter");
         anim.SetFloat("xVelocity", rb.velocity.x);
         anim.SetFloat("yVelocity", rb.velocity.y);
         anim.SetBool("onGround", onGround);

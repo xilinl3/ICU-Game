@@ -208,11 +208,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2255609558707435015, guid: 91b692e5a443b2141835eb8284eafd03, type: 3}
       propertyPath: boxSize.x
-      value: 16
+      value: 28.1
       objectReference: {fileID: 0}
     - target: {fileID: 2255609558707435015, guid: 91b692e5a443b2141835eb8284eafd03, type: 3}
       propertyPath: boxSize.y
-      value: 8.94
+      value: 15.8
       objectReference: {fileID: 0}
     - target: {fileID: 4232653840351712518, guid: 91b692e5a443b2141835eb8284eafd03, type: 3}
       propertyPath: m_Sprite
@@ -1660,10 +1660,9 @@ GameObject:
   - component: {fileID: 944731780}
   - component: {fileID: 944731782}
   - component: {fileID: 944731783}
-  - component: {fileID: 944731784}
   m_Layer: 0
   m_Name: Light 2D
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1797,18 +1796,6 @@ PolygonCollider2D:
       - {x: 0.58778536, y: -0.80901694}
       - {x: 0.9510565, y: 0.30901712}
   m_UseDelaunayMesh: 0
---- !u!114 &944731784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944731778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0cfae280ca7374bab06e92773eb318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &945977436
 GameObject:
   m_ObjectHideFlags: 0
@@ -19548,7 +19535,7 @@ PrefabInstance:
       objectReference: {fileID: 521327047}
     - target: {fileID: 6026619990188018325, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 4.5
+      value: 7.89
       objectReference: {fileID: 0}
     - target: {fileID: 6450877881902587306, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19592,7 +19579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9188019111288833301, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: orthographic size
-      value: 4.5
+      value: 7.89
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20227,6 +20214,7 @@ GameObject:
   - component: {fileID: 1970738365}
   - component: {fileID: 1970738367}
   - component: {fileID: 1970738366}
+  - component: {fileID: 1970738368}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -20416,6 +20404,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1970738368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970738360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed073c5d4b3cb0141b55145a7e4ffff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1988567320
 GameObject:
   m_ObjectHideFlags: 0

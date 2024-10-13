@@ -9,19 +9,19 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
 
-    // param
+    // 参数
     public static int JUMPCOUNT = 1;
     public static int DASHCOUNT = 1;
 
-    //PlayerADMove
-    [SerializeField] private float moveSpeed = 5f; // 角色的移动速度
+    // 玩家移动参数
+    [SerializeField] private float moveSpeed = 5f;
     private float xInput;
-    private bool IsRight = true;
+    private bool isFacingRight = true;
     private int facingDir = 1;
     private float dashTimeLeft;
     private float dashSpeed;
 
-
+    // 玩家状态参数
     [SerializeField] private bool onGround;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float sequentialJumpForce = 3f;
@@ -31,51 +31,68 @@ public class Player : MonoBehaviour
     [SerializeField] private bool isDashing = false;
     [SerializeField] private bool isCrouching = false;
     [SerializeField] private int remDashCount = DASHCOUNT;
+    private bool dashEnabled = false;  // 新增变量，控制是否允许冲刺
 
     void Start()
     {
-        // 获取角色的 Rigidbody2D 组件
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        // 获取水平输入 (A, D 键或左、右箭头键)
-        xInput  = Input.GetAxisRaw("Horizontal");
+        xInput = Input.GetAxisRaw("Horizontal");
 
         if (!isDashing)
         {
             rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
             HandleJump();
         }
-        HandleDash();
+
+        // 始终在Update中处理冲刺状态，确保冲刺能够结束
+        if (isDashing)
+        {
+            Dash();
+        }
+
         HandleAnimation();
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Horizontal") > 0)
+        if (Mathf.Abs(xInput) > 0)
         {
             TurnCheck();
         }
     }
 
+    //HandleDash暂时不在游戏中使用
     private void HandleDash()
     {
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && remDashCount > 0)
         {
             StartDash();
-            if(!onGround)
+            if (!onGround)
             {
                 remDashCount -= 1;
             }
         }
-
         if (isDashing)
         {
             Dash();
+        }
+    }
+    private void LightDash()
+    {
+        // 确保可以冲刺且未在冲刺状态
+        if (!isDashing && remDashCount > 0 && dashEnabled)
+        {
+            StartDash();
+            if (!onGround)
+            {
+                remDashCount -= 1;
+            }
         }
     }
 
@@ -85,7 +102,7 @@ public class Player : MonoBehaviour
         dashTimeLeft = dashDuration;
         rb.gravityScale = 0;  //禁用重力
 
-        // handle dash
+        // 处理冲刺
         dashSpeed = dashDistance / dashDuration;
         rb.velocity = new Vector2(facingDir * dashSpeed, 0);
     }
@@ -107,14 +124,22 @@ public class Player : MonoBehaviour
         isDashing = false;
         rb.gravityScale = 1;  // 恢复重力
         rb.velocity = Vector2.zero;  // 停止冲刺时将速度重置
+        dashEnabled = false;  // 冲刺结束后禁用冲刺，直到再次进入灯光
+    }
+
+    // 碰到灯光时触发强制冲刺
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Light"))
+        {
+            dashEnabled = true;  // 允许冲刺
+            LightDash();  // 强制触发一次冲刺
+            Debug.Log("Player entered the light's trigger zone");
+        }
     }
 
     private void HandleJump()
     {
-        //if (Input.GetKeyDown(KeyCode.Space) && onGround)
-        //{
-        //    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        //}
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (onGround)
@@ -139,6 +164,7 @@ public class Player : MonoBehaviour
             remDashCount = DASHCOUNT;
         }
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
@@ -148,52 +174,33 @@ public class Player : MonoBehaviour
             remJumpCount = JUMPCOUNT;
         }
     }
+
     private void HandleAnimation()
     {
         float yVel = rb.velocity.y;
-        if (Mathf.Abs(yVel) < 0.01f)  // 如果yVelocity小于0.01，则将其视为0
+        if (Mathf.Abs(yVel) < 0.01f)
         {
             yVel = 0;
         }
         anim.SetFloat("yVelocity", yVel);
         anim.SetFloat("xVelocity", rb.velocity.x);
-        anim.SetFloat("yVelocity", yVel);
         anim.SetBool("onGround", onGround);
         anim.SetBool("isDashing", isDashing);
         anim.SetBool("isCrouching", isCrouching);
     }
+
     private void Flip()
     {
-        facingDir = facingDir * -1;
+        facingDir *= -1;
+        isFacingRight = !isFacingRight;
         transform.Rotate(0, 180, 0);
     }
+
     private void TurnCheck()
     {
-        if (Input.GetAxis("Horizontal") > 0 && !IsRight || Input.GetAxis("Horizontal") < 0 && IsRight)
+        if (xInput > 0 && !isFacingRight || xInput < 0 && isFacingRight)
         {
             Flip();
-            Trun();
-        }
-    }
-
-    public void Trun()
-    {
-        if (IsRight)
-        {
-            //Vector3 rotator = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
-            //transform.rotation = Quaternion.Euler(rotator);
-            IsRight = !IsRight;
-
-            //tirn the camera follow object
-            //_cameraFollowObject.CallTurn();
-        }
-        else
-        {
-            //Vector3 rotator = new Vector3(transform.rotation.x, 0f, transform.rotation.z);
-            //transform.rotation = Quaternion.Euler(rotator);
-            IsRight = !IsRight;
-
-            //_cameraFollowObject.CallTurn();
         }
     }
 }

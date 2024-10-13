@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - SettingPage
+  - Light
   layers:
   - Default
   - TransparentFX

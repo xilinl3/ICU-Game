@@ -29,4 +29,30 @@ public class UI : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    //打开设置页面
+    public void SettingPage()
+    {
+        GameObject settingPage = GameObject.Find("Canvas").transform.Find("SettingPage").gameObject;
+        if(settingPage != null)
+        {
+            settingPage.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("SettingPage not found");
+        }
+    }
+    //关闭设置页面
+    public void CloseSettingPage()
+    {
+        GameObject settingPage = GameObject.Find("Canvas").transform.Find("SettingPage").gameObject;
+        if(settingPage != null)
+        {
+            settingPage.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("SettingPage not found");
+        }
+    }
 }

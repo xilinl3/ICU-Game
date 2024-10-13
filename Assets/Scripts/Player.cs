@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float sequentialJumpForce = 3f;
     [SerializeField] private int remJumpCount = JUMPCOUNT;
     [SerializeField] private float dashDistance = 5f;
-    [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private float dashDuration = 0.5f;
     [SerializeField] private bool isDashing = false;
     [SerializeField] private bool isCrouching = false;
     [SerializeField] private int remDashCount = DASHCOUNT;

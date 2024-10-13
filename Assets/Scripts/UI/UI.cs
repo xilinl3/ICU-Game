@@ -20,8 +20,13 @@ public class UI : MonoBehaviour
     //继续键
     public void Continue()
     {
-        GameObject.Find("暂停菜单").SetActive(false);
+        GameObject.Find("Canvas").transform.Find("StopPage").gameObject.SetActive(false);
         Time.timeScale = 1;  
+    }
+    //主页
+    public void HomePage()
+    {
+        SceneManager.LoadScene(0);
     }
 
     //重新开始

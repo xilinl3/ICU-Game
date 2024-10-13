@@ -100,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("xVelocity", rb.velocity.x);
         anim.SetFloat("yVelocity", rb.velocity.y);
         anim.SetBool("onGround", onGround);
+        anim.SetBool("isDashing", isDashing);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

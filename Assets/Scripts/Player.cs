@@ -9,17 +9,28 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
 
+    // param
+    public static int JUMPCOUNT = 1;
+    public static int DASHCOUNT = 1;
+
     //PlayerADMove
     [SerializeField] private float moveSpeed = 5f; // 角色的移动速度
     private float xInput;
     private bool IsRight = true;
     private int facingDir = 1;
+    private float dashTimeLeft;
+    private float dashSpeed;
+
 
     [SerializeField] private bool onGround;
-    public static float JUMPCOUNT = 1;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float sequentialJumpForce = 3f;
-    [SerializeField] private float remJumpCount = JUMPCOUNT;
+    [SerializeField] private int remJumpCount = JUMPCOUNT;
+    [SerializeField] private float dashDistance = 5f;
+    [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private bool isDashing = false;
+    [SerializeField] private bool isCrouching = false;
+    [SerializeField] private int remDashCount = DASHCOUNT;
 
     void Start()
     {
@@ -32,9 +43,14 @@ public class Player : MonoBehaviour
     {
         // 获取水平输入 (A, D 键或左、右箭头键)
         xInput  = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
+
+        if (!isDashing)
+        {
+            rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
+            HandleJump();
+        }
+        HandleDash();
         HandleAnimation();
-        HandleJump();
     }
 
     private void FixedUpdate()
@@ -43,6 +59,54 @@ public class Player : MonoBehaviour
         {
             TurnCheck();
         }
+    }
+
+    private void HandleDash()
+    {
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && remDashCount > 0)
+        {
+            StartDash();
+            if(!onGround)
+            {
+                remDashCount -= 1;
+            }
+        }
+
+        if (isDashing)
+        {
+            Dash();
+        }
+    }
+
+    private void StartDash()
+    {
+        isDashing = true;
+        dashTimeLeft = dashDuration;
+        rb.gravityScale = 0;  //禁用重力
+
+        // handle dash
+        dashSpeed = dashDistance / dashDuration;
+        rb.velocity = new Vector2(facingDir * dashSpeed, 0);
+    }
+
+    private void Dash()
+    {
+        if (dashTimeLeft > 0)
+        {
+            dashTimeLeft -= Time.deltaTime;  // 更新冲刺剩余时间
+        }
+        else
+        {
+            EndDash();  // 冲刺结束
+        }
+    }
+
+    private void EndDash()
+    {
+        isDashing = false;
+        rb.gravityScale = 1;  // 恢复重力
+        rb.velocity = Vector2.zero;  // 停止冲刺时将速度重置
     }
 
     private void HandleJump()
@@ -71,6 +135,8 @@ public class Player : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             onGround = true;
+            remJumpCount = JUMPCOUNT;
+            remDashCount = DASHCOUNT;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -78,6 +144,8 @@ public class Player : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             onGround = false;
+            remDashCount = DASHCOUNT;
+            remJumpCount = JUMPCOUNT;
         }
     }
     private void HandleAnimation()
@@ -91,6 +159,8 @@ public class Player : MonoBehaviour
         anim.SetFloat("xVelocity", rb.velocity.x);
         anim.SetFloat("yVelocity", yVel);
         anim.SetBool("onGround", onGround);
+        anim.SetBool("isDashing", isDashing);
+        anim.SetBool("isCrouching", isCrouching);
     }
     private void Flip()
     {

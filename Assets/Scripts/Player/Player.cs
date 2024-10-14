@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
         }
 
         HandleAnimation();
+        HandleBite();
     }
 
     private void FixedUpdate()
@@ -64,6 +65,18 @@ public class Player : MonoBehaviour
         {
             TurnCheck();
         }
+    }
+
+    private void HandleBite()
+    {
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            anim.SetBool("Bite", true);
+        }
+    }
+    public void ResetBite()
+    {
+        anim.SetBool("Bite", false);  // 将Bite设为false
     }
 
     //HandleDash暂时不在游戏中使用

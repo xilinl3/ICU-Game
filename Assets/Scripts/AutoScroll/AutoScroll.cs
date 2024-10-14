@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SmoothAutoScroll : MonoBehaviour
+public class AutoScroll : MonoBehaviour
 {
-    public ScrollRect scrollRect;
-    public float scrollSpeed = 0.01f; // 设定每帧滚动的步长
+    public Scrollbar scrollbar;   // 滚动条
+    public float scrollSpeed = 0.1f;  // 滚动速度
 
     private bool isScrolling = true;  // 控制是否滚动
 
     void Start()
     {
-        // 在Start方法中开始滚动
+        // 在开始时启动滚动
         isScrolling = true;
     }
 
@@ -18,16 +18,15 @@ public class SmoothAutoScroll : MonoBehaviour
     {
         if (isScrolling)
         {
-            // 控制每帧减少verticalNormalizedPosition的值，使其逐渐滚动
-            scrollRect.verticalNormalizedPosition -= scrollSpeed * Time.deltaTime;
+            // 每帧减少Scrollbar的值，模拟向下滚动
+            scrollbar.value -= scrollSpeed * Time.deltaTime;
 
-            // 确保滚动条不会超出底部（0表示底部）
-            if (scrollRect.verticalNormalizedPosition <= 0f)
+            // 当Scrollbar的值为0时，停止滚动
+            if (scrollbar.value <= 0f)
             {
-                scrollRect.verticalNormalizedPosition = 0f;
+                scrollbar.value = 0f;
                 isScrolling = false; // 停止滚动
             }
         }
     }
 }
-

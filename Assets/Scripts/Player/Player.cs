@@ -31,7 +31,11 @@ public class Player : MonoBehaviour
     [SerializeField] private bool isDashing = false;
     [SerializeField] private bool isCrouching = false;
     [SerializeField] private int remDashCount = DASHCOUNT;
-    private bool dashEnabled = false;  // 新增变量，控制是否允许冲刺
+    private bool dashEnabled = false;  // 控制是否允许冲刺
+
+    [SerializeField] private bool isFirstTimeDash = true;
+    [SerializeField] private GameObject LightPanel;
+    private bool isTimeStopped = false;
 
     void Start()
     {
@@ -57,6 +61,13 @@ public class Player : MonoBehaviour
 
         HandleAnimation();
         HandleBite();
+
+        // 检查是否按下 F 键关闭 LightPanel 并恢复时间
+        if (isTimeStopped && Input.GetKeyDown(KeyCode.F))
+        {
+            LightPanel.SetActive(false);
+            ResumeTime();
+        }
     }
 
     private void FixedUpdate()
@@ -69,35 +80,27 @@ public class Player : MonoBehaviour
 
     private void HandleBite()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && !isTimeStopped)
         {
             anim.SetBool("Bite", true);
         }
     }
+
     public void ResetBite()
     {
         anim.SetBool("Bite", false);  // 将Bite设为false
     }
 
-    //HandleDash暂时不在游戏中使用
-    private void HandleDash()
-    {
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && remDashCount > 0)
-        {
-            StartDash();
-            if (!onGround)
-            {
-                remDashCount -= 1;
-            }
-        }
-        if (isDashing)
-        {
-            Dash();
-        }
-    }
     private void LightDash()
     {
+        if (isFirstTimeDash)
+        {
+            StopTime();
+            LightPanel.SetActive(true);  // 启用 LightPanel
+            isFirstTimeDash = false;
+            isTimeStopped = true;  // 标记时间已停止
+        }
+
         // 确保可以冲刺且未在冲刺状态
         if (!isDashing && remDashCount > 0 && dashEnabled)
         {
@@ -107,6 +110,20 @@ public class Player : MonoBehaviour
                 remDashCount -= 1;
             }
         }
+    }
+
+    private void StopTime()
+    {
+        Time.timeScale = 0f;  // 将时间缩放设置为0，暂停所有时间相关行为
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;  // 更新物理帧率
+        isTimeStopped = true;
+    }
+
+    private void ResumeTime()
+    {
+        Time.timeScale = 1f;  // 将时间缩放恢复为1，恢复时间流动
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;  // 恢复物理帧率
+        isTimeStopped = false;
     }
 
     private void StartDash()
@@ -217,3 +234,4 @@ public class Player : MonoBehaviour
         }
     }
 }
+

@@ -9,7 +9,6 @@ public class DeadZone : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            UnityEngine.Debug.Log("玩家进入DeadZone");
 
             // 获取玩家的 PlayerManager 组件
             PlayerManager playerManager = collision.GetComponent<PlayerManager>();

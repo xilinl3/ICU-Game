@@ -34,7 +34,6 @@ public class Patrol : MonoBehaviour
         // 计算到目标点的距离
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-        Debug.Log(distanceToTarget);  // 打印距离调试信息
 
         // 检查是否到达目标点并切换目标
         if (distanceToTarget < 1f)

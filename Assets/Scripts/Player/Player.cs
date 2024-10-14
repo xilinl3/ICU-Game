@@ -5,71 +5,78 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public RuntimeAnimatorController crouchController;
+    public RuntimeAnimatorController standController;
+    // 公共的图片（Sprite），用于在场景中显示
+    public Sprite crouchSprite;
+    public Sprite standSprite;
+
+    [SerializeField] private GameObject LightPanel;
+
     //Component
     private Rigidbody2D rb;
     private Animator anim;
+    private SpriteRenderer spriteRenderer;
+    private Animation animationComponent;
 
     // 参数
-    public static int JUMPCOUNT = 1;
-    public static int DASHCOUNT = 1;
-
+    private static int JUMPCOUNT = 1;
+    private static int DASHCOUNT = 1;
+    private float dashTimeLeft;
+    [SerializeField] private float dashSpeed;
+    private bool dashEnabled = false;  // 控制是否允许冲刺
+    private bool isTimeStopped = false;
+    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float sequentialJumpForce = 3f;
+    private int remJumpCount = JUMPCOUNT;
+    [SerializeField] private float dashDistance = 5f;
+    [SerializeField] private float dashDuration = 0.5f;
+    private bool isDashing = false;
+    private int remDashCount = DASHCOUNT;
+    private bool isFirstTimeDash = true;
+    
     // 玩家移动参数
     [SerializeField] private float moveSpeed = 5f;
     private float xInput;
     private bool isFacingRight = true;
     private int facingDir = 1;
-    private float dashTimeLeft;
-    private float dashSpeed;
-
+    
     // 玩家状态参数
-    [SerializeField] private bool onGround;
-    [SerializeField] private bool isStanding;
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float sequentialJumpForce = 3f;
-    [SerializeField] private int remJumpCount = JUMPCOUNT;
-    [SerializeField] private float dashDistance = 5f;
-    [SerializeField] private float dashDuration = 0.5f;
-    [SerializeField] private bool isDashing = false;
-    [SerializeField] private bool isCrouching = false;
-    [SerializeField] private int remDashCount = DASHCOUNT;
-    private bool dashEnabled = false;  // 控制是否允许冲刺
-
-    [SerializeField] private bool isFirstTimeDash = true;
-    [SerializeField] private GameObject LightPanel;
-    private bool isTimeStopped = false;
+    private bool onGround;
+    private bool isSwitching = false; // 控制是否正在切换动画
+    private bool canMove = true;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     void Update()
     {
-        xInput = Input.GetAxisRaw("Horizontal");
-
-        if (!isDashing)
+        if (canMove && !isSwitching)
         {
-            rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
-            HandleJump();
+            HandleMovement();  // 玩家移动逻辑
         }
-
-        // 始终在Update中处理冲刺状态，确保冲刺能够结束
-        if (isDashing)
-        {
-            Dash();
-        }
-
         HandleAnimation();
         HandleBite();
-        HandleStandups();
-        HandleSitdowns();
 
         // 检查是否按下 F 键关闭 LightPanel 并恢复时间
         if (isTimeStopped && Input.GetKeyDown(KeyCode.F))
         {
             LightPanel.SetActive(false);
             ResumeTime();
+        }
+        if (Input.GetKeyDown(KeyCode.W) && !isSwitching)
+        {
+            StartCoroutine(SwitchToStand());
+        }
+
+        if (Input.GetKeyDown(KeyCode.S) && !isSwitching)
+        {
+            StartCoroutine(SwitchToCrouch());
         }
     }
 
@@ -81,15 +88,47 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void HandleMovement()
+    {
+        xInput = Input.GetAxisRaw("Horizontal");
+        if (!isDashing)
+        {
+            rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
+            HandleJump();
+        }
+        // 始终在Update中处理冲刺状态，确保冲刺能够结束
+        if (isDashing)
+        {
+            Dash();
+        }
+    }
+
+    private IEnumerator SwitchToStand()
+    {
+        isSwitching = true;
+        Debug.Log("Playing CrouchToStand animation");
+        anim.Play("CrouchToStand");
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        anim.runtimeAnimatorController = standController;
+        spriteRenderer.sprite = standSprite;
+        isSwitching = false;
+    }
+
+    private IEnumerator SwitchToCrouch()
+    {
+        isSwitching = true;
+        anim.Play("StandToCrouch");
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        anim.runtimeAnimatorController = crouchController;
+        spriteRenderer.sprite = crouchSprite;
+        isSwitching = false;
+    }
+
     private void HandleStandups()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (isStanding || !onGround || xInput != 0) { return; }
-            else
-            {
-                isStanding = true;
-            }
+
         }
     }
     
@@ -97,8 +136,7 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.S))
         {
-            if (!isStanding) { return; }
-            else { isStanding = false; }
+
         }
     }
 
@@ -240,8 +278,6 @@ public class Player : MonoBehaviour
         anim.SetFloat("xVelocity", rb.velocity.x);
         anim.SetBool("onGround", onGround);
         anim.SetBool("isDashing", isDashing);
-        anim.SetBool("isCrouching", isCrouching);
-        anim.SetBool("isStanding", isStanding);
     }
 
     private void Flip()

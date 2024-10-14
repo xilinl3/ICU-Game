@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de37e2187e0ef8b4f9774341cae81e44
+guid: c44d8498e4d7e1647b2e9b5ab086da5c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: up_0
+      name: stand idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,20 +118,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9da35333b9abb2d4081f019033adca6a
-      internalID: 1709739645
+      spriteID: f905b98af23218741b81c2ad6e2852ef
+      internalID: 660654207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up_1
+      name: stand idle_1
       rect:
         serializedVersion: 2
         x: 64
@@ -139,20 +139,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34ebdb0b00520064988cf9fd8d6dbbcd
-      internalID: -992389934
+      spriteID: 93d332e07e1a89b45b1bcf476f21ef3e
+      internalID: 1544061461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up_2
+      name: stand idle_2
       rect:
         serializedVersion: 2
         x: 128
@@ -160,20 +160,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b5dada9681da0743bf48c18a17458b6
-      internalID: 965249907
+      spriteID: a3db130f52aa38c4380ab56d4944667a
+      internalID: -2001417124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up_3
+      name: stand idle_3
       rect:
         serializedVersion: 2
         x: 192
@@ -181,14 +181,98 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd5a36aaca9348d4c9332058fb67bf2b
-      internalID: -461090768
+      spriteID: 77eb6c56c906caf49b179a01c9bcdad6
+      internalID: 408893558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stand idle_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eab42d1720a8be4fb838ee20735633d
+      internalID: -1378640691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stand idle_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892bcc710a14875418ae21e9d55a8ba1
+      internalID: -927055688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stand idle_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7979175ac8d574bbdf291ce839bc4e
+      internalID: -1842511119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stand idle_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e89ba5a0ee82e149abb8e61fd36340c
+      internalID: -462816372
       vertices: []
       indices: 
       edges: []
@@ -204,10 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      up_0: 1709739645
-      up_1: -992389934
-      up_2: 965249907
-      up_3: -461090768
+      stand idle_0: 660654207
+      stand idle_1: 1544061461
+      stand idle_2: -2001417124
+      stand idle_3: 408893558
+      stand idle_4: -1378640691
+      stand idle_5: -927055688
+      stand idle_6: -1842511119
+      stand idle_7: -462816372
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

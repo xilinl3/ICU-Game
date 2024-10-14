@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 
     // 玩家状态参数
     [SerializeField] private bool onGround;
+    [SerializeField] private bool isStanding;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float sequentialJumpForce = 3f;
     [SerializeField] private int remJumpCount = JUMPCOUNT;
@@ -61,6 +62,8 @@ public class Player : MonoBehaviour
 
         HandleAnimation();
         HandleBite();
+        HandleStandups();
+        HandleSitdowns();
 
         // 检查是否按下 F 键关闭 LightPanel 并恢复时间
         if (isTimeStopped && Input.GetKeyDown(KeyCode.F))
@@ -75,6 +78,27 @@ public class Player : MonoBehaviour
         if (Mathf.Abs(xInput) > 0)
         {
             TurnCheck();
+        }
+    }
+
+    private void HandleStandups()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (isStanding || !onGround || xInput != 0) { return; }
+            else
+            {
+                isStanding = true;
+            }
+        }
+    }
+    
+    private void HandleSitdowns()
+    {
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            if (!isStanding) { return; }
+            else { isStanding = false; }
         }
     }
 
@@ -217,6 +241,7 @@ public class Player : MonoBehaviour
         anim.SetBool("onGround", onGround);
         anim.SetBool("isDashing", isDashing);
         anim.SetBool("isCrouching", isCrouching);
+        anim.SetBool("isStanding", isStanding);
     }
 
     private void Flip()

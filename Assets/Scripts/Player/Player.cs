@@ -112,14 +112,11 @@ public class Player : MonoBehaviour
 
     private void HandleBite()
     {
-        Debug.Log("Out" + biteEnable);
         if (biteEnable)
         {
-            Debug.Log("In");
             if (Input.GetKeyDown(KeyCode.F) && !isTimeStopped && rb.velocity.x == 0 && rb.velocity.y == 0)
             {
                 isBiting = true;
-                Debug.Log("F Pressed");
             }
         }
 

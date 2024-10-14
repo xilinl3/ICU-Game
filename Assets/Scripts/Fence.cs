@@ -42,8 +42,9 @@ public class FenceManager : MonoBehaviour
         if (playerInside && player.isBiting)
         {
             Debug.Log("Destroy");
+
             this.gameObject.GetComponent<Renderer>().enabled = false;
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false; // 由于会摧毁第一个Collider，需要将墙壁的碰撞器放在第一个，以防把触发器删了后保留墙体碰撞
         }
     }
 }

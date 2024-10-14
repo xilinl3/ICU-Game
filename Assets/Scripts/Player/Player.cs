@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject LightPanel;
     private bool isTimeStopped = false;
 
+    [SerializeField] public bool isBiting = false; // 新增变量，是否正在啃咬
+    public bool biteEnable = true; // 新增变量，只有在固定范围内才能啃咬
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,17 +51,22 @@ public class Player : MonoBehaviour
     {
         xInput = Input.GetAxisRaw("Horizontal");
 
-        if (!isDashing)
+        if (!isBiting)
         {
-            rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
-            HandleJump();
+            if (!isDashing)
+            {
+                rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
+                HandleJump();
+            }
+
+            // 始终在Update中处理冲刺状态，确保冲刺能够结束
+            if (isDashing)
+            {
+                Dash();
+            }
         }
 
-        // 始终在Update中处理冲刺状态，确保冲刺能够结束
-        if (isDashing)
-        {
-            Dash();
-        }
+
 
         HandleAnimation();
         HandleBite();
@@ -104,15 +112,23 @@ public class Player : MonoBehaviour
 
     private void HandleBite()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !isTimeStopped)
+        Debug.Log("Out" + biteEnable);
+        if (biteEnable)
         {
-            anim.SetBool("Bite", true);
+            Debug.Log("In");
+            if (Input.GetKeyDown(KeyCode.F) && !isTimeStopped && rb.velocity.x == 0 && rb.velocity.y == 0)
+            {
+                isBiting = true;
+                Debug.Log("F Pressed");
+            }
         }
+
+        
     }
 
     public void ResetBite()
     {
-        anim.SetBool("Bite", false);  // 将Bite设为false
+        isBiting = false;  // 将Bite设为false
     }
 
     private void LightDash()
@@ -242,6 +258,7 @@ public class Player : MonoBehaviour
         anim.SetBool("isDashing", isDashing);
         anim.SetBool("isCrouching", isCrouching);
         anim.SetBool("isStanding", isStanding);
+        anim.SetBool("isBiting", isBiting);
     }
 
     private void Flip()

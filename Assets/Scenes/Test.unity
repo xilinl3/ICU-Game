@@ -20685,6 +20685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   onGround: 0
+  isStanding: 0
   jumpForce: 5
   sequentialJumpForce: 3
   remJumpCount: 1

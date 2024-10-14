@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de37e2187e0ef8b4f9774341cae81e44
+guid: 757694dcfc6144848ad3a7d3f374d521
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: up_0
+      name: stand walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,20 +118,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9da35333b9abb2d4081f019033adca6a
-      internalID: 1709739645
+      spriteID: feee76dc890f00f44a5be43d605dac4e
+      internalID: -1479035751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up_1
+      name: stand walk_1
       rect:
         serializedVersion: 2
         x: 64
@@ -139,20 +139,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34ebdb0b00520064988cf9fd8d6dbbcd
-      internalID: -992389934
+      spriteID: 573bbb9110104cd468e8220348ebc47a
+      internalID: 184268090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up_2
+      name: stand walk_2
       rect:
         serializedVersion: 2
         x: 128
@@ -160,20 +160,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b5dada9681da0743bf48c18a17458b6
-      internalID: 965249907
+      spriteID: 0716bc09e3ee7464287fc9d8c0ed2dbe
+      internalID: 1242709032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up_3
+      name: stand walk_3
       rect:
         serializedVersion: 2
         x: 192
@@ -181,14 +181,56 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd5a36aaca9348d4c9332058fb67bf2b
-      internalID: -461090768
+      spriteID: 4b2b530c97310224bb646e8042aee9bf
+      internalID: -33579074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stand walk_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff1fa4160265b68499ec90cfd4bbfd3f
+      internalID: 916050971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stand walk_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2639d72c0db7fed47b3527cab1fc5ca7
+      internalID: 1017027338
       vertices: []
       indices: 
       edges: []
@@ -204,10 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      up_0: 1709739645
-      up_1: -992389934
-      up_2: 965249907
-      up_3: -461090768
+      stand walk_0: -1479035751
+      stand walk_1: 184268090
+      stand walk_2: 1242709032
+      stand walk_3: -33579074
+      stand walk_4: 916050971
+      stand walk_5: 1017027338
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,7 +6,7 @@ using System.Collections;
 public class MoveObject : MonoBehaviour
 {
     public Scrollbar scrollbar;  // 滚动条
-    public float WaitingTime;
+    public float WaitingTime;  //结束等待时间
     private Transform objectToMove; // 需要移动的GameObject
     private Vector3 startPosition;  // 起始位置
     private Vector3 endPosition;    // 目标位置

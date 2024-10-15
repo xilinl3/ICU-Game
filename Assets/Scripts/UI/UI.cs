@@ -60,4 +60,28 @@ public class UI : MonoBehaviour
             Debug.Log("SettingPage not found");
         }
     }
+    public void OpenHelpPage()
+    {
+        GameObject helpPage = GameObject.Find("Canvas").transform.Find("HelpPage").gameObject;
+        if(helpPage != null)
+        {
+            helpPage.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("HelpPage not found");
+        }
+    }
+    public void CloseHelpPage()
+    {
+        GameObject helpPage = GameObject.Find("Canvas").transform.Find("HelpPage").gameObject;
+        if(helpPage != null)
+        {
+            helpPage.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("HelpPage not found");
+        }
+    }
 }

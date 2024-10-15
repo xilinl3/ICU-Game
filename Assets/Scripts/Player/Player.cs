@@ -46,6 +46,9 @@ public class Player : MonoBehaviour
     private bool isSwitching = false; // 控制是否正在切换动画
     private bool canMove = true;
 
+    [SerializeField] public bool isBiting = false; // 新增变量，是否正在啃咬
+    [SerializeField] public bool biteEnable = false; // 新增变量，只有在固定范围内才能啃咬
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,7 +59,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (canMove && !isSwitching)
+        if (canMove && !isSwitching && !isBiting)
         {
             HandleMovement();  // 玩家移动逻辑
         }
@@ -69,12 +72,12 @@ public class Player : MonoBehaviour
             LightPanel.SetActive(false);
             ResumeTime();
         }
-        if (Input.GetKeyDown(KeyCode.W) && !isSwitching)
+        if (Input.GetKeyDown(KeyCode.W) && !isSwitching && !isBiting)
         {
             StartCoroutine(SwitchToStand());
         }
 
-        if (Input.GetKeyDown(KeyCode.S) && !isSwitching)
+        if (Input.GetKeyDown(KeyCode.S) && !isSwitching && !isBiting)
         {
             StartCoroutine(SwitchToCrouch());
         }
@@ -142,15 +145,15 @@ public class Player : MonoBehaviour
 
     private void HandleBite()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !isTimeStopped)
+        if (Input.GetKeyDown(KeyCode.F) && biteEnable && !isTimeStopped && rb.velocity.x == 0 && rb.velocity.y == 0)
         {
-            anim.SetBool("Bite", true);
+            isBiting = true;
         }
     }
 
     public void ResetBite()
     {
-        anim.SetBool("Bite", false);  // 将Bite设为false
+        isBiting = false;  // 将Bite设为false
     }
 
     private void LightDash()
@@ -278,6 +281,7 @@ public class Player : MonoBehaviour
         anim.SetFloat("xVelocity", rb.velocity.x);
         anim.SetBool("onGround", onGround);
         anim.SetBool("isDashing", isDashing);
+        anim.SetBool("isBiting", isBiting);
     }
 
     private void Flip()

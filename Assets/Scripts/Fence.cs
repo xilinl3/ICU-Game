@@ -12,7 +12,7 @@ public class FenceManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             player = other.gameObject.GetComponent<Player>();
-            Debug.Log("Enter");
+            //Debug.Log("Enter");
             player.biteEnable = true;
             playerInside = true;
         }
@@ -22,7 +22,7 @@ public class FenceManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Exit");
+            //Debug.Log("Exit");
             player = other.gameObject.GetComponent<Player>();
             player.biteEnable = false;
             playerInside = false;

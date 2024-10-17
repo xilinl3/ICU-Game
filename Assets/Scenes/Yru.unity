@@ -11314,18 +11314,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c948b78f6a0651343b1cbceb2a839637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  onGround: 0
+  crouchController: {fileID: 9100000, guid: 87792afddde10a34d9f78ae3111a1d28, type: 2}
+  standController: {fileID: 9100000, guid: ea2973a56e55dc54c944a59af3c988cc, type: 2}
+  crouchSprite: {fileID: 1403895240, guid: f41910a617b75e54bbf823244e6e5835, type: 3}
+  standSprite: {fileID: 660654207, guid: c44d8498e4d7e1647b2e9b5ab086da5c, type: 3}
+  LightPanel: {fileID: 631577083}
+  dashSpeed: 0
   jumpForce: 5.7
   sequentialJumpForce: 3
-  remJumpCount: 1
   dashDistance: 5
   dashDuration: 0.2
-  isDashing: 0
-  isCrouching: 0
-  remDashCount: 1
-  isFirstTimeDash: 1
-  LightPanel: {fileID: 631577083}
+  moveSpeed: 5
+  isBiting: 0
+  biteEnable: 0
 --- !u!61 &1970738366
 BoxCollider2D:
   m_ObjectHideFlags: 0

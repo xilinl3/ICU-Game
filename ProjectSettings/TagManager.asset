@@ -50,6 +50,9 @@ TagManager:
   - name: groud
     uniqueID: 2092813123
     locked: 0
+  - name: item
+    uniqueID: 641018181
+    locked: 0
   - name: player
     uniqueID: 2306381509
     locked: 0

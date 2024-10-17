@@ -31,7 +31,6 @@ public class LightColliderController : MonoBehaviour
         }
 
         CalangleOffset();
-        Debug.Log("Light Z-axis rotation angle: " + rotationAngle);
     }
 
     private void CalangleOffset()

@@ -21,7 +21,7 @@ public class Pedal : MonoBehaviour
         {
             boxOnPlate = true;
             sceneLight.enabled = true; // 打开灯
-            Debug.Log("Pressbox is on the plate, light is on.");
+            //Debug.Log("Pressbox is on the plate, light is on.");
         }
     }
 

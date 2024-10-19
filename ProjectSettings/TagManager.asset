@@ -9,6 +9,7 @@ TagManager:
   - Light
   - Wall
   - PressBox
+  - Redbox
   layers:
   - Default
   - TransparentFX

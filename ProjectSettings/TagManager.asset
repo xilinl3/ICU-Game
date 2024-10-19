@@ -8,7 +8,13 @@ TagManager:
   - SettingPage
   - Light
   - Wall
+<<<<<<< Updated upstream
   - PressBox
+=======
+  - WoodenBox
+  - IronBox
+  - ColorLight
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

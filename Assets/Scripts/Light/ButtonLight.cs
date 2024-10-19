@@ -14,9 +14,13 @@ public class ButtonLight : MonoBehaviour
     };
 
     public int currentColorIndex = 0; // 当前颜色的索引
-    public SpriteRenderer Display; // 用于显示的SpriteRenderer
-    public Light2D sceneLight;     // Light2D组件
+    public SpriteRenderer Display;    // 用于显示的SpriteRenderer
+    public Light2D sceneLight;        // Light2D组件
     public ButtonRangeDetector buttonRangeDetector;
+
+    // 定义一个事件委托用于颜色变化
+    public delegate void OnColorChange(Color newColor);
+    public static event OnColorChange colorChangeEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,7 @@ public class ButtonLight : MonoBehaviour
         Display.color = colorSequence[currentColorIndex];
         sceneLight.color = colorSequence[currentColorIndex]; // 设置初始光源颜色
     }
+
     void OnEnable()
     {
         // 订阅 F 键事件
@@ -49,10 +54,13 @@ public class ButtonLight : MonoBehaviour
         if (buttonRangeDetector != null && buttonRangeDetector.IsPlayerInRange())
         {
             ColorLoop();  // 切换灯光和Sprite
-        }
-        else
-        {
-            Debug.Log("Player is not in range to toggle the lights.");
+
+            // 当颜色变化时发布事件
+            if (colorChangeEvent != null)
+            {
+                Debug.Log("change color event post");
+                colorChangeEvent.Invoke(sceneLight.color); // 发布新颜色
+            }
         }
     }
 
@@ -68,3 +76,4 @@ public class ButtonLight : MonoBehaviour
         sceneLight.color = colorSequence[currentColorIndex];
     }
 }
+

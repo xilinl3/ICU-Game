@@ -70,7 +70,7 @@ public class ColoredGround : MonoBehaviour
     void Start()
     {
         objectColor = this.gameObject.GetComponent<SpriteRenderer>().color;
-        Debug.Log(objectColor);
+        //Debug.Log(objectColor);
     }
 
     // Update is called once per frame

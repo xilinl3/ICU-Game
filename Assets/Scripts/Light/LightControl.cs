@@ -67,7 +67,7 @@ public class LightControl : MonoBehaviour
             if (lightObj != null)
             {
                 lightObj.SetActive(isActive);
-                Debug.Log(lightObj.name + " is " + (isActive ? "on" : "off"));
+                //Debug.Log(lightObj.name + " is " + (isActive ? "on" : "off"));
             }
         }
     }

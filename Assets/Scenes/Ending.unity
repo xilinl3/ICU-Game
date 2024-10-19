@@ -868,7 +868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u7B56\u5212\n\u4ED3\u9F20\tSol\tYru\n\u7F8E\u672F\n\u6BDB\u6BDB\tMary\tZhou\tPb\t\u5C24\u91CC\u5361\t\u7FBD\u6BDB\u7B14\n\u7A0B\u5E8F\n\u68A6\u7F18\t\u6728\u69FF\tShaCoZha\n\u97F3\u6548\nAspedtra\n\u5C24\u5229\u897F\u65AF\n\u8FD0\u8425\n\u4ED3\u9F20\t\u59DD\u7545"
+  m_text: "\u7B56\u5212\n\u4ED3\u9F20\tSol\tYru\n\u7F8E\u672F\n\u6BDB\u6BDB\tMary\tZhou\tPb\t\u5C24\u91CC\u5361\t\u7FBD\u6BDB\u7B14\n\u7A0B\u5E8F\n\u68A6\u7F18\t\u6728\u69FF\tShaCoZha\n\u97F3\u6548/\u97F3\u4E50\nAspedtra\n\u5C24\u5229\u897F\u65AF\n\u5976\u76D6\u751F\u714E\u5305\n\u8FD0\u8425\n\u4ED3\u9F20\t\u59DD\u7545"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8242c9a468bb03d478347cb831ce5bae, type: 2}
   m_sharedMaterial: {fileID: 5488206523053659419, guid: 8242c9a468bb03d478347cb831ce5bae, type: 2}
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 256445876}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.36748078
+  m_Size: 0.34298176
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

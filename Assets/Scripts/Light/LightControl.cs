@@ -5,13 +5,23 @@ using UnityEngine;
 
 public class LightControl : MonoBehaviour
 {
-    public Sprite Sprite1;
-    public Sprite Sprite2;
+    public Sprite switchon;  // 开灯时的图片
+    public Sprite switchoff;  // 关灯时的图片
     public ButtonRangeDetector buttonRangeDetector;
     public GameObject[] lights;
-    private bool lightsOn = true;
+    public bool lightsOn;  // 控制灯光开关的状态
+    private SpriteRenderer spriteRenderer;  // 用于控制当前的Sprite
 
-  
+    void Start()
+    {
+        // 获取SpriteRenderer组件
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // 设置初始的Sprite和灯光状态
+        spriteRenderer.sprite = lightsOn ? switchon : switchoff;
+        SetLightsActive(lightsOn);
+    }
+
     void OnEnable()
     {
         // 订阅 F 键事件
@@ -29,30 +39,25 @@ public class LightControl : MonoBehaviour
         // 检查玩家是否在按钮范围内
         if (buttonRangeDetector != null && buttonRangeDetector.IsPlayerInRange())
         {
-            Debug.Log("进入碰撞体");
-            ToggleLights();
+            ToggleLightsAndSprite();  // 切换灯光和Sprite
         }
         else
         {
             Debug.Log("Player is not in range to toggle the lights.");
         }
     }
-    public void ToggleLights()
+
+    public void ToggleLightsAndSprite()
     {
-        if (lightsOn)
+        // 切换Sprite
+        if (spriteRenderer != null)
         {
-            // 如果灯光当前是开启的，关闭所有灯光
-            SetLightsActive(false);
-        }
-        else
-        {
-            // 如果灯光当前是关闭的，打开所有灯光
-            SetLightsActive(true);
+            spriteRenderer.sprite = lightsOn ? switchoff : switchon;
         }
 
         // 切换灯光状态
+        SetLightsActive(!lightsOn);
         lightsOn = !lightsOn;
-
     }
 
     private void SetLightsActive(bool isActive)
@@ -62,9 +67,8 @@ public class LightControl : MonoBehaviour
             if (lightObj != null)
             {
                 lightObj.SetActive(isActive);
-                Debug.Log(lightObj.name + " is " + (isActive ? "on" : "off"));
+                //Debug.Log(lightObj.name + " is " + (isActive ? "on" : "off"));
             }
         }
     }
-
 }

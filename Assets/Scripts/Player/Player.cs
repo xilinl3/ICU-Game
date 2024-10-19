@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
     [SerializeField] public bool isBiting = false; // 新增变量，是否正在啃咬
     [SerializeField] public bool biteEnable = false; // 新增变量，只有在固定范围内才能啃咬
 
+    private int collectedCheese = 0; // 已收集的个数
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -297,6 +299,12 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
+    }
+
+    public void CollectCheese()
+    {
+        collectedCheese += 1;
+        Debug.Log("Current Collected Cheese: " + collectedCheese);
     }
 }
 

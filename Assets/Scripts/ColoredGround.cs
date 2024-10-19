@@ -7,6 +7,9 @@ using UnityEngine.Rendering.Universal;
 public class ColoredGround : MonoBehaviour
 {
 
+    private Renderer renderer;
+    private BoxCollider2D boxCollider2d;
+
     [SerializeField] private Color objectColor;
 
     private int LightCounter = 0;
@@ -14,8 +17,8 @@ public class ColoredGround : MonoBehaviour
 
     private void SwitchTo(bool state)
     {
-        this.gameObject.GetComponent<Renderer>().enabled = state;
-        this.gameObject.GetComponent<BoxCollider2D>().enabled = state;
+        renderer.enabled = state;
+        boxCollider2d.enabled = state;
     }
 
 
@@ -69,8 +72,10 @@ public class ColoredGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        objectColor = this.gameObject.GetComponent<SpriteRenderer>().color;
-        //Debug.Log(objectColor);
+        renderer = GetComponent<Renderer>();
+        boxCollider2d = GetComponent<BoxCollider2D>();
+        
+        objectColor = GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame

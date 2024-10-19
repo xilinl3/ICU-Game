@@ -12,6 +12,11 @@ public class player_behaviors : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float moveSpeed = 5f;
 
+    [SerializeField] private Transform groundCheck_front;
+    [SerializeField] private Transform groundCheck_back;
+    [SerializeField] private float groundCheckRadius = 0.1f;
+    [SerializeField] private string groundTag = "Ground";
+
     private float xInput;
     private bool isFacingRight = true;
     private int facingDir = 1;
@@ -33,13 +38,33 @@ public class player_behaviors : MonoBehaviour
         {
             HandleMovement();
         }
+        else
+        {
+            xInput = 0;
+        }
         HandleAnimation();
     }
+
     private void FixedUpdate()
     {
+        CheckGround();
+        CheckStuck();
         if (Mathf.Abs(xInput) > 0)
         {
             TurnCheck();
+        }
+    }
+
+    private void CheckStuck()
+    {
+        // 检查玩家是否在空中并且速度接近0
+        if (!onGround && Mathf.Abs(rb.velocity.x) < 0.01f && Mathf.Abs(rb.velocity.y) < 0.01f)
+        {
+            canMove = false; // 禁用移动
+        }
+        else
+        {
+            canMove = true;
         }
     }
 
@@ -57,19 +82,26 @@ public class player_behaviors : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
-    public void OnCollisionEnter2D(Collision2D collision)
+
+    private void CheckGround()
     {
-        if (collision.collider.CompareTag("Ground"))
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck_front.position, groundCheckRadius);
+
+        List<Collider2D> colliderList = new List<Collider2D>(colliders);
+
+        colliderList.AddRange(Physics2D.OverlapCircleAll(groundCheck_back.position, groundCheckRadius));
+
+        onGround = false;
+        foreach (Collider2D collider in colliderList)
         {
-            onGround = true;
+            if (collider.CompareTag(groundTag))
+            {
+                onGround = true;
+                break;
+            }
         }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Ground"))
-        {
-            onGround = false;
-        }
+
+        Debug.DrawRay(groundCheck_front.position, Vector2.down * groundCheckRadius, Color.red);
     }
 
     private void HandleAnimation()

@@ -66101,7 +66101,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358818865}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -77101,7 +77101,6 @@ GameObject:
   - component: {fileID: 2030057900}
   - component: {fileID: 2030057899}
   - component: {fileID: 2030057904}
-  - component: {fileID: 2030057905}
   m_Layer: 0
   m_Name: RedLight
   m_TagString: Untagged
@@ -77245,27 +77244,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030057898}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 297b53c83267bbe43b5d1f0f601368e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   redbox: {fileID: 1358818865}
-  targetSize: {x: 0.5, y: 0.5, z: 1}
+  targetSize: {x: 10, y: 10, z: 1}
   originalSize: {x: 0, y: 0, z: 0}
   shrinkSpeed: 2
---- !u!114 &2030057905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030057898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 403b6e80344813545badf8198b780a2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2032418628
 GameObject:
   m_ObjectHideFlags: 0

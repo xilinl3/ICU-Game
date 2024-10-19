@@ -26,7 +26,7 @@ public class RedLight : MonoBehaviour
         // 如果 redbox 在光照范围内，则逐渐缩小 redbox
         if (isInLight)
         {
-            Debug.Log("Redbox is within the light's trigger area.");
+            //Debug.Log("Redbox is within the light's trigger area.");
             ShrinkRedbox();
         }
         else
@@ -39,10 +39,10 @@ public class RedLight : MonoBehaviour
     // 当 redbox 进入触发器区域时调用
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Object entered trigger: " + other.gameObject.name);
+        //Debug.Log("Object entered trigger: " + other.gameObject.name);
         if (other.CompareTag("Redbox"))
         {
-            Debug.Log("Redbox has entered the light's trigger area.");
+            //Debug.Log("Redbox has entered the light's trigger area.");
             isInLight = true;  // 标记 redbox 进入光照范围
         }
     }
@@ -52,7 +52,7 @@ public class RedLight : MonoBehaviour
     {
         if (other.gameObject == redbox)
         {
-            Debug.Log("Redbox has exited the light's trigger area.");
+            //Debug.Log("Redbox has exited the light's trigger area.");
             isInLight = false;  // 标记 redbox 离开光照范围
         }
     }

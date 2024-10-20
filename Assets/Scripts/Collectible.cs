@@ -8,7 +8,7 @@ public class Collectible : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<Player>().CollectCheese();
+            other.GetComponent<player_behaviors>().CollectCheese();
             Destroy(gameObject);
         }
     }

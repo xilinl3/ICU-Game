@@ -9,7 +9,6 @@ TagManager:
   - Light
   - Wall
   - WoodenBox
-  - PressBox
   layers:
   - Default
   - TransparentFX

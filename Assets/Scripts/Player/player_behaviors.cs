@@ -25,6 +25,9 @@ public class player_behaviors : MonoBehaviour
     private bool onGround;
     private bool canMove = true;
 
+    // 已收集的奶酪个数
+    private int collectedCheese = 0; 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -133,5 +136,11 @@ public class player_behaviors : MonoBehaviour
         {
             Flip();
         }
+    }
+
+    public void CollectCheese()
+    {
+        collectedCheese += 1;
+        Debug.Log("Current Collected Cheese: " + collectedCheese);
     }
 }

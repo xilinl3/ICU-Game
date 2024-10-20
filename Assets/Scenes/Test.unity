@@ -6352,6 +6352,7 @@ GameObject:
   - component: {fileID: 944731780}
   - component: {fileID: 944731782}
   - component: {fileID: 944731783}
+  - component: {fileID: 944731784}
   m_Layer: 0
   m_Name: Light 2D
   m_TagString: Light
@@ -6367,12 +6368,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944731778}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
-  m_LocalPosition: {x: 1.1199999, y: -0.6199999, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.258819, w: 0.9659259}
+  m_LocalPosition: {x: 1.1000004, y: -0.67199993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1639366915}
+  m_Father: {fileID: 1314398215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
 --- !u!114 &944731780
 MonoBehaviour:
@@ -6488,6 +6489,33 @@ PolygonCollider2D:
       - {x: 0.58778536, y: -0.80901694}
       - {x: 0.9510565, y: 0.30901712}
   m_UseDelaunayMesh: 0
+--- !u!50 &944731784
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944731778}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &949984572
 GameObject:
   m_ObjectHideFlags: 0
@@ -66053,6 +66081,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 944731779}
   - {fileID: 1639366915}
   - {fileID: 1131867312}
   - {fileID: 246569967}
@@ -74262,8 +74291,7 @@ Transform:
   m_LocalPosition: {x: -0.02, y: -0.052, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 944731779}
+  m_Children: []
   m_Father: {fileID: 1314398215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1639366916
@@ -77088,7 +77116,7 @@ MonoBehaviour:
   groundCheck_front: {fileID: 901379112}
   groundCheck_back: {fileID: 1798288260}
   groundCheckRadius: 0.1
-  groundTag: Ground
+  groundTag: []
 --- !u!1 &2030057898
 GameObject:
   m_ObjectHideFlags: 0

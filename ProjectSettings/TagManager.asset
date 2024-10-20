@@ -8,8 +8,8 @@ TagManager:
   - SettingPage
   - Light
   - Wall
+  - WoodenBox
   - PressBox
-  - Redbox
   layers:
   - Default
   - TransparentFX

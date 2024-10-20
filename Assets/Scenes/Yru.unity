@@ -63735,7 +63735,7 @@ MonoBehaviour:
   groundCheckRadius: 0.1
   groundTag:
   - Ground
-  - PressBox
+  - WoodenBox
 --- !u!114 &1470269501
 MonoBehaviour:
   m_ObjectHideFlags: 0

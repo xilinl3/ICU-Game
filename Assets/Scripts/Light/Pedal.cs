@@ -34,7 +34,7 @@ public class Pedal : MonoBehaviour
         //Debug.Log("Object entered: " + other.gameObject.name);
 
         // 检测物体是否为带有pressbox标签的箱子或玩家
-        if (other.CompareTag("WoodenBox") || other.CompareTag("Player"))
+        if (other.CompareTag("WoodenBox") || other.CompareTag("Player") || other.CompareTag("IronBox"))
         {
             boxOnPlate = true;
             sceneLight.SetActive(true); // 打开灯
@@ -53,7 +53,7 @@ public class Pedal : MonoBehaviour
         //Debug.Log("Object Exit: " + other.gameObject.name);
 
         // 检测物体是否为带有pressbox标签的箱子或玩家
-        if (other.CompareTag("WoodenBox") || other.CompareTag("Player"))
+        if (other.CompareTag("WoodenBox") || other.CompareTag("Player") || other.CompareTag("IronBox"))
         {
             boxOnPlate = false;
             sceneLight.SetActive(false); // 关闭灯

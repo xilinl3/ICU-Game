@@ -9,6 +9,7 @@ TagManager:
   - Light
   - Wall
   - WoodenBox
+  - IronBox
   layers:
   - Default
   - TransparentFX

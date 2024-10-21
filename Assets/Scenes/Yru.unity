@@ -3369,19 +3369,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_Size.x
-      value: 0.37889194
+      value: 0.39526117
       objectReference: {fileID: 0}
     - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_Size.y
-      value: 17.038074
+      value: 3.5971804
       objectReference: {fileID: 0}
     - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_Offset.x
-      value: 1.4247117
+      value: 0.52035755
       objectReference: {fileID: 0}
     - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_Offset.y
-      value: -7.103279
+      value: -7.8246655
       objectReference: {fileID: 0}
     - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_LocalScale.y
@@ -3389,11 +3389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.43
+      value: -10.18
       objectReference: {fileID: 0}
     - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.62
+      value: -5.59
       objectReference: {fileID: 0}
     - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3433,16 +3433,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: customInspectorObject.swapCamera
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
-      propertyPath: customInspectorObject.cameraOnLeft
+      propertyPath: customInspectorObject.cameraOnTop
       value: 
       objectReference: {fileID: 1128408957}
     - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: customInspectorObject.cameraOnLeft
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: customInspectorObject.cameraOnRight
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: customInspectorObject.cameraOnBottom
+      value: 
       objectReference: {fileID: 1679859866}
+    - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: customInspectorObject.TopBottomCamera
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53028,7 +53040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2000426888941968254, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.010002
+      value: -42.07
       objectReference: {fileID: 0}
     - target: {fileID: 2000426888941968254, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -53672,7 +53684,7 @@ Transform:
   m_GameObject: {fileID: 1679859864}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.99, y: -21.38, z: 0.08983803}
+  m_LocalPosition: {x: -42.07, y: -5.82053, z: 0.08983803}
   m_LocalScale: {x: 1.2384912, y: 1.2232012, z: 1.2232012}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -53698,7 +53710,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 521327047}
+  m_Follow: {fileID: 1969825733}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 8

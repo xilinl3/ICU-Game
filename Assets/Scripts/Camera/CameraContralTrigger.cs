@@ -35,10 +35,10 @@ public class CameraContralTrigger : MonoBehaviour
 
             Vector2 exitDirection = (collider.transform.position - _coll.bounds.center).normalized;
 
-            if(customInspectorObject.swapCamera && customInspectorObject.cameraOnLeft != null && customInspectorObject.cameraOnRight != null)
+            if(customInspectorObject.swapCamera && customInspectorObject.cameraOnLeft != null && customInspectorObject.cameraOnRight != null && customInspectorObject.cameraOnTop != null && customInspectorObject.cameraOnBottom != null)
             {
                 //swap cameras
-                CameraManager.Instance.SwapCamera(customInspectorObject.cameraOnLeft, customInspectorObject.cameraOnRight, exitDirection);
+                CameraManager.Instance.SwapCamera(customInspectorObject.cameraOnLeft, customInspectorObject.cameraOnRight, customInspectorObject.cameraOnTop, customInspectorObject.cameraOnBottom,exitDirection);
             }
             if(customInspectorObject.panCameraOnContact)
             {
@@ -57,6 +57,8 @@ public class CustomInspectorObject
 
     [HideInInspector] public CinemachineVirtualCamera cameraOnLeft;
     [HideInInspector] public CinemachineVirtualCamera cameraOnRight;
+    [HideInInspector] public CinemachineVirtualCamera cameraOnTop;
+    [HideInInspector] public CinemachineVirtualCamera cameraOnBottom;
 
     [HideInInspector] public PanDirection panDirection;
     [HideInInspector] public float panDistance = 3f;
@@ -80,6 +82,8 @@ public class MyScriptEditor : Editor
     SerializedProperty panCameraOnContact;
     SerializedProperty cameraOnLeft;
     SerializedProperty cameraOnRight;
+    SerializedProperty cameraOnTop;
+    SerializedProperty cameraOnBottom;
     SerializedProperty panDirection;
     SerializedProperty panDistance;
     SerializedProperty panTime;
@@ -91,6 +95,8 @@ public class MyScriptEditor : Editor
         panCameraOnContact = customInspectorObject.FindPropertyRelative("panCameraOnContact");
         cameraOnLeft = customInspectorObject.FindPropertyRelative("cameraOnLeft");
         cameraOnRight = customInspectorObject.FindPropertyRelative("cameraOnRight");
+        cameraOnTop = customInspectorObject.FindPropertyRelative("cameraOnTop");
+        cameraOnBottom = customInspectorObject.FindPropertyRelative("cameraOnBottom");
         panDirection = customInspectorObject.FindPropertyRelative("panDirection");
         panDistance = customInspectorObject.FindPropertyRelative("panDistance");
         panTime = customInspectorObject.FindPropertyRelative("panTime");
@@ -106,6 +112,8 @@ public class MyScriptEditor : Editor
         {
             EditorGUILayout.PropertyField(cameraOnLeft, new GUIContent("Camera on Left"));
             EditorGUILayout.PropertyField(cameraOnRight, new GUIContent("Camera on Right"));
+            EditorGUILayout.PropertyField(cameraOnTop, new GUIContent("Camera on Top"));
+            EditorGUILayout.PropertyField(cameraOnBottom, new GUIContent("Camera on Bottom"));
         }
 
         if (panCameraOnContact.boolValue)

@@ -154,7 +154,7 @@ public class CameraManager : MonoBehaviour
 
     #region Swap Cameras
 
-    public void SwapCamera(CinemachineVirtualCamera cameraFromLeft, CinemachineVirtualCamera cameraFromRight, Vector2 triggerExitDirection)
+    public void SwapCamera(CinemachineVirtualCamera cameraFromLeft, CinemachineVirtualCamera cameraFromRight, CinemachineVirtualCamera cameraFromTop, CinemachineVirtualCamera cameraFromBottom,Vector2 triggerExitDirection)
     {
       Debug.Log($"Trigger Exit Direction: {triggerExitDirection.x}");
       //if the current camera is the camera on the left and our trigger exit direction was on the right
@@ -185,6 +185,36 @@ public class CameraManager : MonoBehaviour
 
         //set the new camera as the current camera
         _currentCamera = cameraFromLeft;
+
+        //update our composer variable
+        _framingTransposer = _currentCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+      }
+
+      else if(_currentCamera == cameraFromTop && triggerExitDirection.y < 0f)
+      {
+        //activate the new camera
+        cameraFromBottom.enabled = true;
+
+        //deactivate the old camera
+        cameraFromTop.enabled = false;
+
+        //set the new camera as the current camera
+        _currentCamera = cameraFromBottom;
+
+        //update our composer variable
+        _framingTransposer = _currentCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+      }
+
+      else if(_currentCamera == cameraFromBottom && triggerExitDirection.y > 0f)
+      {
+        //activate the new camera
+        cameraFromTop.enabled = true;
+
+        //deactivate the old camera
+        cameraFromBottom.enabled = false;
+
+        //set the new camera as the current camera
+        _currentCamera = cameraFromTop;
 
         //update our composer variable
         _framingTransposer = _currentCamera.GetCinemachineComponent<CinemachineFramingTransposer>();

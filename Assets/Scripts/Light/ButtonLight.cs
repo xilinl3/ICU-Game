@@ -14,7 +14,7 @@ public class ButtonLight : MonoBehaviour
     };
 
     public int currentColorIndex = 0; // 当前颜色的索引
-    public SpriteRenderer Display; // 用于显示的SpriteRenderer
+    //public SpriteRenderer Display; // 用于显示的SpriteRenderer
     public Light2D sceneLight;     // Light2D组件
     public ButtonRangeDetector buttonRangeDetector;
 
@@ -25,13 +25,13 @@ public class ButtonLight : MonoBehaviour
     void Start()
     {
         // 获取 SpriteRenderer 组件
-        Display.GetComponent<SpriteRenderer>();
+        //Display.GetComponent<SpriteRenderer>();
 
         // 获取 Light2D 组件
         sceneLight.GetComponent<Light2D>();
 
         // 设置初始颜色为白色
-        Display.color = colorSequence[currentColorIndex];
+        //Display.color = colorSequence[currentColorIndex];
         sceneLight.color = colorSequence[currentColorIndex]; // 设置初始光源颜色
     }
     void OnEnable()
@@ -65,7 +65,7 @@ public class ButtonLight : MonoBehaviour
         currentColorIndex = (currentColorIndex + 1) % colorSequence.Length;
 
         // 设置SpriteRenderer的颜色为当前颜色
-        Display.color = colorSequence[currentColorIndex];
+        //Display.color = colorSequence[currentColorIndex];
 
         // 设置Light2D的颜色为当前颜色
         sceneLight.color = colorSequence[currentColorIndex];

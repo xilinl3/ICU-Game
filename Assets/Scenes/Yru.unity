@@ -2758,6 +2758,112 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &29180234
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 293798653}
+    m_Modifications:
+    - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_Size.x
+      value: 0.09011078
+      objectReference: {fileID: 0}
+    - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_Size.y
+      value: 13.402482
+      objectReference: {fileID: 0}
+    - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.5709261
+      objectReference: {fileID: 0}
+    - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_Offset.y
+      value: -7.5187316
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.575
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -42.63822
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225747320402076351, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_Name
+      value: SwapCamera 1-1.5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: customInspectorObject.swapCamera
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: customInspectorObject.cameraOnTop
+      value: 
+      objectReference: {fileID: 1128408957}
+    - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: customInspectorObject.cameraOnLeft
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: customInspectorObject.cameraOnRight
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: customInspectorObject.cameraOnBottom
+      value: 
+      objectReference: {fileID: 1679859866}
+    - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: customInspectorObject.TopBottomCamera
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+--- !u!4 &29180235 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2154533860716537803, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+  m_PrefabInstance: {fileID: 29180234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &38902129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,7 +3328,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_Size.x
-      value: 0.39526117
+      value: 0.09011078
       objectReference: {fileID: 0}
     - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_Size.y
@@ -3230,7 +3336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_Offset.x
-      value: 0.52035755
+      value: 0.5709261
       objectReference: {fileID: 0}
     - target: {fileID: 883155950724417669, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: m_Offset.y
@@ -45626,6 +45732,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 927603162191973576, guid: 89047fa72b058dc4aa70862c832da3c0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 145718695}
+    - targetCorrespondingSourceObject: {fileID: 927603162191973576, guid: 89047fa72b058dc4aa70862c832da3c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 29180235}
     - targetCorrespondingSourceObject: {fileID: 927603162191973576, guid: 89047fa72b058dc4aa70862c832da3c0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1770423088}

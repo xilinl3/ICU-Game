@@ -8,8 +8,9 @@ TagManager:
   - SettingPage
   - Light
   - Wall
+  - WoodenBox
+  - IronBox
   - PressBox
-  - Redbox
   layers:
   - Default
   - TransparentFX
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: background
     uniqueID: 2634966249
+    locked: 0
+  - name: decoration
+    uniqueID: 1986346087
     locked: 0
   - name: groud
     uniqueID: 2092813123

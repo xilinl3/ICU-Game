@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class Pedal : MonoBehaviour
 {
-    public Light2D sceneLight; // 控制的灯光
+    public GameObject sceneLight; // 控制的灯光对象
     public bool boxOnPlate = false; // 是否有箱子或玩家在踏板上
 
     // 添加两个Sprite参数
@@ -16,7 +15,8 @@ public class Pedal : MonoBehaviour
 
     private void Start()
     {
-        sceneLight.enabled = false;  // 初始关闭灯光
+        // 初始关闭灯光对象
+        sceneLight.SetActive(false);
 
         // 获取当前物体的SpriteRenderer组件
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,13 +31,13 @@ public class Pedal : MonoBehaviour
     // 当有物体进入踏板区域
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Object entered: " + other.gameObject.name);
+        //Debug.Log("Object entered: " + other.gameObject.name);
 
         // 检测物体是否为带有pressbox标签的箱子或玩家
-        if (other.CompareTag("PressBox") || other.CompareTag("Player"))
+        if (other.CompareTag("WoodenBox") || other.CompareTag("Player") || other.CompareTag("IronBox"))
         {
             boxOnPlate = true;
-            sceneLight.enabled = true; // 打开灯
+            sceneLight.SetActive(true); // 打开灯
 
             // 切换到按下的踏板图片
             if (spriteRenderer != null && pressedSprite != null)
@@ -50,13 +50,13 @@ public class Pedal : MonoBehaviour
     // 当物体离开踏板区域
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Object Exit: " + other.gameObject.name);
+        //Debug.Log("Object Exit: " + other.gameObject.name);
 
         // 检测物体是否为带有pressbox标签的箱子或玩家
-        if (other.CompareTag("PressBox") || other.CompareTag("Player"))
+        if (other.CompareTag("WoodenBox") || other.CompareTag("Player") || other.CompareTag("IronBox"))
         {
             boxOnPlate = false;
-            sceneLight.enabled = false; // 关闭灯
+            sceneLight.SetActive(false); // 关闭灯
 
             // 切换回默认的踏板图片
             if (spriteRenderer != null && defaultSprite != null)
@@ -64,8 +64,9 @@ public class Pedal : MonoBehaviour
                 spriteRenderer.sprite = defaultSprite;
             }
 
-            Debug.Log("Pressbox left the plate, light is off.");
+            //Debug.Log("Pressbox left the plate, light is off.");
         }
     }
 }
+
 

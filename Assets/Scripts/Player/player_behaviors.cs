@@ -15,7 +15,7 @@ public class player_behaviors : MonoBehaviour
     [SerializeField] private Transform groundCheck_front;
     [SerializeField] private Transform groundCheck_back;
     [SerializeField] private float groundCheckRadius = 0.1f;
-    [SerializeField] private string groundTag = "Ground";
+    [SerializeField] private string[] groundTag;
 
     private float xInput;
     private bool isFacingRight = true;
@@ -24,6 +24,9 @@ public class player_behaviors : MonoBehaviour
     // 玩家状态
     private bool onGround;
     private bool canMove = true;
+
+    // 已收集的奶酪个数
+    private int collectedCheese = 0; 
 
     void Start()
     {
@@ -94,14 +97,18 @@ public class player_behaviors : MonoBehaviour
         onGround = false;
         foreach (Collider2D collider in colliderList)
         {
-            if (collider.CompareTag(groundTag))
-            {
-                onGround = true;
-                break;
+            foreach (string gt in groundTag) {
+                if (collider.CompareTag(gt))
+                {
+                    onGround = true;
+                    break;
+                }
             }
+            if (onGround) { break; }
         }
 
         Debug.DrawRay(groundCheck_front.position, Vector2.down * groundCheckRadius, Color.red);
+        Debug.DrawRay(groundCheck_back.position, Vector2.down * groundCheckRadius, Color.red);
     }
 
     private void HandleAnimation()
@@ -129,5 +136,11 @@ public class player_behaviors : MonoBehaviour
         {
             Flip();
         }
+    }
+
+    public void CollectCheese()
+    {
+        collectedCheese += 1;
+        Debug.Log("Current Collected Cheese: " + collectedCheese);
     }
 }

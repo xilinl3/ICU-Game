@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 47f82fa973af5c84796053b516c6cf91
   - enabled: 1
-    path: Assets/Scenes/Test.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Yru.unity
+    guid: a9e45fdfb2e07784f84ff4eecaa21184
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: 1cbbf01632248ea438f4110c0625e49d

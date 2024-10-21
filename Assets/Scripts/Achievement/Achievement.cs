@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Achievement
 {
@@ -31,86 +29,23 @@ public class Achievement
         set { spriteIndex = value; }
     }
     private GameObject achievementRef;
-    private List<Achievement> dependencies = new List<Achievement>();
-    private string child;
-    public string Child
-    {
-        get { return child; }
-        set { child = value; }
-    }
-
-    private int currentProgression;
-    private int maxProgression;
     
-    public Achievement(string name, string message, int spriteIndex, GameObject achievementRef, int maxProgression)
+    public Achievement(string name, string message, int spriteIndex, GameObject achievementRef)
     {
         this.name = name;
         this.message = message;
         this.unlocked = false;
         this.spriteIndex = spriteIndex;
         this.achievementRef = achievementRef;
-        this.maxProgression = maxProgression;
-
-        LoadAchievement();
-    }
-    public void AddDependency(Achievement dependency)
-    {
-        dependencies.Add(dependency);
     }
     public bool EarnAchievement()
     {
-        if(!unlocked && !dependencies.Exists(x => x.unlocked == false) && CheckProgress())
+        if(!unlocked)
         {
-            achievementRef.GetComponent<Image>().sprite = AchievementManager.Instance.unLockedSprite;
-            SaveAchievement(true);
-
-            if(child != null)
-            {
-                AchievementManager.Instance.EarnAchievement(child);
-            }
-
+            unlocked = true;
             return true;
         }
         return false;
     }
-
-    public void SaveAchievement(bool value)
-    {
-        unlocked = value;
-
-        PlayerPrefs.SetInt("Progression" + name, currentProgression);
-        PlayerPrefs.SetInt(name, value ? 1 : 0);
-
-        PlayerPrefs.Save();
-    }
-
-    public void LoadAchievement()
-    {
-        unlocked = PlayerPrefs.GetInt(name) == 1 ? true : false;
-        if(unlocked)
-        {
-            currentProgression = PlayerPrefs.GetInt("Progression" + name);
-            achievementRef.GetComponent<Image>().sprite = AchievementManager.Instance.unLockedSprite;
-        }
-    }
-
-    public bool CheckProgress()
-    {
-        currentProgression++;
-
-        achievementRef.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Name + " " + currentProgression + "/" + maxProgression;
-
-        SaveAchievement(false);
-
-        if(maxProgression == 0)
-        {
-            return true;
-        }
-        if(currentProgression >= maxProgression)
-        {
-            return true;
-        }
-
-        return false;
-    }
+//
 }

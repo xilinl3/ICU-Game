@@ -3125,7 +3125,7 @@ GameObject:
   - component: {fileID: 134021755}
   m_Layer: 0
   m_Name: "\u7BB1\u5B50"
-  m_TagString: Untagged
+  m_TagString: WoodenBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43119,7 +43119,7 @@ SpriteRenderer:
   m_Size: {x: 1.85, y: 5.55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &694164655
@@ -52593,6 +52593,7 @@ MonoBehaviour:
   groundTag:
   - Ground
   - WoodenBox
+  - IronBox
 --- !u!114 &1470269501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53260,7 +53261,7 @@ SpriteRenderer:
   m_Size: {x: 2.25, y: 2.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1651506106

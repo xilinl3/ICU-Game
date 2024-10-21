@@ -12,7 +12,6 @@ public class IronBox : MonoBehaviour
     public Vector3 originalSize;  
     public float shrinkSpeed = 2f;  // 缩小速度
     private BoxState currentState;
-    private List<Light2D> currentLights = new List<Light2D>();
     private bool isinlight = false;
 
     public enum BoxState
@@ -50,8 +49,8 @@ public class IronBox : MonoBehaviour
     private void OnEnable()
     {
         // 订阅灯光进入和离开的事件
-        LightZone.IronBoxEntered += OnLightEnterReceived;
-        LightZone.IronBoxExited += OnLightExitReceived;
+        LightZone.IronBoxEntered += HandleLightEnter;
+        LightZone.IronBoxExited += HandleLightExit;
 
         // 订阅 ButtonLight 的颜色变化事件
         ButtonLight.ButtonLightColorChanged += OnLightColorReceived;
@@ -60,11 +59,29 @@ public class IronBox : MonoBehaviour
     private void OnDisable()
     {
         // 取消订阅事件
-        LightZone.IronBoxEntered -= OnLightEnterReceived;
-        LightZone.IronBoxExited -= OnLightExitReceived;
+        LightZone.IronBoxEntered -= HandleLightEnter;
+        LightZone.IronBoxExited -= HandleLightExit;
 
         // 取消订阅 ButtonLight 的颜色变化事件
         ButtonLight.ButtonLightColorChanged -= OnLightColorReceived;
+    }
+
+    private void HandleLightEnter(IronBox ironBox, Color lightColor)
+    {
+        if(ironBox == this)// 确保事件只影响当前 IronBox 实例
+        {
+            isinlight = true;
+            OnLightColorReceived(lightColor);
+        }
+    }
+
+    private void HandleLightExit(IronBox ironBox)
+    {
+        if(ironBox == this)// 确保事件只影响当前 IronBox 实例
+        {
+            isinlight = false;
+            OnLightExitReceived();
+        }
     }
 
     // 当接收到灯光颜色时调用

@@ -5,10 +5,10 @@ using UnityEngine.Rendering.Universal;
 
 public class LightZone : MonoBehaviour
 {
-    public delegate void OnIronBoxEnterLight(Color lightColor);
+    public delegate void OnIronBoxEnterLight(IronBox ironBox, Color lightColor);
     public static event OnIronBoxEnterLight IronBoxEntered;
 
-    public delegate void OnIronBoxExitLight();
+    public delegate void OnIronBoxExitLight(IronBox ironBox);
     public static event OnIronBoxExitLight IronBoxExited;  // 定义新的事件
 
     private Light2D light2DComponent;
@@ -27,11 +27,12 @@ public class LightZone : MonoBehaviour
 
         if (other.CompareTag("IronBox"))
         {
+            IronBox ironBox = other.GetComponent<IronBox>();
             // 如果是铁箱，发布灯光颜色事件
-            if (IronBoxEntered != null)
+            if (ironBox != null)
             {
                 //Debug.Log("发布颜色事件: " + light2DComponent.color);
-                IronBoxEntered.Invoke(light2DComponent.color);
+                IronBoxEntered?.Invoke(ironBox, light2DComponent.color);
             }
         }
     }
@@ -44,11 +45,12 @@ public class LightZone : MonoBehaviour
 
         if (other.CompareTag("IronBox"))
         {
+            IronBox ironBox = other.GetComponent<IronBox>();
             // 如果是铁箱，发布退出事件通知恢复状态
-            if (IronBoxExited != null)
+            if (ironBox != null)
             {
                 //Debug.Log("发布退出事件，铁箱重置到正常状态");
-                IronBoxExited.Invoke();  // 通知铁箱重置为 Normal 状态
+                IronBoxExited?.Invoke(ironBox);  // 通知铁箱重置为 Normal 状态
             }
         }
     }

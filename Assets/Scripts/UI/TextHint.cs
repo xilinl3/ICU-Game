@@ -6,6 +6,7 @@ public class TextHint : MonoBehaviour
 {
     [SerializeField] private GameObject panel; // 要显示和隐藏的 Panel
     [SerializeField] private float pauseDuration = 5f; // 暂停时长
+    [SerializeField] public Rigidbody2D playerRigibody; // 玩家脚本
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,6 +32,11 @@ public class TextHint : MonoBehaviour
 
         // 恢复游戏
         Time.timeScale = 1f;
+
+        if (playerRigibody != null)
+        {
+            playerRigibody.velocity = new Vector2(playerRigibody.velocity.x, 0);
+        }
 
         // 删除整个 GameObject，销毁触发器
         Destroy(gameObject);

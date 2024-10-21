@@ -6,14 +6,11 @@ public class TextHint : MonoBehaviour
 {
     [SerializeField] private GameObject panel; // 要显示和隐藏的 Panel
     [SerializeField] private float pauseDuration = 5f; // 暂停时长
-    private bool hasTriggered = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (hasTriggered) return;
         if (collision.CompareTag("Player"))
         {
-            hasTriggered = true;
             StartCoroutine(ShowPanelAndPause());
         }
     }
@@ -34,5 +31,8 @@ public class TextHint : MonoBehaviour
 
         // 恢复游戏
         Time.timeScale = 1f;
+
+        // 删除整个 GameObject，销毁触发器
+        Destroy(gameObject);
     }
 }

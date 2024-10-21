@@ -4,33 +4,26 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
-    [SerializeField] private float RespawnTime; 
-    public void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] private Transform respawnPointTransform; // 复活点 Transform
+    [SerializeField] private float respawnDelay = 2f; // 可调整的延迟时间
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-
-            // 获取玩家的 PlayerManager 组件
-            PlayerManager playerManager = collision.GetComponent<PlayerManager>();
-
-            if (playerManager != null)
-            {
-                // 禁用玩家，并延迟复活
-                //playerManager.DisablePlayer();
-
-                // 可以使用协程或延迟恢复玩家
-                //Debug.Log("在这里播放玩家死亡的动画 default为1秒");
-                Invoke("RespawnPlayer", RespawnTime);  // 2秒后复活
-            }
+            // 开始协程，在延迟时间后传送玩家
+            StartCoroutine(RespawnPlayerAfterDelay(collision));
         }
     }
 
-    void RespawnPlayer()
+    private IEnumerator RespawnPlayerAfterDelay(Collider2D player)
     {
-        PlayerManager playerManager = FindObjectOfType<PlayerManager>();
-        if (playerManager != null)
-        {
-            playerManager.RespawnPlayer();  // 调用复活方法
-        }
+        // 等待指定的延迟时间
+        yield return new WaitForSeconds(respawnDelay);
+
+        // 将玩家传送到指定的复活点位置
+        player.transform.position = respawnPointTransform.position;
+        Debug.Log("玩家已传送到复活点：" + respawnPointTransform.position);
     }
 }
+

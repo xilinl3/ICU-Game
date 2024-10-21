@@ -13,6 +13,7 @@ public class IronBox : MonoBehaviour
     public float shrinkSpeed = 2f;  // 缩小速度
     private BoxState currentState;
     private List<Light2D> currentLights = new List<Light2D>();
+    private bool isinlight = false;
 
     public enum BoxState
     {
@@ -49,7 +50,7 @@ public class IronBox : MonoBehaviour
     private void OnEnable()
     {
         // 订阅灯光进入和离开的事件
-        LightZone.IronBoxEntered += OnLightColorReceived;
+        LightZone.IronBoxEntered += OnLightEnterReceived;
         LightZone.IronBoxExited += OnLightExitReceived;
 
         // 订阅 ButtonLight 的颜色变化事件
@@ -59,7 +60,7 @@ public class IronBox : MonoBehaviour
     private void OnDisable()
     {
         // 取消订阅事件
-        LightZone.IronBoxEntered -= OnLightColorReceived;
+        LightZone.IronBoxEntered -= OnLightEnterReceived;
         LightZone.IronBoxExited -= OnLightExitReceived;
 
         // 取消订阅 ButtonLight 的颜色变化事件
@@ -84,12 +85,20 @@ public class IronBox : MonoBehaviour
         }
     }
 
-    // 当接收到离开灯光事件时调用
     private void OnLightExitReceived()
     {
         // 离开光源时恢复到 Normal 状态
+        isinlight = false;
         SetBoxState(BoxState.Normal);
+        Debug.Log("OnLightExitReceived");
         //Debug.Log("铁箱离开光源，恢复正常状态");
+    }
+
+    private void OnLightEnterReceived(Color lightColor)
+    {
+        isinlight = true;
+        Debug.Log("OnLightEnterReceived");
+        OnLightColorReceived(lightColor);
     }
 
     // 设置铁箱的状态
@@ -114,7 +123,7 @@ public class IronBox : MonoBehaviour
                 break;
             case BoxState.Frozen:
                 //Debug.Log("蓝色");
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                rb.constraints = RigidbodyConstraints2D.FreezeAll | RigidbodyConstraints2D.FreezeRotation;
                 isInRed = false;
                 break;
         }
@@ -141,7 +150,6 @@ public class IronBox : MonoBehaviour
             IronBoxInstance.transform.localScale = Vector3.Lerp(IronBoxInstance.transform.localScale, originalSize, shrinkSpeed * Time.deltaTime);
         }
     }
-
 
 }
 

@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class CameraContralTrigger : MonoBehaviour
 {
@@ -92,6 +94,7 @@ public enum PanDirection
     Right
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(CameraContralTrigger))]
 [CanEditMultipleObjects]  // This attribute allows multi-object editing.
 public class MyScriptEditor : Editor
@@ -152,3 +155,4 @@ public class MyScriptEditor : Editor
         }
     }
 }
+#endif

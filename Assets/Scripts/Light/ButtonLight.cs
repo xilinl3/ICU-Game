@@ -13,7 +13,7 @@ public class ButtonLight : MonoBehaviour
         new Color32(0, 0, 255, 255),      // 蓝色
     };
 
-    public int currentColorIndex; // 当前颜色的索引
+    public int currentColorIndex = 0; // 当前颜色的索引
     //public SpriteRenderer Display; // 用于显示的SpriteRenderer
     public Light2D sceneLight;     // Light2D组件
     public ButtonRangeDetector buttonRangeDetector;

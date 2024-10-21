@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class IronBox : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class IronBox : MonoBehaviour
     public Vector3 originalSize;  
     public float shrinkSpeed = 2f;  // 缩小速度
     private BoxState currentState;
+    private List<Light2D> currentLights = new List<Light2D>();
 
     public enum BoxState
     {
@@ -29,11 +31,11 @@ public class IronBox : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Current IronBox State: " + currentState);
+        //Debug.Log("Current IronBox State: " + currentState);
         // 如果 redbox 在光照范围内，则逐渐放大 redbox
         if (isInRed)
         {
-            Debug.Log("RedUpdate - 放大箱子");
+            //Debug.Log("RedUpdate - 放大箱子");
             ShrinkRedbox();  // 这里应该放大箱子
         }
         else
@@ -87,7 +89,7 @@ public class IronBox : MonoBehaviour
     {
         // 离开光源时恢复到 Normal 状态
         SetBoxState(BoxState.Normal);
-        Debug.Log("铁箱离开光源，恢复正常状态");
+        //Debug.Log("铁箱离开光源，恢复正常状态");
     }
 
     // 设置铁箱的状态
@@ -102,16 +104,16 @@ public class IronBox : MonoBehaviour
                 //Debug.Log("InRed = false");
                 break;
             case BoxState.Light:
-                Debug.Log("绿光");
+                //Debug.Log("绿光");
                 rb.constraints = RigidbodyConstraints2D.None;  // 变轻，可推动
                 isInRed = false;
                 break;
             case BoxState.Large:
-                Debug.Log("红光");
+                //Debug.Log("红光");
                 isInRed = true;  // 标记进入红光
                 break;
             case BoxState.Frozen:
-                Debug.Log("蓝色");
+                //Debug.Log("蓝色");
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 isInRed = false;
                 break;
@@ -139,5 +141,7 @@ public class IronBox : MonoBehaviour
             IronBoxInstance.transform.localScale = Vector3.Lerp(IronBoxInstance.transform.localScale, originalSize, shrinkSpeed * Time.deltaTime);
         }
     }
+
+
 }
 

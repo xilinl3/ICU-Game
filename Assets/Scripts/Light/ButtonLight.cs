@@ -53,10 +53,10 @@ public class ButtonLight : MonoBehaviour
         {
             ColorLoop();  // 切换灯光和Sprite
         }
-        else
-        {
-            Debug.Log("Player is not in range to toggle the lights.");
-        }
+        //else
+        //{
+        //    Debug.Log("Player is not in range to toggle the lights.");
+        //}
     }
 
     void ColorLoop()

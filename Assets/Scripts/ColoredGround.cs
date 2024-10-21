@@ -9,7 +9,6 @@ public class ColoredGround : MonoBehaviour
     private BoxCollider2D boxCollider2d;
     [SerializeField] private Color objectColor;
 
-    private int LightCounter = 0;
     private float colorTolerance = 0.02f;
 
     private void OnEnable()
@@ -70,7 +69,7 @@ public class ColoredGround : MonoBehaviour
             Light2D light2DComponent = other.gameObject.GetComponent<Light2D>();
             if (!ColorsAreSimilar(objectColor, light2DComponent.color, colorTolerance)) { return; }
 
-            LightCounter++;
+            SwitchTo(false);
         }
     }
 
@@ -82,7 +81,7 @@ public class ColoredGround : MonoBehaviour
             Light2D light2DComponent = other.gameObject.GetComponent<Light2D>();
             if (!ColorsAreSimilar(objectColor, light2DComponent.color, colorTolerance)) { return; }
 
-            LightCounter--;
+            SwitchTo(true);
         }
     }
 
@@ -98,14 +97,7 @@ public class ColoredGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (LightCounter > 0)
-        {
-            SwitchTo(false);
-        }
-        else
-        {
-            SwitchTo(true);
-        }
+    
     }
 }
 

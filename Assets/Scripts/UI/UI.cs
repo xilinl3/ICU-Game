@@ -9,6 +9,7 @@ public class UI : MonoBehaviour
    public void Starting()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
 
    //退出键
@@ -33,6 +34,7 @@ public class UI : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
     //打开设置页面
     public void SettingPage()

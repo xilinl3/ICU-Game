@@ -5,17 +5,53 @@ using UnityEngine.Rendering.Universal;
 
 public class ColoredGround : MonoBehaviour
 {
-    private Renderer groundRenderer;  // 将 renderer 重命名为 groundRenderer
+    private Renderer groundRenderer;
     private BoxCollider2D boxCollider2d;
-
     [SerializeField] private Color objectColor;
 
     private int LightCounter = 0;
     private float colorTolerance = 0.02f;
 
+    private void OnEnable()
+    {
+        // 订阅 ButtonLight 的颜色变化事件
+        ButtonLight.ButtonLightColorChanged += LightColorChange;
+    }
+
+    private void OnDisable()
+    {
+        // 取消订阅 ButtonLight 的颜色变化事件
+        ButtonLight.ButtonLightColorChanged -= LightColorChange;
+    }
+
+    void LightColorChange(Color newColor)
+    {
+        Debug.Log("检测到");
+        // 处理颜色变化时的逻辑
+        //if (ColorsAreSimilar(objectColor, newColor, colorTolerance))
+        //{
+        //    Debug.Log("颜色匹配，处理相应逻辑");
+        //    // 可以根据需求实现其他逻辑，比如改变地面外观或属性
+        //    LightCounter++;
+        //}
+        //else
+        //{
+        //    LightCounter--;
+        //}
+
+        //if (LightCounter > 0)
+        //{
+        //    SwitchTo(false);
+        //}
+        //else
+        //{
+        //    SwitchTo(true);
+        //}
+    }
+
     private void SwitchTo(bool state)
     {
-        groundRenderer.enabled = state;  // 使用 groundRenderer
+        groundRenderer.enabled = state;
         boxCollider2d.enabled = state;
     }
 
@@ -42,6 +78,7 @@ public class ColoredGround : MonoBehaviour
     {
         if (other.CompareTag("Light"))
         {
+            Debug.Log("检测到平台消失的光");
             Light2D light2DComponent = other.gameObject.GetComponent<Light2D>();
             if (!ColorsAreSimilar(objectColor, light2DComponent.color, colorTolerance)) { return; }
 
@@ -52,7 +89,7 @@ public class ColoredGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        groundRenderer = GetComponent<Renderer>();  // 修改为 groundRenderer
+        groundRenderer = GetComponent<Renderer>();
         boxCollider2d = GetComponent<BoxCollider2D>();
 
         objectColor = GetComponent<SpriteRenderer>().color;
@@ -71,4 +108,5 @@ public class ColoredGround : MonoBehaviour
         }
     }
 }
+
 

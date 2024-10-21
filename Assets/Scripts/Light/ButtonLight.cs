@@ -18,6 +18,9 @@ public class ButtonLight : MonoBehaviour
     public Light2D sceneLight;     // Light2D组件
     public ButtonRangeDetector buttonRangeDetector;
 
+    public delegate void OnButtonLightColorChange(Color newColor);
+    public static event OnButtonLightColorChange ButtonLightColorChanged;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,5 +69,10 @@ public class ButtonLight : MonoBehaviour
 
         // 设置Light2D的颜色为当前颜色
         sceneLight.color = colorSequence[currentColorIndex];
+
+        if (ButtonLightColorChanged != null)
+        {
+            ButtonLightColorChanged.Invoke(sceneLight.color);  // 通知监听者颜色变化
+        }
     }
 }

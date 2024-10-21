@@ -41,10 +41,6 @@ public class LightControl : MonoBehaviour
         {
             ToggleLightsAndSprite();  // 切换灯光和Sprite
         }
-        else
-        {
-            Debug.Log("Player is not in range to toggle the lights.");
-        }
     }
 
     public void ToggleLightsAndSprite()

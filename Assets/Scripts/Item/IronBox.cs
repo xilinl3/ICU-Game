@@ -10,6 +10,7 @@ public class IronBox : MonoBehaviour
     public Vector3 targetSize = new Vector3(2f, 2f, 2f);  // 目标大小
     public Vector3 originalSize;  
     public float shrinkSpeed = 2f;  // 缩小速度
+    private BoxState currentState;
 
     public enum BoxState
     {
@@ -28,6 +29,7 @@ public class IronBox : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Current IronBox State: " + currentState);
         // 如果 redbox 在光照范围内，则逐渐放大 redbox
         if (isInRed)
         {
@@ -37,7 +39,7 @@ public class IronBox : MonoBehaviour
         else
         {
             // 当 redbox 离开光照范围时，逐渐恢复原始大小
-            Debug.Log("RedRest - 恢复箱子大小");
+            //Debug.Log("RedRest - 恢复箱子大小");
             ResetRedboxSize();
         }
     }
@@ -47,6 +49,9 @@ public class IronBox : MonoBehaviour
         // 订阅灯光进入和离开的事件
         LightZone.IronBoxEntered += OnLightColorReceived;
         LightZone.IronBoxExited += OnLightExitReceived;
+
+        // 订阅 ButtonLight 的颜色变化事件
+        ButtonLight.ButtonLightColorChanged += OnLightColorReceived;
     }
 
     private void OnDisable()
@@ -54,6 +59,9 @@ public class IronBox : MonoBehaviour
         // 取消订阅事件
         LightZone.IronBoxEntered -= OnLightColorReceived;
         LightZone.IronBoxExited -= OnLightExitReceived;
+
+        // 取消订阅 ButtonLight 的颜色变化事件
+        ButtonLight.ButtonLightColorChanged -= OnLightColorReceived;
     }
 
     // 当接收到灯光颜色时调用
@@ -85,24 +93,27 @@ public class IronBox : MonoBehaviour
     // 设置铁箱的状态
     private void SetBoxState(BoxState newState)
     {
+        currentState = newState;
         switch (newState)
         {
             case BoxState.Normal:
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 isInRed = false; // 常态，不能推动
-                Debug.Log("InRed = false");
+                //Debug.Log("InRed = false");
                 break;
             case BoxState.Light:
+                Debug.Log("绿光");
                 rb.constraints = RigidbodyConstraints2D.None;  // 变轻，可推动
-                Debug.Log("IronBox is in Light state.");
+                isInRed = false;
                 break;
             case BoxState.Large:
-                Debug.Log("IronBox is in Large state.");
+                Debug.Log("红光");
                 isInRed = true;  // 标记进入红光
                 break;
             case BoxState.Frozen:
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;  // 时停
-                Debug.Log("IronBox is in Frozen state.");
+                Debug.Log("蓝色");
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                isInRed = false;
                 break;
         }
     }

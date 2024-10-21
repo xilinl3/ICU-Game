@@ -6,11 +6,14 @@ public class TextHint : MonoBehaviour
 {
     [SerializeField] private GameObject panel; // 要显示和隐藏的 Panel
     [SerializeField] private float pauseDuration = 5f; // 暂停时长
+    private bool hasTriggered = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (hasTriggered) return;
         if (collision.CompareTag("Player"))
         {
+            hasTriggered = true;
             StartCoroutine(ShowPanelAndPause());
         }
     }

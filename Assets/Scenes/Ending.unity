@@ -928,7 +928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: -0.0005493164}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1432500601
@@ -965,7 +965,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u7B56\u5212\nYru\tRicardo\n\n\u7F8E\u672F\n\u6BDB\u6BDB\tMary\tZhou\tPb\t\u5C24\u91CC\u5361\t\u7FBD\u6BDB\u7B14\n\n\u7A0B\u5E8F\n\u6728\u69FF\n\u68A6\u7F18\tShaCoZha\tTony\n\n\u97F3\u6548/\u97F3\u4E50\nAspedtra\n\u5C24\u5229\u897F\u65AF\n\u5976\u76D6\u751F\u714E\u5305\n\n\u8FD0\u8425\n\u4ED3\u9F20\t\u59DD\u7545\n\n\n\u7279\u522B\u611F\u8C22\nHoro-kok\nManson\n\n"
+  m_text: "\u7B56\u5212\nYru\tRicardo\n\n\u7F8E\u672F\n\u7FBD\u6BDB\u7403\t\nMary
+    Zhou\tPb\t\u6BDB\u6BDB\t\u5C24\u91CC\u5361\n\n\u7A0B\u5E8F\n\u6728\u69FF\n\u68A6\u7F18\tShaCoZha\tTony\n\n\u97F3\u6548/\u97F3\u4E50\nAspedtra\n\u5C24\u5229\u897F\u65AF\n\u5976\u76D6\u751F\u714E\u5305\n\n\u8FD0\u8425\n\u4ED3\u9F20\t\u59DD\u7545\n\n\n\u7279\u522B\u611F\u8C22\nHoro-kok\nManson\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8242c9a468bb03d478347cb831ce5bae, type: 2}
   m_sharedMaterial: {fileID: 5488206523053659419, guid: 8242c9a468bb03d478347cb831ce5bae, type: 2}
@@ -1452,7 +1453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.001701355, y: -110.78055}
+  m_AnchoredPosition: {x: 0.001701355, y: -136}
   m_SizeDelta: {x: 1045.2, y: 858.4388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2099384455
@@ -1605,7 +1606,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 256445877}
   m_HandleRect: {fileID: 256445876}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 1.0000001
   m_Size: 0.19787447
   m_NumberOfSteps: 0
   m_OnValueChanged:

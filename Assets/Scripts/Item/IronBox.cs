@@ -88,7 +88,7 @@ public class IronBox : MonoBehaviour
         switch (newState)
         {
             case BoxState.Normal:
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 isInRed = false; // 常态，不能推动
                 Debug.Log("InRed = false");
                 break;

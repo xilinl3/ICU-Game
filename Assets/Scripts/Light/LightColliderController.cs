@@ -79,12 +79,3 @@ public class LightColliderController : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-
-
-
-

@@ -13,6 +13,8 @@ public class IronBox : MonoBehaviour
     public float shrinkSpeed = 2f;  // 缩小速度
     private BoxState currentState;
     private bool isinlight = false;
+    private Vector3 initialPosition;  // 初始位置
+    private bool ignoreLightChanges = false;// 是否忽略光照变化
 
     public enum BoxState
     {
@@ -26,6 +28,7 @@ public class IronBox : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         originalSize = IronBoxInstance.transform.localScale;  // 初始化原始大小
+        initialPosition = IronBoxInstance.transform.position;  // 初始化初始位置
         SetBoxState(BoxState.Normal);  // 初始化为常态
     }
 
@@ -68,7 +71,7 @@ public class IronBox : MonoBehaviour
 
     private void HandleLightEnter(IronBox ironBox, Color lightColor)
     {
-        if(ironBox == this)// 确保事件只影响当前 IronBox 实例
+        if(ironBox == this && !ignoreLightChanges)// 确保事件只影响当前 IronBox 实例
         {
             isinlight = true;
             OnLightColorReceived(lightColor);
@@ -77,7 +80,7 @@ public class IronBox : MonoBehaviour
 
     private void HandleLightExit(IronBox ironBox)
     {
-        if(ironBox == this)// 确保事件只影响当前 IronBox 实例
+        if(ironBox == this && !ignoreLightChanges)// 确保事件只影响当前 IronBox 实例
         {
             isinlight = false;
             OnLightExitReceived();
@@ -87,6 +90,7 @@ public class IronBox : MonoBehaviour
     // 当接收到灯光颜色时调用
     private void OnLightColorReceived(Color lightColor)
     {
+        if(ignoreLightChanges) return;  // 如果忽略光照变化，则直接返回
         // 根据光的颜色判断箱子的状态，忽略白光
         if (lightColor == Color.green)
         {
@@ -104,6 +108,7 @@ public class IronBox : MonoBehaviour
 
     private void OnLightExitReceived()
     {
+        if(ignoreLightChanges) return;  // 如果忽略光照变化，则直接返回
         // 离开光源时恢复到 Normal 状态
         isinlight = false;
         SetBoxState(BoxState.Normal);
@@ -168,5 +173,18 @@ public class IronBox : MonoBehaviour
         }
     }
 
+    //重置铁箱到初始状态的方法
+    public void ResetToInitialState()
+    {
+        IronBoxInstance.transform.localScale = originalSize;  // 恢复初始大小
+        IronBoxInstance.transform.position = initialPosition; // 恢复初始位置
+        SetBoxState(BoxState.Normal);  // 恢复常态
+    }
+
+    //设置是否忽略光的变化
+    public void SetIgnoreLightChanges(bool ignore)
+    {
+        ignoreLightChanges = ignore;
+    }
 }
 

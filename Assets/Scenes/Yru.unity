@@ -2782,7 +2782,7 @@ GameObject:
   - component: {fileID: 8495519}
   m_Layer: 0
   m_Name: Dead area 1  (1)
-  m_TagString: Untagged
+  m_TagString: DeadArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2861,7 +2861,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPointTransform: {fileID: 1247482447}
-  respawnDelay: 2
+  respawnDelay: 1
+  BlackScreen: {fileID: 935740325}
+  Light: {fileID: 0}
+  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &8495521
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46308,8 +46311,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1400, y: -900}
+  m_AnchoredPosition: {x: 0, y: 24.351}
+  m_SizeDelta: {x: -846.9768, y: -708.5689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356994783
 MonoBehaviour:
@@ -46684,7 +46687,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430687003}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -47484,8 +47487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.0016937, y: 0.0011902}
+  m_SizeDelta: {x: 1073, y: 371.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543787018
 MonoBehaviour:
@@ -47509,8 +47512,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u7EA2\u5149-\u53D8\u5927\u53D8\u9AD8\n\u7EFF\u5149-\u8F7B\u5316\u7269\u4F53\n\u84DD\u5149-\u6682\u505C\u7269\u4F53"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe6fbfbfd2b898640adb13efd063ca82, type: 2}
-  m_sharedMaterial: {fileID: 4174804498718408857, guid: fe6fbfbfd2b898640adb13efd063ca82, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8242c9a468bb03d478347cb831ce5bae, type: 2}
+  m_sharedMaterial: {fileID: 5488206523053659419, guid: 8242c9a468bb03d478347cb831ce5bae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -47534,8 +47537,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 87
+  m_fontSizeBase: 87
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -47570,7 +47573,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -158.43036, y: -63.372192, z: -160.28784, w: -64.100464}
+  m_margin: {x: -2.1792603, y: 1.414917, z: -0.22583008, w: 0.68652344}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -47629,7 +47632,7 @@ GameObject:
   - component: {fileID: 560265105}
   m_Layer: 0
   m_Name: 'Dead area 1 '
-  m_TagString: Untagged
+  m_TagString: DeadArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47708,7 +47711,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPointTransform: {fileID: 974395554}
-  respawnDelay: 2
+  respawnDelay: 1
+  BlackScreen: {fileID: 935740325}
+  Light: {fileID: 0}
+  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &560265107
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -49763,6 +49769,7 @@ RectTransform:
   m_Children:
   - {fileID: 356994782}
   - {fileID: 131381560}
+  - {fileID: 935740326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -49770,6 +49777,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &935740325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 935740326}
+  - component: {fileID: 935740328}
+  - component: {fileID: 935740327}
+  m_Layer: 0
+  m_Name: BlackScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &935740326
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935740325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 899647190}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &935740327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935740325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &935740328
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935740325}
+  m_CullTransparentMesh: 1
 --- !u!1 &949984572
 GameObject:
   m_ObjectHideFlags: 0
@@ -51622,7 +51704,7 @@ GameObject:
   - component: {fileID: 1346316203}
   m_Layer: 0
   m_Name: Dead area 0.1 (2)
-  m_TagString: Untagged
+  m_TagString: DeadArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51701,7 +51783,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPointTransform: {fileID: 1745124420}
-  respawnDelay: 2
+  respawnDelay: 1
+  BlackScreen: {fileID: 935740325}
+  Light: {fileID: 0}
+  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &1346316205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -60041,7 +60126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2000426888941968254, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -42.07
+      value: 15.010002
       objectReference: {fileID: 0}
     - target: {fileID: 2000426888941968254, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -60117,6 +60202,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6450877881902587306, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396600095530904146, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9188019111288833301, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
@@ -61990,7 +62079,7 @@ Transform:
   m_GameObject: {fileID: 1750024342}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.2, y: -4.8, z: 0}
+  m_LocalPosition: {x: -3.3, y: -4.8, z: 0}
   m_LocalScale: {x: 0.71716, y: 0.71716, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -62203,7 +62292,7 @@ GameObject:
   - component: {fileID: 1802293895}
   m_Layer: 0
   m_Name: Dead area 0.1 (1)
-  m_TagString: Untagged
+  m_TagString: DeadArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62282,7 +62371,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPointTransform: {fileID: 1892049622}
-  respawnDelay: 2
+  respawnDelay: 1
+  BlackScreen: {fileID: 935740325}
+  Light: {fileID: 0}
+  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &1802293897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -62349,7 +62441,7 @@ GameObject:
   - component: {fileID: 1808146212}
   m_Layer: 0
   m_Name: Dead area 1  (2)
-  m_TagString: Untagged
+  m_TagString: DeadArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62428,7 +62520,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPointTransform: {fileID: 718673632}
-  respawnDelay: 2
+  respawnDelay: 1
+  BlackScreen: {fileID: 935740325}
+  Light: {fileID: 0}
+  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &1808146214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -64010,7 +64105,7 @@ GameObject:
   - component: {fileID: 2145063819}
   m_Layer: 0
   m_Name: Dead area 0.1
-  m_TagString: Untagged
+  m_TagString: DeadArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64089,7 +64184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPointTransform: {fileID: 549539280}
-  respawnDelay: 2
+  respawnDelay: 1
+  BlackScreen: {fileID: 935740325}
+  Light: {fileID: 0}
+  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &2145063821
 SpriteRenderer:
   m_ObjectHideFlags: 0

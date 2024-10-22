@@ -75,4 +75,12 @@ public class ButtonLight : MonoBehaviour
             ButtonLightColorChanged.Invoke(sceneLight.color);  // 通知监听者颜色变化
         }
     }
+
+    //重置颜色
+    public void ResetColor()
+    {
+        currentColorIndex = 0;
+        //Display.color = colorSequence[currentColorIndex];
+        sceneLight.color = colorSequence[currentColorIndex];
+    }
 }

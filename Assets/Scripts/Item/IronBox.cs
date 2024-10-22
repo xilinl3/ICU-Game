@@ -104,6 +104,10 @@ public class IronBox : MonoBehaviour
         {
             SetBoxState(BoxState.Frozen);  // 蓝色光，时停
         }
+        else if (lightColor == Color.white)
+        {
+            SetBoxState(BoxState.Normal);  // 蓝色光，时停
+        }
     }
 
     private void OnLightExitReceived()

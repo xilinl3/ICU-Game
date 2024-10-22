@@ -5061,7 +5061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &281542685
 Transform:
   m_ObjectHideFlags: 0
@@ -67198,8 +67198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0abcce33f77a64b8ffa3e590459e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectColor: {r: 0, g: 0, b: 0, a: 0}
-  trackedLight: {fileID: 0}
+  objectColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  trackedLight: {fileID: 122869280}
 --- !u!61 &526308292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71756,7 +71756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectColor: {r: 0, g: 0, b: 0, a: 0}
-  trackedLight: {fileID: 0}
+  trackedLight: {fileID: 122869280}
 --- !u!61 &1208169941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82106,7 +82106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1559218713
 Transform:
   m_ObjectHideFlags: 0
@@ -85189,7 +85189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectColor: {r: 0, g: 0, b: 0, a: 0}
-  trackedLight: {fileID: 0}
+  trackedLight: {fileID: 122869280}
 --- !u!61 &1944703264
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class Pedal : MonoBehaviour
     public Sprite pressedSprite;  // 踏板被按下时的图片
 
     private SpriteRenderer spriteRenderer; // 用于切换踏板图片的SpriteRenderer
+    private AudioSource PedalSound; // 踏板音效
 
     private void Start()
     {
@@ -20,6 +21,9 @@ public class Pedal : MonoBehaviour
 
         // 获取当前物体的SpriteRenderer组件
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        // 获取当前物体的AudioSource组件
+        PedalSound = GetComponent<AudioSource>();
 
         // 设置初始图片为默认的踏板图片
         if (spriteRenderer != null && defaultSprite != null)
@@ -42,6 +46,7 @@ public class Pedal : MonoBehaviour
             // 切换到按下的踏板图片
             if (spriteRenderer != null && pressedSprite != null)
             {
+                PedalSound.Play(); // 播放踏板音效
                 spriteRenderer.sprite = pressedSprite;
             }
         }

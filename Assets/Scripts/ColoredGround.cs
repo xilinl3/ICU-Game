@@ -8,48 +8,8 @@ public class ColoredGround : MonoBehaviour
     private Renderer groundRenderer;
     private BoxCollider2D boxCollider2d;
     [SerializeField] private Color objectColor;
-    private bool lightOn;
-    private Light2D light2DComponent;
-    private bool isVisible;
-
+    [SerializeField] private Light2D trackedLight; // 追踪的灯光引用
     private float colorTolerance = 0.02f;
-
-    //private void OnEnable()
-    //{
-    //    // 订阅 ButtonLight 的颜色变化事件
-    //    ButtonLight.ButtonLightColorChanged += LightColorChange;
-    //}
-
-    //private void OnDisable()
-    //{
-    //    // 取消订阅 ButtonLight 的颜色变化事件
-    //    ButtonLight.ButtonLightColorChanged -= LightColorChange;
-    //}
-
-    //void LightColorChange(Color newColor)
-    //{
-    //    Debug.Log("检测到");
-    //    // 处理颜色变化时的逻辑
-    //    //if (ColorsAreSimilar(objectColor, newColor, colorTolerance))
-    //    //{
-    //    //    Debug.Log("颜色匹配，处理相应逻辑");
-    //    //    // 可以根据需求实现其他逻辑，比如改变地面外观或属性
-    //    //    LightCounter++;
-    //    //}
-    //    //else
-    //    //{
-    //    //    LightCounter--;
-    //    //}
-
-    //    //if (LightCounter > 0)
-    //    //{
-    //    //    SwitchTo(false);
-    //    //}
-    //    //else
-    //    //{
-    //    //    SwitchTo(true);
-    //    //}
-    //}
 
     private void SwitchTo(bool state)
     {
@@ -65,52 +25,22 @@ public class ColoredGround : MonoBehaviour
                Mathf.Abs(color1.a - color2.a) < tolerance;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Light"))
-        {
-            lightOn = true;
-            Debug.Log("被光照到了");
-            light2DComponent = other.gameObject.GetComponent<Light2D>();
-            if (!ColorsAreSimilar(objectColor, light2DComponent.color, colorTolerance)) { return; }
-
-            SwitchTo(false);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Light"))
-        {
-            lightOn = false;
-            Debug.Log("检测到平台消失的光");
-            Light2D light2DComponent = other.gameObject.GetComponent<Light2D>();
-            if (!ColorsAreSimilar(objectColor, light2DComponent.color, colorTolerance)) { return; }
-
-            SwitchTo(true);
-        }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Start");
         groundRenderer = GetComponent<Renderer>();
         boxCollider2d = GetComponent<BoxCollider2D>();
-
         objectColor = GetComponent<SpriteRenderer>().color;
-        lightOn = false;
-        isVisible = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (lightOn)
+        if (trackedLight != null)
         {
-            Debug.Log("我的颜色是" + objectColor + "灯光颜色为" + light2DComponent.color);
-            if (ColorsAreSimilar(objectColor, light2DComponent.color, colorTolerance))
+            Debug.Log("我的颜色是" + objectColor + "，灯光颜色为" + trackedLight.color);
+            if (ColorsAreSimilar(objectColor, trackedLight.color, colorTolerance))
             {
                 SwitchTo(false);
             }
@@ -121,9 +51,10 @@ public class ColoredGround : MonoBehaviour
         }
         else
         {
-            SwitchTo(true);
+            SwitchTo(true); // 灯光引用为空时保持可见
         }
     }
 }
+
 
 

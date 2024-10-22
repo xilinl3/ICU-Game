@@ -131,7 +131,7 @@ public class IronBox : MonoBehaviour
                 break;
             case BoxState.Light:
                 //Debug.Log("绿光");
-                rb.constraints = RigidbodyConstraints2D.None;  // 变轻，可推动
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;  // 变轻，可推动
                 isInRed = false;
                 break;
             case BoxState.Large:

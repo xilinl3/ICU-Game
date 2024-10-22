@@ -14,6 +14,7 @@ public class player_behaviors : MonoBehaviour
 
     [SerializeField] private Transform groundCheck_front;
     [SerializeField] private Transform groundCheck_back;
+    [SerializeField] private Transform groundCheck_mid;
     [SerializeField] private float groundCheckRadius = 0.1f;
     [SerializeField] private string[] groundTag;
 
@@ -93,6 +94,7 @@ public class player_behaviors : MonoBehaviour
         List<Collider2D> colliderList = new List<Collider2D>(colliders);
 
         colliderList.AddRange(Physics2D.OverlapCircleAll(groundCheck_back.position, groundCheckRadius));
+        colliderList.AddRange(Physics2D.OverlapCircleAll(groundCheck_mid.position, groundCheckRadius));
 
         onGround = false;
         foreach (Collider2D collider in colliderList)

@@ -3931,7 +3931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-  trackedLight: {fileID: 122869280}
+  trackedLight: {fileID: 0}
 --- !u!61 &63783652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75452,7 +75452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-  trackedLight: {fileID: 1183242234}
+  trackedLight: {fileID: 0}
 --- !u!61 &314666873
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77354,7 +77354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-  trackedLight: {fileID: 122869280}
+  trackedLight: {fileID: 122869275}
 --- !u!61 &526308292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78826,7 +78826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectColor: {r: 0, g: 0, b: 0, a: 0}
-  trackedLight: {fileID: 1183242234}
+  trackedLight: {fileID: 0}
 --- !u!61 &676993135
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82324,7 +82324,7 @@ GameObject:
   - component: {fileID: 1183242231}
   m_Layer: 0
   m_Name: pedaLight 0
-  m_TagString: Light
+  m_TagString: PedalLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82427,7 +82427,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183242230}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -82705,7 +82705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectColor: {r: 0, g: 0, b: 0, a: 0}
-  trackedLight: {fileID: 122869280}
+  trackedLight: {fileID: 122869275}
 --- !u!61 &1208169941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -97719,7 +97719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectColor: {r: 0, g: 0, b: 0, a: 0}
-  trackedLight: {fileID: 122869280}
+  trackedLight: {fileID: 122869275}
 --- !u!61 &1944703264
 BoxCollider2D:
   m_ObjectHideFlags: 0

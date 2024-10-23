@@ -81539,6 +81539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwapCamera 3-EasyDif
       objectReference: {fileID: 0}
+    - target: {fileID: 4225747320402076351, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5948451791860782741, guid: 53d10206278a4f448b34fa90f522b8c9, type: 3}
       propertyPath: customInspectorObject.swapCamera
       value: 1
@@ -82039,7 +82043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1162788853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97750,7 +97754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1941547702
 Transform:
   m_ObjectHideFlags: 0

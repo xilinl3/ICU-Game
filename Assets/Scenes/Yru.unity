@@ -3902,7 +3902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &63783650
 Transform:
   m_ObjectHideFlags: 0
@@ -4403,7 +4403,7 @@ GameObject:
   - component: {fileID: 122869277}
   m_Layer: 0
   m_Name: DisplayLight
-  m_TagString: Untagged
+  m_TagString: ButtonLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75452,7 +75452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-  trackedLight: {fileID: 0}
+  trackedLight: {fileID: 1183242230}
 --- !u!61 &314666873
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78826,7 +78826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectColor: {r: 0, g: 0, b: 0, a: 0}
-  trackedLight: {fileID: 0}
+  trackedLight: {fileID: 1183242230}
 --- !u!61 &676993135
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -97653,7 +97653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1941547702
 Transform:
   m_ObjectHideFlags: 0

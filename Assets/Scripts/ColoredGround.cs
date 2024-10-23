@@ -43,9 +43,10 @@ public class ColoredGround : MonoBehaviour
 
     void Update()
     {
-        // 只有在没有进入任何 PedalLight 或 NormalLight 的触发器时，才根据 ButtonLight 切换状态
-        if (!isInTrigger && trackedLightComponent != null && trackedLight.CompareTag("ButtonLight"))
+        // 确保 trackedLightComponent 组件存在并且 trackedLight 的标签是 ButtonLight
+        if (trackedLightComponent != null && trackedLight.CompareTag("ButtonLight"))
         {
+            Debug.Log("进入按钮灯的逻辑");
             if (ColorsAreSimilar(objectColor, trackedLightComponent.color, colorTolerance))
             {
                 SwitchTo(false);
@@ -64,10 +65,10 @@ public class ColoredGround : MonoBehaviour
             Light2D enteringLight = other.GetComponent<Light2D>();
             if (enteringLight == null) return;
 
-            Debug.Log("进入触发器的物体：" + other.gameObject.name + "，标签：" + other.gameObject.tag);
-            Debug.Log(enteringLight.color);
-            Debug.Log(objectColor);
-            Debug.Log(ColorsAreSimilar(objectColor, enteringLight.color, colorTolerance));
+            //Debug.Log("进入触发器的物体：" + other.gameObject.name + "，标签：" + other.gameObject.tag);
+            //Debug.Log(enteringLight.color);
+            //Debug.Log(objectColor);
+            //Debug.Log(ColorsAreSimilar(objectColor, enteringLight.color, colorTolerance));
 
             isInTrigger = true; // 进入触发器时标志位置为 true
             if (ColorsAreSimilar(objectColor, enteringLight.color, colorTolerance))
@@ -93,3 +94,4 @@ public class ColoredGround : MonoBehaviour
         }
     }
 }
+

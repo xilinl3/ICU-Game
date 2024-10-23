@@ -84480,7 +84480,6 @@ MonoBehaviour:
   - Ground
   - WoodenBox
   - IronBox
-  - MidDifGround
 --- !u!114 &1750024344
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,9 @@ TagManager:
   - IronBox
   - PressBox
   - DeadArea
+  - PedalLight
+  - ButtonLight
+  - NormalLight
   layers:
   - Default
   - TransparentFX

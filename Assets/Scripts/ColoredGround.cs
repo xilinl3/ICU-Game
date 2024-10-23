@@ -8,11 +8,14 @@ public class ColoredGround : MonoBehaviour
     private Renderer groundRenderer;
     private BoxCollider2D boxCollider2d;
     [SerializeField] private Color objectColor;
-    [SerializeField] private Light2D trackedLight; // 追踪的灯光引用
+    [SerializeField] private GameObject trackedLight; // 追踪的灯光引用
+    private Light2D trackedLightComponent; // 追踪的灯光组件
     private float colorTolerance = 0.02f;
+    private bool isInTrigger = false; // 标志位，记录是否有光源在触发范围内
 
     private void SwitchTo(bool state)
     {
+        Debug.Log("正在切换平台 " + state);
         groundRenderer.enabled = state;
         boxCollider2d.enabled = state;
     }
@@ -25,22 +28,25 @@ public class ColoredGround : MonoBehaviour
                Mathf.Abs(color1.a - color2.a) < tolerance;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log("Start");
         groundRenderer = GetComponent<Renderer>();
         boxCollider2d = GetComponent<BoxCollider2D>();
         objectColor = GetComponent<SpriteRenderer>().color;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // 从 trackedLight 获取 Light2D 组件
         if (trackedLight != null)
         {
-            //Debug.Log("我的颜色是" + objectColor + "，灯光颜色为" + trackedLight.color);
-            if (ColorsAreSimilar(objectColor, trackedLight.color, colorTolerance))
+            trackedLightComponent = trackedLight.GetComponent<Light2D>();
+        }
+    }
+
+    void Update()
+    {
+        // 只有在没有进入任何 PedalLight 或 NormalLight 的触发器时，才根据 ButtonLight 切换状态
+        if (!isInTrigger && trackedLightComponent != null && trackedLight.CompareTag("ButtonLight"))
+        {
+            if (ColorsAreSimilar(objectColor, trackedLightComponent.color, colorTolerance))
             {
                 SwitchTo(false);
             }
@@ -49,12 +55,41 @@ public class ColoredGround : MonoBehaviour
                 SwitchTo(true);
             }
         }
-        else
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PedalLight") || other.CompareTag("NormalLight"))
         {
-            SwitchTo(true); // 灯光引用为空时保持可见
+            Light2D enteringLight = other.GetComponent<Light2D>();
+            if (enteringLight == null) return;
+
+            Debug.Log("进入触发器的物体：" + other.gameObject.name + "，标签：" + other.gameObject.tag);
+            Debug.Log(enteringLight.color);
+            Debug.Log(objectColor);
+            Debug.Log(ColorsAreSimilar(objectColor, enteringLight.color, colorTolerance));
+
+            isInTrigger = true; // 进入触发器时标志位置为 true
+            if (ColorsAreSimilar(objectColor, enteringLight.color, colorTolerance))
+            {
+                SwitchTo(false);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("PedalLight") || other.CompareTag("NormalLight"))
+        {
+            Light2D exitingLight = other.GetComponent<Light2D>();
+            if (exitingLight == null) return;
+
+            if (ColorsAreSimilar(objectColor, exitingLight.color, colorTolerance))
+            {
+                SwitchTo(true);
+            }
+
+            isInTrigger = false; // 离开触发器时标志位置为 false
         }
     }
 }
-
-
-

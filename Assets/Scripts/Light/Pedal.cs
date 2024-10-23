@@ -46,7 +46,7 @@ public class Pedal : MonoBehaviour
             // 切换到按下的踏板图片
             if (spriteRenderer != null && pressedSprite != null)
             {
-                PedalSound.Play(); // 播放踏板音效
+                //PedalSound.Play(); // 播放踏板音效
                 spriteRenderer.sprite = pressedSprite;
             }
         }

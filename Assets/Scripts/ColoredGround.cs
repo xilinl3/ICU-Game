@@ -15,7 +15,7 @@ public class ColoredGround : MonoBehaviour
 
     private void SwitchTo(bool state)
     {
-        Debug.Log("正在切换平台 " + state);
+        //Debug.Log("正在切换平台 " + state);
         groundRenderer.enabled = state;
         boxCollider2d.enabled = state;
     }
@@ -46,7 +46,7 @@ public class ColoredGround : MonoBehaviour
         // 确保 trackedLightComponent 组件存在并且 trackedLight 的标签是 ButtonLight
         if (trackedLightComponent != null && trackedLight.CompareTag("ButtonLight"))
         {
-            Debug.Log("进入按钮灯的逻辑");
+            //Debug.Log("进入按钮灯的逻辑");
             if (ColorsAreSimilar(objectColor, trackedLightComponent.color, colorTolerance))
             {
                 SwitchTo(false);

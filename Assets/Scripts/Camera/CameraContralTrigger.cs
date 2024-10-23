@@ -53,7 +53,7 @@ public class CameraContralTrigger : MonoBehaviour
             customInspectorObject.cameraOnTop!= null && 
             customInspectorObject.cameraOnBottom!= null)
             {
-                Debug.Log($"Exit Direction Detected: {exitDirection}");
+                //Debug.Log($"Exit Direction Detected: {exitDirection}");
                 //top bottom camera
                 CameraManager.Instance.TopBottomCamera(
                     customInspectorObject.cameraOnTop, 

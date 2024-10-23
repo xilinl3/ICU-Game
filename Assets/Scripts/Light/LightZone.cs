@@ -23,7 +23,7 @@ public class LightZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Debug 进入的物体的名字和标签
-        //Debug.Log("Object entered: " + other.gameObject.name + " with tag: " + other.gameObject.tag);
+        Debug.Log("Object entered: " + other.gameObject.name + " with tag: " + other.gameObject.tag);
 
         if (other.CompareTag("IronBox"))
         {
@@ -41,7 +41,7 @@ public class LightZone : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         // Debug 离开的物体的名字和标签
-        //Debug.Log("Object exited: " + other.gameObject.name + " with tag: " + other.gameObject.tag);
+        Debug.Log("Object exited: " + other.gameObject.name + " with tag: " + other.gameObject.tag);
 
         if (other.CompareTag("IronBox"))
         {

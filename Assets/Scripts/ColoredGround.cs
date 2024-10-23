@@ -39,7 +39,7 @@ public class ColoredGround : MonoBehaviour
     {
         if (trackedLight != null)
         {
-            Debug.Log("我的颜色是" + objectColor + "，灯光颜色为" + trackedLight.color);
+            //Debug.Log("我的颜色是" + objectColor + "，灯光颜色为" + trackedLight.color);
             if (ColorsAreSimilar(objectColor, trackedLight.color, colorTolerance))
             {
                 SwitchTo(false);

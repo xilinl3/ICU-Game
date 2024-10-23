@@ -28,7 +28,7 @@ public class ColoredGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
+        //Debug.Log("Start");
         groundRenderer = GetComponent<Renderer>();
         boxCollider2d = GetComponent<BoxCollider2D>();
         objectColor = GetComponent<SpriteRenderer>().color;

@@ -33,7 +33,7 @@ public class BoxInLight : MonoBehaviour
         // 输出当前光的颜色
         if (lightComponent != null)
         {
-            Debug.Log("Current Light Color: " + lightComponent.color);
+            //Debug.Log("Current Light Color: " + lightComponent.color);
             ChangeBoxState();
         }
     }

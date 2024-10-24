@@ -54,7 +54,7 @@ public class IronBoxR : MonoBehaviour
     public void SetBoxState(BoxState newState)
     {
         currentState = newState;
-        Debug.Log($"IronBox state changed to: {newState}");
+        //Debug.Log($"IronBox state changed to: {newState}");
         switch (newState)
         {
             case BoxState.Normal:

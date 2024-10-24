@@ -49,25 +49,25 @@ public class IronBox : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        // 订阅灯光进入和离开的事件
-        LightZone.IronBoxEntered += HandleLightEnter;
-        LightZone.IronBoxExited += HandleLightExit;
+    //private void OnEnable()
+    //{
+    //    // 订阅灯光进入和离开的事件
+    //    LightZone.IronBoxEntered += HandleLightEnter;
+    //    LightZone.IronBoxExited += HandleLightExit;
 
-        // 订阅 ButtonLight 的颜色变化事件
-        ButtonLight.ButtonLightColorChanged += OnLightColorReceived;
-    }
+    //    // 订阅 ButtonLight 的颜色变化事件
+    //    ButtonLight.ButtonLightColorChanged += OnLightColorReceived;
+    //}
 
-    private void OnDisable()
-    {
-        // 取消订阅事件
-        LightZone.IronBoxEntered -= HandleLightEnter;
-        LightZone.IronBoxExited -= HandleLightExit;
+    //private void OnDisable()
+    //{
+    //    // 取消订阅事件
+    //    LightZone.IronBoxEntered -= HandleLightEnter;
+    //    LightZone.IronBoxExited -= HandleLightExit;
 
-        // 取消订阅 ButtonLight 的颜色变化事件
-        ButtonLight.ButtonLightColorChanged -= OnLightColorReceived;
-    }
+    //    // 取消订阅 ButtonLight 的颜色变化事件
+    //    ButtonLight.ButtonLightColorChanged -= OnLightColorReceived;
+    //}
 
     private void HandleLightEnter(IronBox ironBox, Color lightColor)
     {

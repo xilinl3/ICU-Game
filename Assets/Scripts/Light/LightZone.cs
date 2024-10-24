@@ -23,36 +23,36 @@ public class LightZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Debug 进入的物体的名字和标签
-        Debug.Log("Object entered: " + other.gameObject.name + " with tag: " + other.gameObject.tag);
+        //Debug.Log("箱子测试Object entered: " + other.gameObject.name + " with tag: " + other.gameObject.tag);
 
-        if (other.CompareTag("IronBox"))
-        {
-            IronBox ironBox = other.GetComponent<IronBox>();
-            // 如果是铁箱，发布灯光颜色事件
-            if (ironBox != null)
-            {
-                //Debug.Log("发布颜色事件: " + light2DComponent.color);
-                IronBoxEntered?.Invoke(ironBox, light2DComponent.color);
-            }
-        }
+        //if (other.CompareTag("IronBox"))
+        //{
+        //    IronBox ironBox = other.GetComponent<IronBox>();
+        //    // 如果是铁箱，发布灯光颜色事件
+        //    if (ironBox != null)
+        //    {
+        //        //Debug.Log("发布颜色事件: " + light2DComponent.color);
+        //        IronBoxEntered?.Invoke(ironBox, light2DComponent.color);
+        //    }
+        //}
     }
 
     // 当有物体离开灯光范围时调用
     private void OnTriggerExit2D(Collider2D other)
     {
         // Debug 离开的物体的名字和标签
-        Debug.Log("Object exited: " + other.gameObject.name + " with tag: " + other.gameObject.tag);
+        //Debug.Log("Object exited: " + other.gameObject.name + " with tag: " + other.gameObject.tag);
 
-        if (other.CompareTag("IronBox"))
-        {
-            IronBox ironBox = other.GetComponent<IronBox>();
-            // 如果是铁箱，发布退出事件通知恢复状态
-            if (ironBox != null)
-            {
-                //Debug.Log("发布退出事件，铁箱重置到正常状态");
-                IronBoxExited?.Invoke(ironBox);  // 通知铁箱重置为 Normal 状态
-            }
-        }
+        //if (other.CompareTag("IronBox"))
+        //{
+        //    IronBox ironBox = other.GetComponent<IronBox>();
+        //    // 如果是铁箱，发布退出事件通知恢复状态
+        //    if (ironBox != null)
+        //    {
+        //        //Debug.Log("发布退出事件，铁箱重置到正常状态");
+        //        IronBoxExited?.Invoke(ironBox);  // 通知铁箱重置为 Normal 状态
+        //    }
+        //}
     }
 }
 

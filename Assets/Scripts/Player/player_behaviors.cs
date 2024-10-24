@@ -8,7 +8,9 @@ public class player_behaviors : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;  
 
-    // ²ÎÊı
+    private float stop;
+
+    // å‚æ•°
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float moveSpeed = 5f;
 
@@ -22,11 +24,11 @@ public class player_behaviors : MonoBehaviour
     private bool isFacingRight = true;
     private int facingDir = 1;
 
-    // Íæ¼Ò×´Ì¬
+    // ç©å®¶çŠ¶æ€
     private bool onGround;
     private bool canMove = true;
 
-    // ÒÑÊÕ¼¯µÄÄÌÀÒ¸öÊı
+    // å·²æ”¶é›†çš„å¥¶é…ªä¸ªæ•°
     private int collectedCheese = 0; 
 
     void Start()
@@ -38,6 +40,8 @@ public class player_behaviors : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UI uiInstance = FindObjectOfType<UI>();
+        stop = uiInstance.amendment;
         if (canMove)
         {
             HandleMovement();
@@ -61,10 +65,10 @@ public class player_behaviors : MonoBehaviour
 
     private void CheckStuck()
     {
-        // ¼ì²éÍæ¼ÒÊÇ·ñÔÚ¿ÕÖĞ²¢ÇÒËÙ¶È½Ó½ü0
+        // æ£€æŸ¥ç©å®¶æ˜¯å¦åœ¨ç©ºä¸­å¹¶ä¸”é€Ÿåº¦æ¥è¿‘0
         if (!onGround && Mathf.Abs(rb.velocity.x) < 0.01f && Mathf.Abs(rb.velocity.y) < 0.01f)
         {
-            canMove = false; // ½ûÓÃÒÆ¶¯
+            canMove = false; // ç¦ç”¨ç§»åŠ¨
         }
         else
         {
@@ -75,7 +79,7 @@ public class player_behaviors : MonoBehaviour
     private void HandleMovement()
     {
         xInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(xInput * moveSpeed * stop, rb.velocity.y);
         HandleJump();
     }
 
@@ -83,7 +87,7 @@ public class player_behaviors : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce * stop, ForceMode2D.Impulse);
         }
     }
 
@@ -127,9 +131,12 @@ public class player_behaviors : MonoBehaviour
 
     private void Flip()
     {
-        facingDir *= -1;
-        isFacingRight = !isFacingRight;
-        transform.Rotate(0, 180, 0);
+        if(stop == 1)
+        {
+            facingDir *= -1;
+            isFacingRight = !isFacingRight;
+            transform.Rotate(0, 180, 0);
+        }  
     }
 
     private void TurnCheck()

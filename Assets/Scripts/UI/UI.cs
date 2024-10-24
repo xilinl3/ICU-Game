@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
+    [SerializeField]public float amendment = 1f;
    //开始键
    public void Starting()
     {
@@ -22,14 +23,7 @@ public class UI : MonoBehaviour
     public void Continue()
     {
        GameObject.Find("Canvas").transform.Find("StopPage").gameObject.SetActive(false);
-       Time.timeScale = 1;
-        
-        // 启用玩家控制脚本
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-        {
-        player.GetComponent<player_behaviors>().enabled = true;
-        }
+       amendment = 1f;
     }
     //主页
     public void HomePage()
@@ -97,14 +91,8 @@ public class UI : MonoBehaviour
     public void StopGame()
     {
         GameObject pauseMenu = GameObject.Find("Canvas").transform.Find("StopPage").gameObject;
-        Time.timeScale = 0;
+        amendment = 0f;
         pauseMenu.SetActive(true);
-
-        GameObject player = GameObject.FindWithTag("Player");
-        if(player != null)
-        {
-            player.GetComponent<player_behaviors>().enabled = false;
-        }
     }
 }
 

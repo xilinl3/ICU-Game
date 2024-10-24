@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LightControl : MonoBehaviour
 {
-    public Sprite switchon;  // 开灯时的图片
-    public Sprite switchoff;  // 关灯时的图片
+    public Sprite switchonpic;  // 开灯时的图片
+    public Sprite switchoffpic;  // 关灯时的图片
     public ButtonRangeDetector buttonRangeDetector;
     public GameObject[] lights;
-    public bool lightsOn;  // 控制灯光开关的状态
+    public bool defaultswithon;  // 控制灯光开关的初始状态
     private SpriteRenderer spriteRenderer;  // 用于控制当前的Sprite
 
     void Start()
@@ -17,9 +16,8 @@ public class LightControl : MonoBehaviour
         // 获取SpriteRenderer组件
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // 设置初始的Sprite和灯光状态
-        spriteRenderer.sprite = lightsOn ? switchon : switchoff;
-        SetLightsActive(lightsOn);
+        // 设置初始的Sprite，不改变灯光的初始状态
+        SetInitialSpriteState();
     }
 
     void OnEnable()
@@ -48,23 +46,44 @@ public class LightControl : MonoBehaviour
         // 切换Sprite
         if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = lightsOn ? switchoff : switchon;
+            bool currentState = spriteRenderer.sprite == switchonpic;
+            spriteRenderer.sprite = currentState ? switchoffpic : switchonpic;
         }
 
         // 切换灯光状态
-        SetLightsActive(!lightsOn);
-        lightsOn = !lightsOn;
+        SetLightsActive();
     }
 
-    private void SetLightsActive(bool isActive)
+    private void SetLightsActive()
     {
         foreach (GameObject lightObj in lights)
         {
             if (lightObj != null)
             {
-                lightObj.SetActive(isActive);
-                //Debug.Log(lightObj.name + " is " + (isActive ? "on" : "off"));
+                // 切换灯光的相反状态
+                lightObj.SetActive(!lightObj.activeSelf);
             }
         }
     }
+
+    // 设置初始Sprite状态的方法（不改变灯光的状态）
+    private void SetInitialSpriteState()
+    {
+        bool anyLightOn = false;
+
+        // 检查是否有任何灯光是开启状态
+        foreach (GameObject lightObj in lights)
+        {
+            if (lightObj != null && lightObj.activeSelf)
+            {
+                anyLightOn = true;
+                break;
+            }
+        }
+
+        // 根据灯光的状态来设置初始Sprite
+        spriteRenderer.sprite = anyLightOn ? switchonpic : switchoffpic;
+    }
 }
+
+

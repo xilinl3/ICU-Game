@@ -109708,7 +109708,7 @@ Transform:
   m_GameObject: {fileID: 1969780025}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.11, y: -16.97, z: 0}
+  m_LocalPosition: {x: -15.89, y: 3.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -109723,10 +109723,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1969780025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dc7f8846096f0746b510cf4c53c45ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 3db6ec2511d665d4db70007f573d1c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IronBoxInstance: {fileID: 1969780025}
+  IronBoxInstance: {fileID: 576988751}
   targetSize: {x: 2, y: 2, z: 2}
   originalSize: {x: 0, y: 0, z: 0}
   shrinkSpeed: 2

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pedal : MonoBehaviour
 {
     public GameObject sceneLight; // 控制的灯光对象
+    private bool initialLightState; // 记录灯光的初始状态
     public bool boxOnPlate = false; // 是否有箱子或玩家在踏板上
 
     // 添加两个Sprite参数
@@ -16,12 +17,9 @@ public class Pedal : MonoBehaviour
 
     private void Start()
     {
-        // 初始关闭灯光对象
-        sceneLight.SetActive(false);
-
         // 获取当前物体的SpriteRenderer组件
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+
         // 获取当前物体的AudioSource组件
         PedalSound = GetComponent<AudioSource>();
 
@@ -30,18 +28,27 @@ public class Pedal : MonoBehaviour
         {
             spriteRenderer.sprite = defaultSprite;
         }
+
+        // 记录灯光的初始状态
+        if (sceneLight != null)
+        {
+            initialLightState = sceneLight.activeSelf;
+        }
     }
 
     // 当有物体进入踏板区域
     private void OnTriggerStay2D(Collider2D other)
     {
-        //Debug.Log("Object entered: " + other.gameObject.name);
-
         // 检测物体是否为带有pressbox标签的箱子或玩家
         if (other.CompareTag("WoodenBox") || other.CompareTag("Player") || other.CompareTag("IronBox"))
         {
             boxOnPlate = true;
-            sceneLight.SetActive(true); // 打开灯
+
+            // 根据灯光的初始状态切换灯光
+            if (sceneLight != null)
+            {
+                sceneLight.SetActive(!initialLightState); // 反转灯光状态
+            }
 
             // 切换到按下的踏板图片
             if (spriteRenderer != null && pressedSprite != null)
@@ -55,23 +62,22 @@ public class Pedal : MonoBehaviour
     // 当物体离开踏板区域
     private void OnTriggerExit2D(Collider2D other)
     {
-        //Debug.Log("Object Exit: " + other.gameObject.name);
-
         // 检测物体是否为带有pressbox标签的箱子或玩家
         if (other.CompareTag("WoodenBox") || other.CompareTag("Player") || other.CompareTag("IronBox"))
         {
             boxOnPlate = false;
-            sceneLight.SetActive(false); // 关闭灯
+
+            // 根据灯光的初始状态切换灯光
+            if (sceneLight != null)
+            {
+                sceneLight.SetActive(initialLightState); // 恢复灯光到初始状态
+            }
 
             // 切换回默认的踏板图片
             if (spriteRenderer != null && defaultSprite != null)
             {
                 spriteRenderer.sprite = defaultSprite;
             }
-
-            //Debug.Log("Pressbox left the plate, light is off.");
         }
     }
 }
-
-

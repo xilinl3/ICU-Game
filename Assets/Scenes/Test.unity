@@ -93820,14 +93820,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fce1a4824893a4f98d8d80282a3e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchon: {fileID: 21300000, guid: cc8d122874a91c44fb47831931d4f036, type: 3}
-  switchoff: {fileID: 21300000, guid: 0642beef79228924da58ed331f0721b4, type: 3}
+  switchonpic: {fileID: 0}
+  switchoffpic: {fileID: 0}
   buttonRangeDetector: {fileID: 956870307}
   lights:
   - {fileID: 1944700894}
   - {fileID: 904354235}
   - {fileID: 2035074556}
-  lightsOn: 1
+  defaultswithon: 0
 --- !u!212 &956870310
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -97199,14 +97199,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fce1a4824893a4f98d8d80282a3e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchon: {fileID: 21300000, guid: cc8d122874a91c44fb47831931d4f036, type: 3}
-  switchoff: {fileID: 21300000, guid: 0642beef79228924da58ed331f0721b4, type: 3}
+  switchonpic: {fileID: 0}
+  switchoffpic: {fileID: 0}
   buttonRangeDetector: {fileID: 1298972395}
   lights:
   - {fileID: 1944700894}
   - {fileID: 568848166}
   - {fileID: 904354235}
-  lightsOn: 1
+  defaultswithon: 0
 --- !u!212 &1298972398
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -2983,16 +2983,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 0, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 15
-      m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 2, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -3318,6 +3308,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 22
       m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -14, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 13
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4351,11 +4351,11 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 9250d24116a47a74fa090fb289a58036, type: 2}
   - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: 33f309193a2d0974780e1fc9cc116112, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 621ecb675ed55214b8e0a5909c476135, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 632d98a0787cb2d4b982778b659eaff2, type: 2}
-  - m_RefCount: 10
+  - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: bf60b14dd39420b49985bc22a1aa22aa, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: dd98838a2ff5cc44dbe4cff9316b8372, type: 2}
@@ -4376,7 +4376,7 @@ Tilemap:
     m_Data: {fileID: -1667859501, guid: 33284faa7063e1c42bec9ef03549af88, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -340942731, guid: 0f2db86580c106340add7b4d0f0ab4a1, type: 3}
-  - m_RefCount: 10
+  - m_RefCount: 9
     m_Data: {fileID: 955142725, guid: cdd084261c8391949ad22be5e5f53726, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 118411405, guid: dc86d2985845a9740b22ceddaa5ac0ac, type: 3}
@@ -4408,6 +4408,8 @@ Tilemap:
     m_Data: {fileID: 575236058, guid: cdd084261c8391949ad22be5e5f53726, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 24897753, guid: e376b317fec1bbc4b9d95b1dee1716f4, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 555459610, guid: 7acb6a9ca6471514b987c8a165832f30, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 411
     m_Data:
@@ -5616,7 +5618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122869275}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.9999764, w: -0.0068747452}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9999926, w: 0.0038480596}
   m_LocalPosition: {x: -1.6924953, y: 4.7486744, z: 42.578236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5752,10 +5754,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 37.12
-  m_PointLightOuterAngle: 37.12
+  m_PointLightInnerAngle: 39.54
+  m_PointLightOuterAngle: 39.54
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 11.075393
+  m_PointLightOuterRadius: 12.475947
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -67580,14 +67582,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fce1a4824893a4f98d8d80282a3e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchon: {fileID: 21300000, guid: 51b40c2c1624cf644b817800260791d3, type: 3}
-  switchoff: {fileID: 21300000, guid: 3cd066819ff4680498885bb8fac48c46, type: 3}
+  switchonpic: {fileID: 0}
+  switchoffpic: {fileID: 0}
   buttonRangeDetector: {fileID: 724165573}
   lights:
   - {fileID: 1227294183}
   - {fileID: 0}
   - {fileID: 0}
-  lightsOn: 1
+  defaultswithon: 0
 --- !u!212 &724165576
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -72575,14 +72577,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fce1a4824893a4f98d8d80282a3e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchon: {fileID: 21300000, guid: 51b40c2c1624cf644b817800260791d3, type: 3}
-  switchoff: {fileID: 21300000, guid: 3cd066819ff4680498885bb8fac48c46, type: 3}
+  switchonpic: {fileID: 0}
+  switchoffpic: {fileID: 0}
   buttonRangeDetector: {fileID: 1246544259}
   lights:
   - {fileID: 152528017}
   - {fileID: 0}
   - {fileID: 0}
-  lightsOn: 1
+  defaultswithon: 0
 --- !u!212 &1246544262
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88963,7 +88965,7 @@ Transform:
   m_GameObject: {fileID: 1750024342}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 117.16, y: 10.23, z: 0}
+  m_LocalPosition: {x: -2.85, y: -4.86, z: 0}
   m_LocalScale: {x: 0.71716, y: 0.71716, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children:

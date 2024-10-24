@@ -14,7 +14,6 @@ public class ButtonLight : MonoBehaviour
     };
 
     public int currentColorIndex = 0; // 当前颜色的索引
-    //public SpriteRenderer Display; // 用于显示的SpriteRenderer
     public Light2D sceneLight;     // Light2D组件
     public ButtonRangeDetector buttonRangeDetector;
 
@@ -24,16 +23,16 @@ public class ButtonLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // 获取 SpriteRenderer 组件
-        //Display.GetComponent<SpriteRenderer>();
-
         // 获取 Light2D 组件
         sceneLight.GetComponent<Light2D>();
 
-        // 设置初始颜色为白色
-        //Display.color = colorSequence[currentColorIndex];
-        sceneLight.color = colorSequence[currentColorIndex]; // 设置初始光源颜色
+        // 如果当前灯光颜色存在于颜色序列中，则设定相应的索引
+        SetCurrentColorIndex(sceneLight.color);
+
+        // 初始化灯光颜色
+        sceneLight.color = colorSequence[currentColorIndex];
     }
+
     void OnEnable()
     {
         // 订阅 F 键事件
@@ -51,21 +50,14 @@ public class ButtonLight : MonoBehaviour
         // 检查玩家是否在按钮范围内
         if (buttonRangeDetector != null && buttonRangeDetector.IsPlayerInRange())
         {
-            ColorLoop();  // 切换灯光和Sprite
+            ColorLoop();  // 切换灯光颜色
         }
-        //else
-        //{
-        //    Debug.Log("Player is not in range to toggle the lights.");
-        //}
     }
 
     void ColorLoop()
     {
         // 切换到下一个颜色
         currentColorIndex = (currentColorIndex + 1) % colorSequence.Length;
-
-        // 设置SpriteRenderer的颜色为当前颜色
-        //Display.color = colorSequence[currentColorIndex];
 
         // 设置Light2D的颜色为当前颜色
         sceneLight.color = colorSequence[currentColorIndex];
@@ -76,7 +68,28 @@ public class ButtonLight : MonoBehaviour
         }
     }
 
-    //重置颜色
+    // 通过比较当前颜色与颜色序列中的颜色来设置初始索引
+    private void SetCurrentColorIndex(Color currentColor)
+    {
+        for (int i = 0; i < colorSequence.Length; i++)
+        {
+            if (IsColorSimilar(currentColor, colorSequence[i], 0.01f))
+            {
+                currentColorIndex = i;
+                break;
+            }
+        }
+    }
+
+    // 判断两个颜色是否相似（防止精度问题导致的误差）
+    private bool IsColorSimilar(Color a, Color b, float tolerance)
+    {
+        return Mathf.Abs(a.r - b.r) < tolerance &&
+               Mathf.Abs(a.g - b.g) < tolerance &&
+               Mathf.Abs(a.b - b.b) < tolerance &&
+               Mathf.Abs(a.a - b.a) < tolerance;
+    }
+
     public void ResetColor()
     {
         currentColorIndex = 0;

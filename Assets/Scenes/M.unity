@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 55898912}
   - component: {fileID: 55898911}
   m_Layer: 0
-  m_Name: DisplayLight
+  m_Name: ButtonLight
   m_TagString: ButtonLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 55898909}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.9999926, w: 0.0038480596}
-  m_LocalPosition: {x: -14.77, y: 3.39, z: 42.578236}
+  m_LocalPosition: {x: -27.41, y: 1.44, z: 42.578236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5328,8 +5328,9 @@ GameObject:
   m_Component:
   - component: {fileID: 689365733}
   - component: {fileID: 689365734}
+  - component: {fileID: 689365735}
   m_Layer: 0
-  m_Name: "\u6563\u5149\u706F"
+  m_Name: ButtonLightSp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5391,7 +5392,7 @@ SpriteRenderer:
   m_SortingLayerID: -1988585787
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2cc1673b8e74f8645b26502ece00d1cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ce42c5c5cb2f804b995a467ca52014d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5402,6 +5403,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &689365735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689365732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990aec27c24698c4187155f50bfa73b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightWhite: {fileID: 21300000, guid: 2ce42c5c5cb2f804b995a467ca52014d, type: 3}
+  LightRed: {fileID: 21300000, guid: 2cc1673b8e74f8645b26502ece00d1cf, type: 3}
+  LightGreen: {fileID: 21300000, guid: 9465be87816ec3042821a1b6197bf7a0, type: 3}
+  LightBlue: {fileID: 21300000, guid: 9187b1939db7ab242b1cb7ac4c4018f5, type: 3}
+  TrackLight: {fileID: 55898909}
 --- !u!114 &705104412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93162,7 +93180,7 @@ GameObject:
   - component: {fileID: 984104654}
   - component: {fileID: 984104653}
   m_Layer: 0
-  m_Name: DisplayButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

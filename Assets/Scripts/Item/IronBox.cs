@@ -15,6 +15,7 @@ public class IronBox : MonoBehaviour
     private bool isinlight = false;
     private Vector3 initialPosition;  // 初始位置
     private bool ignoreLightChanges = false;// 是否忽略光照变化
+    private SpriteRenderer spriteRenderer;
 
     public enum BoxState
     {
@@ -30,6 +31,7 @@ public class IronBox : MonoBehaviour
         originalSize = IronBoxInstance.transform.localScale;  // 初始化原始大小
         initialPosition = IronBoxInstance.transform.position;  // 初始化初始位置
         SetBoxState(BoxState.Normal);  // 初始化为常态
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -189,6 +191,14 @@ public class IronBox : MonoBehaviour
     public void SetIgnoreLightChanges(bool ignore)
     {
         ignoreLightChanges = ignore;
+    }
+
+    public void ChangeBoxSprite(Sprite newSprite)
+    {
+        if (spriteRenderer != null && newSprite != null)
+        {
+            spriteRenderer.sprite = newSprite;
+        }
     }
 }
 

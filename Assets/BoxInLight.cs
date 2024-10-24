@@ -5,8 +5,12 @@ using UnityEngine.Rendering.Universal;
 
 public class BoxInLight : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> gameObjectList; // 用于存储进入的游戏对象
+    private List<GameObject> gameObjectList; // 用于存储进入的游戏对象
     private Light2D lightComponent; // 存储 Light2D 组件
+    [SerializeField] private Sprite BoxWhite;
+    [SerializeField] private Sprite BoxRed;
+    [SerializeField] private Sprite BoxGreen;
+    [SerializeField] private Sprite BoxBlue;
 
     void Start()
     {
@@ -62,14 +66,14 @@ public class BoxInLight : MonoBehaviour
                 IronBoxR ironBoxScript = other.GetComponent<IronBoxR>();
                 if (ironBoxScript != null)
                 {
-                    // 将状态重置为 Normal
+                    // 将状态重置为 Normal，并更改箱子的图片
                     ironBoxScript.SetBoxState(IronBoxR.BoxState.Normal);
+                    ironBoxScript.ChangeBoxSprite(BoxWhite);
                     Debug.Log("IronBox state reset to Normal and size reset to original");
                 }
             }
         }
     }
-
 
     private void ChangeBoxState()
     {
@@ -79,28 +83,30 @@ public class BoxInLight : MonoBehaviour
             IronBoxR ironBox = box.GetComponent<IronBoxR>();
             if (ironBox != null)
             {
-                // 根据灯光的颜色来设置铁箱的状态
+                // 根据灯光的颜色来设置铁箱的状态和图片
                 if (lightComponent.color == Color.green)
                 {
                     ironBox.SetBoxState(IronBoxR.BoxState.Light); // 绿色光，变轻
+                    ironBox.ChangeBoxSprite(BoxGreen); // 切换到绿色箱子图片
                 }
                 else if (lightComponent.color == Color.red)
                 {
                     ironBox.SetBoxState(IronBoxR.BoxState.Large); // 红色光，放大
+                    ironBox.ChangeBoxSprite(BoxRed); // 切换到红色箱子图片
                 }
                 else if (lightComponent.color == Color.blue)
                 {
                     ironBox.SetBoxState(IronBoxR.BoxState.Frozen); // 蓝色光，时停
+                    ironBox.ChangeBoxSprite(BoxBlue); // 切换到蓝色箱子图片
                 }
                 else
                 {
                     ironBox.SetBoxState(IronBoxR.BoxState.Normal); // 其他颜色，恢复常态
+                    ironBox.ChangeBoxSprite(BoxWhite); // 切换到白色箱子图片
                 }
                 Debug.Log($"Changed {box.name} state to {ironBox.GetCurrentState()}");
             }
         }
     }
 }
-
-
 

@@ -12,6 +12,7 @@ public class IronBoxR : MonoBehaviour
     public float shrinkSpeed = 2f; // 缩小速度
     private Vector3 initialPosition; // 初始位置
     private bool isInRed = false;
+    private SpriteRenderer spriteRenderer;
 
     public enum BoxState
     {
@@ -26,6 +27,7 @@ public class IronBoxR : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         originalSize = IronBoxInstance.transform.localScale; // 初始化原始大小
         initialPosition = IronBoxInstance.transform.position; // 初始化初始位置
         SetBoxState(BoxState.Normal); // 初始化为常态
@@ -106,6 +108,14 @@ public class IronBoxR : MonoBehaviour
         IronBoxInstance.transform.localScale = originalSize;  // 恢复初始大小
         IronBoxInstance.transform.position = initialPosition; // 恢复初始位置
         SetBoxState(BoxState.Normal);  // 恢复常态
+    }
+
+    public void ChangeBoxSprite(Sprite newSprite)
+    {
+        if (spriteRenderer != null && newSprite != null)
+        {
+            spriteRenderer.sprite = newSprite;
+        }
     }
 }
 

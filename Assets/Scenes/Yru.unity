@@ -4777,8 +4777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1566e6ec77ca340b42b49f5b9ce017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectList:
-  - {fileID: 1889698276}
+  gameObjectList: []
 --- !u!50 &14948901
 Rigidbody2D:
   serializedVersion: 4
@@ -69786,9 +69785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1566e6ec77ca340b42b49f5b9ce017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectList:
-  - {fileID: 1417270378}
-  - {fileID: 1950599487}
+  gameObjectList: []
 --- !u!1 &946771945
 GameObject:
   m_ObjectHideFlags: 0
@@ -71615,9 +71612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1566e6ec77ca340b42b49f5b9ce017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectList:
-  - {fileID: 1647262239}
-  - {fileID: 1746341793}
+  gameObjectList: []
 --- !u!1001 &1144628058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87247,8 +87242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1566e6ec77ca340b42b49f5b9ce017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectList:
-  - {fileID: 0}
+  gameObjectList: []
 --- !u!1001 &1511048433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93129,8 +93123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1566e6ec77ca340b42b49f5b9ce017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectList:
-  - {fileID: 428243533}
+  gameObjectList: []
 --- !u!1 &1980125386
 GameObject:
   m_ObjectHideFlags: 0

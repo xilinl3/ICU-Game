@@ -21,8 +21,15 @@ public class UI : MonoBehaviour
     //继续键
     public void Continue()
     {
-        GameObject.Find("Canvas").transform.Find("StopPage").gameObject.SetActive(false);
-        Time.timeScale = 1;  
+       GameObject.Find("Canvas").transform.Find("StopPage").gameObject.SetActive(false);
+       Time.timeScale = 1;
+        
+        // 启用玩家控制脚本
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+        player.GetComponent<player_behaviors>().enabled = true;
+        }
     }
     //主页
     public void HomePage()
@@ -86,4 +93,18 @@ public class UI : MonoBehaviour
             Debug.Log("HelpPage not found");
         }
     }
+    //暂停键
+    public void StopGame()
+    {
+        GameObject pauseMenu = GameObject.Find("Canvas").transform.Find("StopPage").gameObject;
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+
+        GameObject player = GameObject.FindWithTag("Player");
+        if(player != null)
+        {
+            player.GetComponent<player_behaviors>().enabled = false;
+        }
+    }
 }
+

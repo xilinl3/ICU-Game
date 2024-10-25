@@ -6,31 +6,44 @@ using UnityEngine.Rendering.Universal; // 引入Light2D的命名空间
 public class ButtonLight : MonoBehaviour
 {
     // 颜色循环序列
-    public Color32[] colorSequence = {
+    private Color32[] colorSequence = {
         new Color32(255, 255, 255, 255),  // 白色
         new Color32(255, 0, 0, 255),      // 红色
         new Color32(0, 255, 0, 255),      // 绿色
         new Color32(0, 0, 255, 255),      // 蓝色
     };
 
-    public int currentColorIndex = 0; // 当前颜色的索引
+    private int currentColorIndex = 0; // 当前颜色的索引
     public Light2D sceneLight;     // Light2D组件
     public ButtonRangeDetector buttonRangeDetector;
+    [SerializeField] private Sprite Buttondefault;
+    [SerializeField] private Sprite ButtonPress;
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private float pressDuration = 0.2f;
 
-    public delegate void OnButtonLightColorChange(Color newColor);
-    public static event OnButtonLightColorChange ButtonLightColorChanged;
-
-    // Start is called before the first frame update
     void Start()
     {
         // 获取 Light2D 组件
-        sceneLight.GetComponent<Light2D>();
+        if (sceneLight == null)
+        {
+            Debug.LogError("Scene Light is not assigned!");
+            return;
+        }
+
+        // 获取SpriteRenderer组件
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("SpriteRenderer component is missing!");
+            return;
+        }
 
         // 如果当前灯光颜色存在于颜色序列中，则设定相应的索引
         SetCurrentColorIndex(sceneLight.color);
 
         // 初始化灯光颜色
         sceneLight.color = colorSequence[currentColorIndex];
+        spriteRenderer.sprite = Buttondefault;
     }
 
     void OnEnable()
@@ -50,7 +63,26 @@ public class ButtonLight : MonoBehaviour
         // 检查玩家是否在按钮范围内
         if (buttonRangeDetector != null && buttonRangeDetector.IsPlayerInRange())
         {
+            StartCoroutine(SwitchButtonImage());
             ColorLoop();  // 切换灯光颜色
+        }
+    }
+
+    private IEnumerator SwitchButtonImage()
+    {
+        // 更改按钮为按下的图片
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = ButtonPress;
+        }
+
+        // 暂停一段时间
+        yield return new WaitForSeconds(pressDuration);
+
+        // 恢复按钮为默认图片
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = Buttondefault;
         }
     }
 
@@ -61,11 +93,6 @@ public class ButtonLight : MonoBehaviour
 
         // 设置Light2D的颜色为当前颜色
         sceneLight.color = colorSequence[currentColorIndex];
-
-        if (ButtonLightColorChanged != null)
-        {
-            ButtonLightColorChanged.Invoke(sceneLight.color);  // 通知监听者颜色变化
-        }
     }
 
     // 通过比较当前颜色与颜色序列中的颜色来设置初始索引
@@ -97,3 +124,4 @@ public class ButtonLight : MonoBehaviour
         sceneLight.color = colorSequence[currentColorIndex];
     }
 }
+

@@ -1,28 +1,28 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;  // 引入正确的命名空间
+using UnityEngine.Rendering.Universal; // 引入Light2D的命名空间
 
 public class LightColliderController : MonoBehaviour
 {
-    [SerializeField] private Light2D spotLight;  // 引用Light2D的Spot Light
+    private Light2D spotLight;  // 自动获取Light2D组件
     private PolygonCollider2D polygonCollider;   // 引用PolygonCollider2D
-    [SerializeField] private float rotationAngle;
+    private float rotationAngle;
     private float angleOffset = 0f;  // 可调节的角度偏移量
-
-    void Start()
-    {
-        // 获取PolygonCollider2D组件
-        polygonCollider = GetComponent<PolygonCollider2D>();
-
-        // 在游戏开始时一次性更新碰撞体形状
-        UpdateColliderShape();
-
-    }
 
     void Awake()
     {
+        // 获取PolygonCollider2D组件
+        polygonCollider = GetComponent<PolygonCollider2D>();
+        // 自动获取Light2D组件
+        spotLight = GetComponent<Light2D>();
+
+        if (spotLight == null)
+        {
+            Debug.LogError("Light2D component not found on this GameObject. Please attach a Light2D component.");
+            return; // 终止后续代码的执行
+        }
+
         // 获取Z轴旋转角度
         rotationAngle = spotLight.transform.eulerAngles.z;
         if (rotationAngle > 180f)
@@ -33,10 +33,16 @@ public class LightColliderController : MonoBehaviour
         CalangleOffset();
     }
 
+    void Start()
+    {
+        // 在游戏开始时一次性更新碰撞体形状
+        UpdateColliderShape();
+    }
+
     private void CalangleOffset()
     {
         if (rotationAngle < 0) { angleOffset = 90 - rotationAngle; }
-        if(rotationAngle > 0) { angleOffset = 90 - rotationAngle; }
+        if (rotationAngle > 0) { angleOffset = 90 - rotationAngle; }
         if (rotationAngle == 0) { angleOffset = 90; }
     }
 

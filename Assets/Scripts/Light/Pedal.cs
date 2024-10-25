@@ -54,9 +54,13 @@ public class Pedal : MonoBehaviour
             if (spriteRenderer != null && pressedSprite != null)
             {
                 spriteRenderer.sprite = pressedSprite;
-                PedalSound.Play(); // 播放踏板音效
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        PedalSound.Play(); // 播放踏板音效
     }
 
     // 当物体离开踏板区域

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
+    [SerializeField]public float amendment = 1f;
    //开始键
    public void Starting()
     {
@@ -21,8 +22,8 @@ public class UI : MonoBehaviour
     //继续键
     public void Continue()
     {
-        GameObject.Find("Canvas").transform.Find("StopPage").gameObject.SetActive(false);
-        Time.timeScale = 1;  
+       GameObject.Find("Canvas").transform.Find("StopPage").gameObject.SetActive(false);
+       amendment = 1f;
     }
     //主页
     public void HomePage()
@@ -86,4 +87,12 @@ public class UI : MonoBehaviour
             Debug.Log("HelpPage not found");
         }
     }
+    //暂停键
+    public void StopGame()
+    {
+        GameObject pauseMenu = GameObject.Find("Canvas").transform.Find("StopPage").gameObject;
+        amendment = 0f;
+        pauseMenu.SetActive(true);
+    }
 }
+

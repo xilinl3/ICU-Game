@@ -70915,6 +70915,7 @@ GameObject:
   - component: {fileID: 1000244397}
   - component: {fileID: 1000244396}
   - component: {fileID: 1000244395}
+  - component: {fileID: 1000244398}
   m_Layer: 0
   m_Name: Dead area 4
   m_TagString: DeadArea
@@ -71052,6 +71053,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1000244398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000244393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6adf7be6b83a040bacc4ab083c33da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPointTransform: {fileID: 0}
+  respawnDelay: 0.5
 --- !u!1 &1020335510
 GameObject:
   m_ObjectHideFlags: 0

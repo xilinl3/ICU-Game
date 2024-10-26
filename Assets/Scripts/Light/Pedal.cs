@@ -34,6 +34,7 @@ public class Pedal : MonoBehaviour
         {
             initialLightState = sceneLight.activeSelf;
         }
+
     }
 
     // 当有物体进入踏板区域
@@ -58,9 +59,12 @@ public class Pedal : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        PedalSound.Play(); // 播放踏板音效
+        if (other.CompareTag("WoodenBox") || other.CompareTag("Player") || other.CompareTag("IronBox"))
+        {
+            PedalSound.Play();
+        }
     }
 
     // 当物体离开踏板区域

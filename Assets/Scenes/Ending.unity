@@ -661,7 +661,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 82e8d1754a7001a4faf1bfb152cd297c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -965,8 +965,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u7B56\u5212\nYru\tRicardo\n\n\u7F8E\u672F\n\u7FBD\u6BDB\u7403\t\nMary
-    Zhou\tPb\t\u6BDB\u6BDB\t\u5C24\u91CC\u5361\n\n\u7A0B\u5E8F\n\u6728\u69FF\n\u68A6\u7F18\tShaCoZha\tTony\n\n\u97F3\u6548/\u97F3\u4E50\nAspedtra\n\u5C24\u5229\u897F\u65AF\n\u5976\u76D6\u751F\u714E\u5305\n\n\u8FD0\u8425\n\u4ED3\u9F20\t\u59DD\u7545\n\n\n\u7279\u522B\u611F\u8C22\nHoro-kok\nManson\n\n"
+  m_text: "\n\n\n\n\n\u9879\u76EE\u8D1F\u8D23\u4EBA\nYru\t\n\n\u5173\u5361\u7B56\u5212\nYru      
+    Ricardo\n\n\u7F8E\u672F\n\u7FBD\u6BDB\u7403\t\nMary Zhou\tPb\t\u6BDB\u6BDB\t\u5C24\u91CC\u5361\n\n\u4E3B\u7A0B\u5E8F\n\u6728\u69FF\n\n\u7A0B\u5E8F\n\u68A6\u7F18\tShaCoZha\tTony\n\n\u97F3\u6548/\u97F3\u4E50\nAspedtra\n\u5C24\u5229\u897F\u65AF\n\u5976\u76D6\u751F\u714E\u5305\n\n\u5BA3\u4F20&\u8FD0\u8425\nYru       
+    \u4ED3\u9F20\n\u59DD\u7545\n\n\n\u7279\u522B\u611F\u8C22\nHoro-kok\nManson\n0x3f3f3f\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8242c9a468bb03d478347cb831ce5bae, type: 2}
   m_sharedMaterial: {fileID: 5488206523053659419, guid: 8242c9a468bb03d478347cb831ce5bae, type: 2}
@@ -1607,7 +1608,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 256445876}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.19787447
+  m_Size: 0.13904703
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

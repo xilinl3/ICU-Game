@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player_behaviors : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private Animator anim;  
+    private Animator anim;
 
     private float stop;
 
@@ -19,6 +21,7 @@ public class player_behaviors : MonoBehaviour
     [SerializeField] private Transform groundCheck_mid;
     [SerializeField] private float groundCheckRadius = 0.1f;
     [SerializeField] private string[] groundTag;
+    [SerializeField] private TextMeshProUGUI cheeseCounterText;
 
     private float xInput;
     private bool isFacingRight = true;
@@ -30,11 +33,14 @@ public class player_behaviors : MonoBehaviour
 
     // 已收集的奶酪个数
     private int collectedCheese = 0;
+    [SerializeField] private int totalCheese = 10;
+    [SerializeField] private GameObject cheeseCollectionPanel;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        UpdateUI();
     }
 
     // Update is called once per frame
@@ -103,7 +109,8 @@ public class player_behaviors : MonoBehaviour
         onGround = false;
         foreach (Collider2D collider in colliderList)
         {
-            foreach (string gt in groundTag) {
+            foreach (string gt in groundTag)
+            {
                 if (collider.CompareTag(gt))
                 {
                     onGround = true;
@@ -131,12 +138,12 @@ public class player_behaviors : MonoBehaviour
 
     private void Flip()
     {
-        if(stop == 1)
+        if (stop == 1)
         {
             facingDir *= -1;
             isFacingRight = !isFacingRight;
             transform.Rotate(0, 180, 0);
-        }  
+        }
     }
 
     private void TurnCheck()
@@ -150,11 +157,38 @@ public class player_behaviors : MonoBehaviour
     public void CollectCheese()
     {
         collectedCheese += 1;
-        Debug.Log("Current Collected Cheese: " + collectedCheese);
+        //Debug.Log("Current Collected Cheese: " + collectedCheese);
+        UpdateUI();
+        StartCoroutine(ShowCheeseCollectionUI());
     }
 
     public int GetChessNum()
     {
         return collectedCheese;
+    }
+
+    public int GetTotalCheese()
+    {
+        return totalCheese;
+    }
+
+    private void UpdateUI()
+    {
+        if (cheeseCounterText != null)
+        {
+            cheeseCounterText.text = collectedCheese + "/" + totalCheese;
+        }
+    }
+
+    private IEnumerator ShowCheeseCollectionUI()
+    {
+        // 激活 UI 面板
+        cheeseCollectionPanel.SetActive(true);
+
+        // 等待 1 秒
+        yield return new WaitForSeconds(1f);
+
+        // 关闭 UI 面板
+        cheeseCollectionPanel.SetActive(false);
     }
 }

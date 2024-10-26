@@ -32,7 +32,7 @@ public class player_behaviors : MonoBehaviour
     private bool canMove = true;
 
     // 已收集的奶酪个数
-    private int collectedCheese = 0;
+    public int collectedCheese = 0;
     [SerializeField] private int totalCheese = 10;
     [SerializeField] private GameObject cheeseCollectionPanel;
 

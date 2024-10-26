@@ -4871,8 +4871,6 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 1247482447}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
-  Light: {fileID: 0}
-  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &8495521
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -66216,8 +66214,6 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 974395554}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
-  Light: {fileID: 0}
-  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &560265107
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -67134,6 +67130,7 @@ GameObject:
   - component: {fileID: 649425843}
   - component: {fileID: 649425842}
   - component: {fileID: 649425841}
+  - component: {fileID: 649425844}
   m_Layer: 0
   m_Name: peda6
   m_TagString: Untagged
@@ -67269,6 +67266,102 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &649425844
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649425839}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: cf3c29e822277ea4d872c5d3628ec045, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &665802478
 GameObject:
   m_ObjectHideFlags: 0
@@ -68330,7 +68423,7 @@ GameObject:
   - component: {fileID: 736288657}
   m_Layer: 0
   m_Name: Red Plat4
-  m_TagString: Ground
+  m_TagString: MovePlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70159,8 +70252,6 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 390195242}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
-  Light: {fileID: 0}
-  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &1000244397
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73211,8 +73302,6 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 1745124420}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
-  Light: {fileID: 0}
-  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &1346316205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86308,7 +86397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1540802752
 Transform:
   m_ObjectHideFlags: 0
@@ -90304,8 +90393,6 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 1892049622}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
-  Light: {fileID: 0}
-  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &1802293897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90470,8 +90557,6 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 718673632}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
-  Light: {fileID: 0}
-  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &1808146214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90968,10 +91053,11 @@ GameObject:
   - component: {fileID: 1880066615}
   - component: {fileID: 1880066614}
   - component: {fileID: 1880066613}
-  - component: {fileID: 1880066612}
+  - component: {fileID: 1880066617}
+  - component: {fileID: 1880066618}
   m_Layer: 0
   m_Name: blue move plat
-  m_TagString: Ground
+  m_TagString: MovePlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90992,21 +91078,6 @@ Transform:
   - {fileID: 1773677374}
   m_Father: {fileID: 63115298}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &1880066612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1880066610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40883480b7a3e1744859363bcdb0b5af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointA: {fileID: 1378643714}
-  pointB: {fileID: 1277474746}
-  speed: 2
 --- !u!114 &1880066613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91163,6 +91234,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1880066617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880066610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554dedf43c256a142be1eee7b9ddd246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointA: {fileID: 1378643714}
+  pointB: {fileID: 1277474746}
+  speed: 2
+--- !u!50 &1880066618
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880066610}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 2
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1889698276
 GameObject:
   m_ObjectHideFlags: 0
@@ -92774,8 +92887,6 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 683517710}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
-  Light: {fileID: 0}
-  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &2039786777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -94047,8 +94158,6 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 549539280}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
-  Light: {fileID: 0}
-  initialLightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &2145063821
 SpriteRenderer:
   m_ObjectHideFlags: 0

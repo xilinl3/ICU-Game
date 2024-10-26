@@ -29,7 +29,7 @@ public class player_behaviors : MonoBehaviour
     private bool canMove = true;
 
     // 已收集的奶酪个数
-    private int collectedCheese = 0; 
+    private int collectedCheese = 0;
 
     void Start()
     {
@@ -151,5 +151,10 @@ public class player_behaviors : MonoBehaviour
     {
         collectedCheese += 1;
         Debug.Log("Current Collected Cheese: " + collectedCheese);
+    }
+
+    public int GetChessNum()
+    {
+        return collectedCheese;
     }
 }

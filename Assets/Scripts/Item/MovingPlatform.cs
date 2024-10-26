@@ -28,4 +28,24 @@ public class MovingPlatform : MonoBehaviour
             target = (target == pointA.position) ? pointB.position : pointA.position;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Collide");
+        if (other.CompareTag("Ground"))
+        {
+            Debug.Log("Enter Ground");
+            speed = 0;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ground"))
+        {
+            Debug.Log("Exit Ground");
+            speed = 2f;
+        }
+    }
+
 }

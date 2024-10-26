@@ -47,7 +47,7 @@ public class BoxInLight : MonoBehaviour
             if (!gameObjectList.Contains(other.gameObject))
             {
                 gameObjectList.Add(other.gameObject);  // 将对象添加到列表中
-                Debug.Log(other.gameObject.name + " Add to list ");
+                //Debug.Log(other.gameObject.name + " Add to list ");
             }
         }
     }
@@ -60,7 +60,7 @@ public class BoxInLight : MonoBehaviour
             if (gameObjectList.Contains(other.gameObject))
             {
                 gameObjectList.Remove(other.gameObject);  // 将对象从列表中移除
-                Debug.Log(other.gameObject.name + " Remove from list");
+                //Debug.Log(other.gameObject.name + " Remove from list");
 
                 // 获取离开的 IronBoxR 脚本
                 IronBoxR ironBoxScript = other.GetComponent<IronBoxR>();
@@ -69,7 +69,7 @@ public class BoxInLight : MonoBehaviour
                     // 将状态重置为 Normal，并更改箱子的图片
                     ironBoxScript.SetBoxState(IronBoxR.BoxState.Normal);
                     ironBoxScript.ChangeBoxSprite(BoxWhite);
-                    Debug.Log("IronBox state reset to Normal and size reset to original");
+                    //Debug.Log("IronBox state reset to Normal and size reset to original");
                 }
             }
         }
@@ -104,7 +104,7 @@ public class BoxInLight : MonoBehaviour
                     ironBox.SetBoxState(IronBoxR.BoxState.Normal); // 其他颜色，恢复常态
                     ironBox.ChangeBoxSprite(BoxWhite); // 切换到白色箱子图片
                 }
-                Debug.Log($"Changed {box.name} state to {ironBox.GetCurrentState()}");
+                //Debug.Log($"Changed {box.name} state to {ironBox.GetCurrentState()}");
             }
         }
     }

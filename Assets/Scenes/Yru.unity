@@ -4925,6 +4925,112 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &25158097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 25158100}
+  - component: {fileID: 25158099}
+  - component: {fileID: 25158098}
+  m_Layer: 0
+  m_Name: "\u4E8C\u6781\u7BA1_0"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &25158098
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25158097}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a0a421ba6afde7e46a8be429e87bca00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!212 &25158099
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25158097}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1986346087
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1083015663, guid: 5644261d41d3e814fbfd996966a7ed0a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6.625, y: 3}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &25158100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25158097}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.19, y: 1.5, z: 0}
+  m_LocalScale: {x: 1.2514, y: 1.2639, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &36283006
 GameObject:
   m_ObjectHideFlags: 0
@@ -70119,7 +70225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6adf7be6b83a040bacc4ab083c33da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPointTransform: {fileID: 521527205}
+  IronTransform: {fileID: 0}
+  WoodenTransform: {fileID: 0}
   respawnDelay: 0.5
 --- !u!1001 &1000338415
 PrefabInstance:
@@ -90263,7 +90370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6adf7be6b83a040bacc4ab083c33da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPointTransform: {fileID: 1892049622}
+  IronTransform: {fileID: 0}
+  WoodenTransform: {fileID: 0}
   respawnDelay: 0.5
 --- !u!1 &1808146210
 GameObject:
@@ -90428,7 +90536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6adf7be6b83a040bacc4ab083c33da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPointTransform: {fileID: 1174856265}
+  IronTransform: {fileID: 0}
+  WoodenTransform: {fileID: 0}
   respawnDelay: 0.5
 --- !u!1001 &1810994723
 PrefabInstance:
@@ -92731,7 +92840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6adf7be6b83a040bacc4ab083c33da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPointTransform: {fileID: 113702743}
+  IronTransform: {fileID: 0}
+  WoodenTransform: {fileID: 0}
   respawnDelay: 0.5
 --- !u!1 &2040696560
 GameObject:
@@ -94003,7 +94113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6adf7be6b83a040bacc4ab083c33da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPointTransform: {fileID: 549539280}
+  IronTransform: {fileID: 0}
+  WoodenTransform: {fileID: 0}
   respawnDelay: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -94035,3 +94146,4 @@ SceneRoots:
   - {fileID: 1941547702}
   - {fileID: 1559218713}
   - {fileID: 929803889}
+  - {fileID: 25158100}

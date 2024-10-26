@@ -1,19 +1,23 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Achievement : MonoBehaviour
 {
+    public float duration = 1.5f; // 渐隐持续时间（秒）
+    public static Achievement instance;
+
     private float Chess;
     private GameObject prompts;
     private int ChessNumber;
     private CanvasGroup canvasGroup;
-    public float duration = 1.5f; // 渐隐持续时间
 
     private bool hasShownEatOne = false;
     private bool hasShownEatHalf = false;
     private bool hasShownEatLastOne = false;
     private bool hasShownEatAll = false;
     private bool hasShownDead = false;
+    private bool hasShownVolumeChange = false;
 
     private GameObject BlackScreen;
 
@@ -62,6 +66,12 @@ public class Achievement : MonoBehaviour
             StartCoroutine(ShowDeathAchievementWithDelay());
             hasShownDead = true;
         }
+        // 音量变化时显示成就
+        else if (Volume.instance.volumeChanged &&!hasShownVolumeChange)
+        {
+            ShowPrompt("Achievement/Volume");
+            hasShownVolumeChange = true;
+        }
     }
 
     private IEnumerator ShowDeathAchievementWithDelay()
@@ -70,21 +80,29 @@ public class Achievement : MonoBehaviour
         ShowPrompt("Achievement/Dead");
     }
 
-    private void ShowPrompt(string path)
+    public void ShowPrompt(string path)
+{
+    // 查找指定路径的成就提示对象
+    prompts = GameObject.Find("EarCanvas")?.transform.Find(path)?.gameObject;
+
+    if (prompts == null)
     {
-        // 通过路径找到对应成就提示
-        prompts = GameObject.Find("EarCanvas")?.transform.Find(path)?.gameObject;
-        if (prompts != null && canvasGroup != null)
-        {
-            prompts.SetActive(true);
-            canvasGroup.alpha = 1; // 初始化透明度
-            StartCoroutine(FadeOutAndDisableCanvas()); // 启动渐隐协程
-        }
-        else
-        {
-            Debug.LogError("Failed to find prompt or CanvasGroup.");
-        }
+        Debug.LogError($"Failed to find prompt at path: EarCanvas/{path}");
+        return;
     }
+
+    if (canvasGroup == null)
+    {
+        Debug.LogError("CanvasGroup not found on the EarCanvas. Please check if it exists.");
+        return;
+    }
+
+    // 激活成就提示对象并开始淡出效果
+    prompts.SetActive(true);
+    canvasGroup.alpha = 1; // 初始化透明度
+    StartCoroutine(FadeOutAndDisableCanvas()); // 启动渐隐协程
+}
+
 
     private IEnumerator FadeOutAndDisableCanvas()
     {

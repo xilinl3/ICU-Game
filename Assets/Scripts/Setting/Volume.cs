@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Volume : MonoBehaviour
 {
     public static Volume instance;
+    private float initialVolume;
+    public bool volumeChanged = false;
 
     private void Awake()
     {
@@ -23,6 +25,10 @@ public class Volume : MonoBehaviour
     // 设置音量
     public void SetVolume(float volume)
     {
+        if (initialVolume != volume)
+        {
+            volumeChanged = true; // 检测到音量变化
+        }
         AudioListener.volume = volume;
         PlayerPrefs.SetFloat("gameVolume", volume); // 保存音量设置
         PlayerPrefs.Save();
@@ -36,7 +42,8 @@ public class Volume : MonoBehaviour
 
     private void Start()
     {
+        initialVolume = GetVolume();
         // 每次启动时恢复之前的音量设置
-        AudioListener.volume = GetVolume();
+        AudioListener.volume = initialVolume;
     }
 }

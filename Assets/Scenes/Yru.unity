@@ -8291,7 +8291,7 @@ Transform:
   m_GameObject: {fileID: 274831162}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.98, y: 0, z: 0}
+  m_LocalPosition: {x: 0.88, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64843,6 +64843,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 578988820}
+  - {fileID: 2059823109}
   - {fileID: 252330064}
   m_Father: {fileID: 1695065304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64858,7 +64859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6adf7be6b83a040bacc4ab083c33da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IronTransform: {fileID: 578988820}
+  IronTransform: {fileID: 2059823109}
   WoodenTransform: {fileID: 578988820}
   respawnDelay: 0.5
 --- !u!61 &336211785
@@ -67404,7 +67405,7 @@ Transform:
   m_GameObject: {fileID: 578988819}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.175, y: 2.22, z: -0.08870376}
+  m_LocalPosition: {x: -0.23, y: 1.97, z: -0.08870376}
   m_LocalScale: {x: 0.057503376, y: 0.45403042, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -93851,7 +93852,7 @@ Transform:
   m_GameObject: {fileID: 1812895794}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.55, y: 0, z: 0}
+  m_LocalPosition: {x: 11.51, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -96645,6 +96646,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7ca1b32153583b478261b1fa7889d29, type: 3}
+--- !u!1 &2059823108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059823109}
+  m_Layer: 0
+  m_Name: Spawnarea box (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2059823109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059823108}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.221, y: 3.95, z: -0.08870376}
+  m_LocalScale: {x: 0.057503376, y: 0.45403042, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 336211783}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060397807
 GameObject:
   m_ObjectHideFlags: 0

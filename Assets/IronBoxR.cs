@@ -57,8 +57,7 @@ public class IronBoxR : MonoBehaviour
         switch (newState)
         {
             case BoxState.Normal:
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation; // 解除所有位置的锁定，仅锁定旋转
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 rb.gravityScale = 1f; // 恢复重力
                 isInRed = false;
                 //Debug.Log($"Switched to Normal state. IsInAir: {IsInAir()}");
@@ -69,6 +68,7 @@ public class IronBoxR : MonoBehaviour
                 isInRed = false;
                 break;
             case BoxState.Large:
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 isInRed = true;
                 break;
             case BoxState.Frozen:

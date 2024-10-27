@@ -17,13 +17,7 @@ public class ColoredGround : MonoBehaviour
     {
         //Debug.Log("正在切换平台 " + state);
         groundRenderer.enabled = state;
-
-        // 遍历禁用/启用所有的 BoxCollider2D 组件
-        BoxCollider2D[] colliders = GetComponents<BoxCollider2D>();
-        foreach (BoxCollider2D collider in colliders)
-        {
-            collider.enabled = state;
-        }
+        boxCollider2d.enabled = state;
     }
 
     private bool ColorsAreSimilar(Color color1, Color color2, float tolerance)

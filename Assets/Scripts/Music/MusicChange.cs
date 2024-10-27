@@ -31,7 +31,7 @@ public class MusicChange : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other. CompareTag("Player"))
+        if(other.CompareTag("Player"))
         {
             isPlayerInRoom = true;
             Debug.Log("Player in room");
@@ -39,7 +39,7 @@ public class MusicChange : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other. CompareTag("Player"))
+        if(other.CompareTag("Player"))
         {
             isPlayerInRoom = false;
             Debug.Log("Player leave room");

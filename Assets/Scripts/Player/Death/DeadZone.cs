@@ -49,12 +49,20 @@ public class DeadZone : MonoBehaviour
         BlackScreen.SetActive(true); // 显示黑屏
         yield return new WaitForSeconds(respawnDelay);
 
+        // 重置玩家的速度
+        Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+        if (playerRb != null)
+        {
+            playerRb.velocity = Vector2.zero; // 重置速度
+        }
+
         // 将玩家传送到指定的复活点位置
         player.transform.position = respawnPointTransform.position;
 
         BlackScreen.SetActive(false); // 隐藏黑屏
-        Debug.Log("玩家已传送到复活点：" + respawnPointTransform.position);
+        //Debug.Log("玩家已传送到复活点：" + respawnPointTransform.position);
     }
+
 }
 
 

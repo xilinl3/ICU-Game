@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7896739931851858504}
   - component: {fileID: 7764733556683991181}
   - component: {fileID: 1594535717493945127}
-  - component: {fileID: 775506600241514225}
+  - component: {fileID: 4702220306031751464}
   m_Layer: 0
   m_Name: Food
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1988585787
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 32aee3635abe4d4478887c0a21b3d518, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103158535455663668}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -113,62 +113,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &775506600241514225
-PolygonCollider2D:
+--- !u!114 &4702220306031751464
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103158535455663668}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16.68, y: 16.68}
-    newSize: {x: 16.68, y: 16.68}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -3.5657845, y: 8.335167}
-      - {x: -3.5908759, y: 7.1781926}
-      - {x: -4.7799997, y: 7.1499996}
-      - {x: -4.767285, y: -5.4123964}
-      - {x: -4.757012, y: -5.822292}
-      - {x: -4.776472, y: -7.138381}
-      - {x: -3.5655196, y: -7.1405163}
-      - {x: -3.6399999, y: -8.34}
-      - {x: 3.5619516, y: -8.349076}
-      - {x: 3.5872688, y: -7.145192}
-      - {x: 4.7799997, y: -7.123963}
-      - {x: 4.8262634, y: 7.1640997}
-      - {x: 3.5911841, y: 7.174582}
-      - {x: 3.6499999, y: 8.34}
-  m_UseDelaunayMesh: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725a23aff676d8842b2d9db82a3300f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicList:
+  - {fileID: 8300000, guid: 69c5dcc4c3d71d74ea356af3f2ad5d9d, type: 3}
+  - {fileID: 8300000, guid: 45d6c94fa6fa2bb4aa131433a6695d53, type: 3}
+  - {fileID: 8300000, guid: 7feabbe86722b79419ec9537ce2f27f2, type: 3}
+  - {fileID: 8300000, guid: 82e8d1754a7001a4faf1bfb152cd297c, type: 3}

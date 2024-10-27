@@ -109,9 +109,10 @@ public class player_behaviors : MonoBehaviour
         onGround = false;
         foreach (Collider2D collider in colliderList)
         {
+            // 检查 collider 是否在 groundTag 列表中，并且 isTrigger 不是 true
             foreach (string gt in groundTag)
             {
-                if (collider.CompareTag(gt))
+                if (collider.CompareTag(gt) && !collider.isTrigger)
                 {
                     onGround = true;
                     break;

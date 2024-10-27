@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement; // 引入SceneManager命名空间
 
 public class CgTrigger : MonoBehaviour
 {
-    [SerializeField] private int cheesecheck;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

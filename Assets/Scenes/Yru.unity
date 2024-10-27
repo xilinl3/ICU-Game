@@ -4111,6 +4111,7 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 1247482447}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
+  deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
 --- !u!212 &8495521
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5872,7 +5873,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLight: {fileID: 643164176}
-  boxOnPlate: 0
   defaultSprite: {fileID: 21300000, guid: e0de39c72bc4dc646a858826c28c7df5, type: 3}
   pressedSprite: {fileID: 21300000, guid: a7384a5ab878c7047bd1d9b4c6d808f5, type: 3}
 --- !u!212 &123494788
@@ -66054,6 +66054,7 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 252330064}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
+  deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
 --- !u!212 &336211787
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -68904,7 +68905,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLight: {fileID: 871105359}
-  boxOnPlate: 0
   defaultSprite: {fileID: 21300000, guid: e0de39c72bc4dc646a858826c28c7df5, type: 3}
   pressedSprite: {fileID: 21300000, guid: a7384a5ab878c7047bd1d9b4c6d808f5, type: 3}
 --- !u!212 &592635903
@@ -69768,7 +69768,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLight: {fileID: 623672571}
-  boxOnPlate: 0
   defaultSprite: {fileID: 21300000, guid: e0de39c72bc4dc646a858826c28c7df5, type: 3}
   pressedSprite: {fileID: 21300000, guid: a7384a5ab878c7047bd1d9b4c6d808f5, type: 3}
 --- !u!212 &649425843
@@ -73844,7 +73843,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949908705}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dd8aa0d579812248bbb3ea7171c0097, type: 3}
   m_Name: 
@@ -74451,6 +74450,7 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 390195242}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
+  deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
 --- !u!212 &1000244397
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -78530,6 +78530,7 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 1745124420}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
+  deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
 --- !u!212 &1346316205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -79023,7 +79024,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLight: {fileID: 628349035}
-  boxOnPlate: 0
   defaultSprite: {fileID: 21300000, guid: e0de39c72bc4dc646a858826c28c7df5, type: 3}
   pressedSprite: {fileID: 21300000, guid: a7384a5ab878c7047bd1d9b4c6d808f5, type: 3}
 --- !u!212 &1357626235
@@ -95311,7 +95311,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLight: {fileID: 1698099762}
-  boxOnPlate: 0
   defaultSprite: {fileID: 21300000, guid: e0de39c72bc4dc646a858826c28c7df5, type: 3}
   pressedSprite: {fileID: 21300000, guid: a7384a5ab878c7047bd1d9b4c6d808f5, type: 3}
 --- !u!212 &1668558290
@@ -95675,6 +95674,7 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 683517710}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
+  deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
 --- !u!212 &1694329371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -97801,6 +97801,7 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 1892049622}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
+  deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
 --- !u!212 &1802293897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -97966,6 +97967,7 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 718673632}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
+  deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
 --- !u!212 &1808146214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99725,7 +99727,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLight: {fileID: 1374661712}
-  boxOnPlate: 0
   defaultSprite: {fileID: 21300000, guid: e0de39c72bc4dc646a858826c28c7df5, type: 3}
   pressedSprite: {fileID: 21300000, guid: a7384a5ab878c7047bd1d9b4c6d808f5, type: 3}
 --- !u!212 &1930185536
@@ -101305,6 +101306,7 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 683517710}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
+  deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
 --- !u!212 &2039786777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -102774,6 +102776,7 @@ MonoBehaviour:
   respawnPointTransform: {fileID: 549539280}
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
+  deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
 --- !u!212 &2145063821
 SpriteRenderer:
   m_ObjectHideFlags: 0

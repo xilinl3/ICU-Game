@@ -54,26 +54,30 @@ public class IronBoxR : MonoBehaviour
     public void SetBoxState(BoxState newState)
     {
         currentState = newState;
-        //Debug.Log($"IronBox state changed to: {newState}");
         switch (newState)
         {
             case BoxState.Normal:
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation; // 解除所有位置的锁定，仅锁定旋转
+                rb.gravityScale = 1f; // 恢复重力
                 isInRed = false;
+                Debug.Log($"Switched to Normal state. IsInAir: {IsInAir()}");
                 break;
             case BoxState.Light:
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation; // 变轻，可推动
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                rb.gravityScale = 0.5f; // 轻量化的效果（示例）
                 isInRed = false;
                 break;
             case BoxState.Large:
-                isInRed = true;  // 标记进入红光
+                isInRed = true;
                 break;
             case BoxState.Frozen:
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                rb.constraints = RigidbodyConstraints2D.FreezeAll; // 冻结所有移动和旋转
+                rb.gravityScale = 0f; // 禁用重力
                 isInRed = false;
                 break;
         }
     }
+
 
     // 放大铁箱的方法（协程）
     void ShrinkRedbox()
@@ -116,6 +120,17 @@ public class IronBoxR : MonoBehaviour
         {
             spriteRenderer.sprite = newSprite;
         }
+    }
+
+    private bool IsInAir()
+    {
+        // 从箱子底部向下发射一条短射线，检测是否有地面
+        float rayLength = 0.1f;
+        Vector2 rayOrigin = new Vector2(transform.position.x, transform.position.y - 0.5f);
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength);
+
+        // 如果射线没有击中地面，则认为在空中
+        return hit.collider == null;
     }
 }
 

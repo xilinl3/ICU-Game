@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: 1cbbf01632248ea438f4110c0625e49d
+  - enabled: 1
+    path: Assets/Scenes/AwakeCg.unity
+    guid: ab9b1bfb475c3c94da7146bf85f75009
   m_configObjects: {}

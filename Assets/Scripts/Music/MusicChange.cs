@@ -93,5 +93,13 @@ public class MusicChange : MonoBehaviour
             musicUIList[currentMusicIndex].SetActive(true);
         }
     }
-}
 
+    // 关闭所有MusicList中的UI子对象
+    public void CloseAllUI()
+    {
+        foreach (var uiElement in musicUIList)
+        {
+            uiElement.SetActive(false);
+        }
+    }
+}

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MusicRoom : MonoBehaviour
 {
-    private AudioSource audioSource;
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-           MusicChange musicChange = GameObject.FindObjectOfType<MusicChange>();
-           if(musicChange != null)
-           {
-               musicChange.ResetMusic();
-           }
+            MusicChange musicChange = GameObject.FindObjectOfType<MusicChange>();
+            if (musicChange != null)
+            {
+                musicChange.ResetMusic();
+                musicChange.CloseAllUI(); // 关闭所有MusicList中的UI子对象
+            }
         }
     }
 }

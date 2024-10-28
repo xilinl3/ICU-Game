@@ -90129,7 +90129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 179176564}
   stopPage: {fileID: 131381559}
-  minute: 11
+  minute: 0
 --- !u!1 &956315454
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,7 +98,7 @@ public class player_behaviors : MonoBehaviour
             xInput = joystick.Horizontal;
 
             // 确保xInput只处理左右移动，如果上下的移动被误操作导致输入，强制其为0
-            if (Mathf.Abs(joystick.Vertical) > 0.1f)
+            if (Mathf.Abs(joystick.Vertical) > 0.8f)
             {
                 xInput = 0;
             }

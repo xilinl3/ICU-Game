@@ -38,6 +38,7 @@ public class player_behaviors : MonoBehaviour
     public int collectedCheese = 0;
     [SerializeField] public int totalCheese = 10;
     [SerializeField] private GameObject cheeseCollectionPanel;
+    public bool isMobile = false;
 
     private void Awake()
     {
@@ -92,9 +93,22 @@ public class player_behaviors : MonoBehaviour
 
     private void HandleMovement()
     {
-        xInput = Input.GetAxisRaw("Horizontal");
+        if (isMobile)
+        {
+            xInput = joystick.Horizontal;
 
-        
+            // 确保xInput只处理左右移动，如果上下的移动被误操作导致输入，强制其为0
+            if (Mathf.Abs(joystick.Vertical) > 0.1f)
+            {
+                xInput = 0;
+            }
+        }
+        else
+        {
+            xInput = Input.GetAxisRaw("Horizontal");
+        }
+
+
         rb.velocity = new Vector2(xInput * moveSpeed * stop, rb.velocity.y);
         HandleJump();
     }

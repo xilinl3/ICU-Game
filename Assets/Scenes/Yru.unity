@@ -86383,7 +86383,7 @@ GameObject:
   - component: {fileID: 748011598}
   - component: {fileID: 748011597}
   m_Layer: 0
-  m_Name: MusicRoom
+  m_Name: MusicRoom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

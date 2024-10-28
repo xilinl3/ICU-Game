@@ -5,16 +5,18 @@ using UnityEngine.UI;
 
 public class Volume : MonoBehaviour
 {
-    public static Volume instance;
+    public static Volume Instance { get; private set; }
     private float initialVolume;
-    public bool volumeChanged = false;
+    private bool volumeChanged = false;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject); // 确保切换场景时不销毁
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            initialVolume = GetVolume();
+            AudioListener.volume = initialVolume;
         }
         else
         {
@@ -22,28 +24,21 @@ public class Volume : MonoBehaviour
         }
     }
 
-    // 设置音量
     public void SetVolume(float volume)
     {
-        if (initialVolume != volume)
-        {
-            volumeChanged = true; // 检测到音量变化
-        }
+        if (Mathf.Approximately(initialVolume, volume)) return;
+
+        volumeChanged = true;
         AudioListener.volume = volume;
-        PlayerPrefs.SetFloat("gameVolume", volume); // 保存音量设置
+        initialVolume = volume;
+
+        // 只有当音量变化时才存储
+        PlayerPrefs.SetFloat("gameVolume", volume);
         PlayerPrefs.Save();
     }
 
-    // 获取当前音量
     public float GetVolume()
     {
-        return PlayerPrefs.GetFloat("gameVolume", 1f); // 默认音量为1
-    }
-
-    private void Start()
-    {
-        initialVolume = GetVolume();
-        // 每次启动时恢复之前的音量设置
-        AudioListener.volume = initialVolume;
+        return PlayerPrefs.GetFloat("gameVolume", 1f);
     }
 }

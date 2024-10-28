@@ -8,7 +8,6 @@ public class DeadZone : MonoBehaviour
     [SerializeField] private float respawnDelay = 2f; // 可调整的延迟时间
     [SerializeField] public GameObject BlackScreen; // 黑屏对象
     [SerializeField] private AudioClip deathSound; // 死亡音效
-    [SerializeField] public float DeadNumber = 0; // 死亡次数
 
     private AudioSource audioSource;
 
@@ -34,7 +33,6 @@ public class DeadZone : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            DeadNumber++;
             // 开始协程，在延迟时间后传送玩家
             StartCoroutine(RespawnPlayerAfterDelay(collision));
         }

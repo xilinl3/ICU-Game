@@ -22,6 +22,8 @@ public class player_behaviors : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.1f;
     [SerializeField] private string[] groundTag;
     [SerializeField] private TextMeshProUGUI cheeseCounterText;
+    [SerializeField] private float jumpCooldown = 0.2f; // 跳跃冷却时间
+    private float lastJumpTime = 0f; // 上一次跳跃的时间
 
     private float xInput;
     private bool isFacingRight = true;
@@ -91,9 +93,16 @@ public class player_behaviors : MonoBehaviour
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && onGround)
+        if (Input.GetKeyDown(KeyCode.Space) && onGround && Time.time - lastJumpTime >= jumpCooldown)
         {
+            // 重置垂直速度，防止跳跃叠加
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
+
+            // 添加跳跃力
             rb.AddForce(Vector2.up * jumpForce * stop, ForceMode2D.Impulse);
+
+            // 更新上一次跳跃的时间
+            lastJumpTime = Time.time;
         }
     }
 

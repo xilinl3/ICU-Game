@@ -30,7 +30,7 @@ public class Achievement : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         ChessNumber = GameObject.FindWithTag("Player")?.GetComponent<player_behaviors>()?.totalCheese ?? 0;
         canvasGroup = GameObject.Find("EarCanvas")?.GetComponent<CanvasGroup>();
         BlackScreen = GameObject.Find("Canvas").transform.Find("BlackScreen")?.gameObject;

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class VideoEndHandler : MonoBehaviour
 {
     private VideoPlayer videoPlayer; // 引用 VideoPlayer 组件
-    private string nextSceneName = "ending"; // 要跳转的场景名称
+    private string nextSceneName = "Yru"; // 要跳转的场景名称
 
     void Start()
     {

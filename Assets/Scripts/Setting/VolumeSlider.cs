@@ -7,12 +7,12 @@ public class VolumeSlider : MonoBehaviour
 
     private void Start()
     {
-        volumeSlider.value = Volume.instance.GetVolume(); // 初始化滑动条值
+        volumeSlider.value = Volume.Instance.GetVolume(); // 初始化滑动条值
         volumeSlider.onValueChanged.AddListener(SetVolume);
     }
 
     private void SetVolume(float value)
     {
-        Volume.instance.SetVolume(value);
+        Volume.Instance.SetVolume(value);
     }
 }

@@ -16,6 +16,7 @@ TagManager:
   - NormalLight
   - Light
   - MovePlatform
+  - Mobile
   layers:
   - Default
   - TransparentFX

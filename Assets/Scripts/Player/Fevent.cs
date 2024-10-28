@@ -7,7 +7,7 @@ public class Fevent : MonoBehaviour
 {
     public static event Action OnFKeyPressed;
 
-    private void Awake()
+    public void EnterMobile()
     {
         FindFirstObjectByType<UIInteraction>().UpdatePlayersRef(this);
     }

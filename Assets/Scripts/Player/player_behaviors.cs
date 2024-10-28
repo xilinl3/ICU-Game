@@ -40,10 +40,11 @@ public class player_behaviors : MonoBehaviour
     [SerializeField] private GameObject cheeseCollectionPanel;
     public bool isMobile = false;
 
-    private void Awake()
+    public void EnterMobile()
     {
         FindFirstObjectByType<UIJumpButton>().UpdatePlayersRef(this);
         joystick = FindFirstObjectByType<Joystick>();
+        isMobile = true;
     }
     void Start()
     {

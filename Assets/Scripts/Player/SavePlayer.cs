@@ -9,9 +9,10 @@ public class SavePlayer : MonoBehaviour
     private Vector2 lastPosition;
     private bool isStuck;
 
-    private void Awake()
+
+    public void EnterMobile()
     {
-        FindFirstObjectByType<PlayerReload>().UpdatePlayersRef(this);
+         FindFirstObjectByType<PlayerReload>().UpdatePlayersRef(this);
     }
 
     void Start()

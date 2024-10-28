@@ -9,7 +9,10 @@ public class SavePlayer : MonoBehaviour
     private Vector2 lastPosition;
     private bool isStuck;
 
-
+    private void Awake()
+    {
+        FindFirstObjectByType<PlayerReload>().UpdatePlayersRef(this);
+    }
 
     void Start()
     {
@@ -29,6 +32,15 @@ public class SavePlayer : MonoBehaviour
             {
                 UnstuckPlayer();
             }
+        }
+    }
+
+    public void UICheck()
+    {
+        CheckIfStillStuck();
+        if (isStuck)
+        {
+            UnstuckPlayer();
         }
     }
 

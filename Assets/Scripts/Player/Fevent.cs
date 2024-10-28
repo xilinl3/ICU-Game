@@ -7,6 +7,11 @@ public class Fevent : MonoBehaviour
 {
     public static event Action OnFKeyPressed;
 
+    private void Awake()
+    {
+        FindFirstObjectByType<UIInteraction>().UpdatePlayersRef(this);
+    }
+
     void Update()
     {
         // 检测玩家是否按下了 F 键
@@ -17,6 +22,14 @@ public class Fevent : MonoBehaviour
             {
                 OnFKeyPressed.Invoke();
             }
+        }
+    }
+
+    public void UIInteraction()
+    {
+        if (OnFKeyPressed != null)
+        {
+            OnFKeyPressed.Invoke();
         }
     }
 }

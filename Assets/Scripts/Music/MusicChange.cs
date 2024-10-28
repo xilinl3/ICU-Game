@@ -51,4 +51,14 @@ public class MusicChange : MonoBehaviour
         audioSource.clip = musicList[currentMusicIndex];
         audioSource.Play();
     }
+
+    public void RestMusic()
+    {
+        currentMusicIndex = 0;
+        if(musicList.Count > 0)
+        {
+            audioSource.clip = musicList[currentMusicIndex];
+            audioSource.Play();
+        }
+    }
 }

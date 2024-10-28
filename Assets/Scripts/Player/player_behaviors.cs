@@ -115,14 +115,17 @@ public class player_behaviors : MonoBehaviour
 
     public void HandleUIJump()
     {
-        // 重置垂直速度，防止跳跃叠加
-        rb.velocity = new Vector2(rb.velocity.x, 0f);
+        if (onGround && Time.time - lastJumpTime >= jumpCooldown)
+        {
+            // 重置垂直速度，防止跳跃叠加
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
 
-        // 添加跳跃力
-        rb.AddForce(Vector2.up * jumpForce * stop, ForceMode2D.Impulse);
+            // 添加跳跃力
+            rb.AddForce(Vector2.up * jumpForce * stop, ForceMode2D.Impulse);
 
-        // 更新上一次跳跃的时间
-        lastJumpTime = Time.time;
+            // 更新上一次跳跃的时间
+            lastJumpTime = Time.time;
+        }
     }
     public void HandleJump()
     {

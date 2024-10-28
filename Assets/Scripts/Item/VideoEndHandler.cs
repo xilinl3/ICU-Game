@@ -6,7 +6,7 @@ public class VideoEndHandler : MonoBehaviour
 {
     private VideoPlayer videoPlayer; // 引用 VideoPlayer 组件
     private AudioSource audioSource; // 引用 AudioSource 组件
-    private string nextSceneName = "Yru"; // 要跳转的场景名称
+    private string nextSceneName = "MainMenu"; // 要跳转的场景名称
 
     void Start()
     {

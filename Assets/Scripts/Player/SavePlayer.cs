@@ -9,6 +9,8 @@ public class SavePlayer : MonoBehaviour
     private Vector2 lastPosition;
     private bool isStuck;
 
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

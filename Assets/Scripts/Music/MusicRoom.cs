@@ -12,7 +12,7 @@ public class MusicRoom : MonoBehaviour
            MusicChange musicChange = GameObject.FindObjectOfType<MusicChange>();
            if(musicChange != null)
            {
-               musicChange.RestMusic();
+               musicChange.ResetMusic();
            }
         }
     }

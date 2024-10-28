@@ -93965,6 +93965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 4
+  audioSource: {fileID: 1236876125}
 --- !u!4 &1236876124
 Transform:
   m_ObjectHideFlags: 0

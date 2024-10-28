@@ -7,7 +7,7 @@ public class Volume : MonoBehaviour
 {
     public static Volume Instance { get; private set; }
     private float initialVolume;
-    private bool volumeChanged = false;
+    public bool volumeChanged = false;
 
     private void Awake()
     {

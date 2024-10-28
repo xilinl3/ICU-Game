@@ -25,6 +25,7 @@ public class player_behaviors : MonoBehaviour
     [SerializeField] private float jumpCooldown = 0.2f; // 跳跃冷却时间
     private float lastJumpTime = 0f; // 上一次跳跃的时间
 
+    private Joystick joystick;
     private float xInput;
     private bool isFacingRight = true;
     private int facingDir = 1;
@@ -38,6 +39,11 @@ public class player_behaviors : MonoBehaviour
     [SerializeField] public int totalCheese = 10;
     [SerializeField] private GameObject cheeseCollectionPanel;
 
+    private void Awake()
+    {
+        FindFirstObjectByType<UIJumpButton>().UpdatePlayersRef(this);
+        joystick = FindFirstObjectByType<Joystick>();
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -87,11 +93,24 @@ public class player_behaviors : MonoBehaviour
     private void HandleMovement()
     {
         xInput = Input.GetAxisRaw("Horizontal");
+
+        
         rb.velocity = new Vector2(xInput * moveSpeed * stop, rb.velocity.y);
         HandleJump();
     }
 
-    private void HandleJump()
+    public void HandleUIJump()
+    {
+        // 重置垂直速度，防止跳跃叠加
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
+
+        // 添加跳跃力
+        rb.AddForce(Vector2.up * jumpForce * stop, ForceMode2D.Impulse);
+
+        // 更新上一次跳跃的时间
+        lastJumpTime = Time.time;
+    }
+    public void HandleJump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && onGround && Time.time - lastJumpTime >= jumpCooldown)
         {

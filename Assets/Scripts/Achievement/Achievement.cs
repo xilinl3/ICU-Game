@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class Achievement : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Achievement : MonoBehaviour
     private GameObject prompts;
     private int ChessNumber;
     private CanvasGroup canvasGroup;
+    private int currentMusicIndex;
+    private float DeadNumber;
 
     private bool hasShownEatOne = false;
     private bool hasShownEatHalf = false;
@@ -18,6 +21,8 @@ public class Achievement : MonoBehaviour
     private bool hasShownEatAll = false;
     private bool hasShownDead = false;
     private bool hasShownVolumeChange = false;
+    private bool hasShownMusicChange = false;
+    private bool hasShownNoDead = false;
 
     private GameObject BlackScreen;
 
@@ -26,11 +31,21 @@ public class Achievement : MonoBehaviour
         ChessNumber = GameObject.FindWithTag("Player")?.GetComponent<player_behaviors>()?.totalCheese ?? 0;
         canvasGroup = GameObject.Find("EarCanvas")?.GetComponent<CanvasGroup>();
         BlackScreen = GameObject.Find("Canvas").transform.Find("BlackScreen")?.gameObject;
+        currentMusicIndex = GameObject.Find("MusicRoom2/MusicChange").GetComponent<MusicChange>().currentMusicIndex;
+        DeadNumber = GameObject.Find("DeadZone").GetComponent<DeadZone>().DeadNumber;
     }
 
     void Update()
     {
         Chess = GameObject.FindWithTag("Player")?.GetComponent<player_behaviors>()?.collectedCheese ?? 0;
+        if(currentMusicIndex == 0)
+        {
+            currentMusicIndex = GameObject.Find("MusicRoom2/MusicChange").GetComponent<MusicChange>().currentMusicIndex;
+        }
+        if(DeadNumber == 0)
+        {
+            DeadNumber = GameObject.Find("DeadZone").GetComponent<DeadZone>().DeadNumber;
+        }
         showAchievement();
     }
 
@@ -71,6 +86,22 @@ public class Achievement : MonoBehaviour
         {
             ShowPrompt("Achievement/Volume");
             hasShownVolumeChange = true;
+        }
+        // 音乐变化时显示成就
+        else if(currentMusicIndex != 0 && !hasShownMusicChange)
+        {
+            ShowPrompt("Achievement/Music");
+            hasShownMusicChange = true;
+        }
+        // 无死亡时显示成就
+        else if (DeadNumber == 0 && !hasShownNoDead)
+        {
+            if(SceneManager.GetActiveScene().name == "EndingCg1" 
+            || SceneManager.GetActiveScene().name == "EndingCg2")
+            {
+            ShowPrompt("Achievement/NoDead");
+            hasShownNoDead = true;
+            }
         }
     }
 

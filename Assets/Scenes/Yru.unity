@@ -4192,6 +4192,7 @@ MonoBehaviour:
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
   deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
+  DeadNumber: 0
 --- !u!212 &8495521
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -80357,6 +80358,7 @@ MonoBehaviour:
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
   deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
+  DeadNumber: 0
 --- !u!212 &336211787
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -81361,6 +81363,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 69c5dcc4c3d71d74ea356af3f2ad5d9d, type: 3}
   - {fileID: 8300000, guid: 7feabbe86722b79419ec9537ce2f27f2, type: 3}
   - {fileID: 8300000, guid: be63413ca0743d54cac1eb42ebd679be, type: 3}
+  currentMusicIndex: 0
 --- !u!95 &404102396
 Animator:
   serializedVersion: 5
@@ -85587,6 +85590,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5491643014633700735, guid: 6a9d67c932efa0841bb54b598cf4c6b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 953082741}
+    - targetCorrespondingSourceObject: {fileID: 5491643014633700735, guid: 6a9d67c932efa0841bb54b598cf4c6b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 953082742}
   m_SourcePrefab: {fileID: 100100000, guid: 6a9d67c932efa0841bb54b598cf4c6b5, type: 3}
 --- !u!1 &688430699
 GameObject:
@@ -89426,6 +89432,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 4
+--- !u!82 &953082742
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949908705}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 640fd7938ec513b419d2f1e48a452d78, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &956315454
 GameObject:
   m_ObjectHideFlags: 0
@@ -89595,6 +89697,18 @@ MonoBehaviour:
       - m_Target: {fileID: 953082739}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
         m_MethodName: Continue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 953082742}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -90028,6 +90142,7 @@ MonoBehaviour:
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
   deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
+  DeadNumber: 0
 --- !u!212 &1000244397
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -94816,6 +94931,7 @@ MonoBehaviour:
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
   deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
+  DeadNumber: 0
 --- !u!212 &1346316205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -112661,11 +112777,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.8930817, g: 0.8930817, b: 0.8930817, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.8805031, b: 0.8805031, a: 1}
+    m_PressedColor: {r: 0, g: 0.8238993, b: 0.8238993, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 0, b: 0.917572, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -112696,6 +112812,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 953082742}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1590477989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112703,7 +112831,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590477986}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -113072,6 +113200,18 @@ MonoBehaviour:
       - m_Target: {fileID: 953082739}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
         m_MethodName: StopGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 953082742}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -114856,6 +114996,7 @@ MonoBehaviour:
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
   deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
+  DeadNumber: 0
 --- !u!212 &1694329371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -117388,6 +117529,7 @@ MonoBehaviour:
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
   deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
+  DeadNumber: 0
 --- !u!212 &1802293897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -117554,6 +117696,7 @@ MonoBehaviour:
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
   deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
+  DeadNumber: 0
 --- !u!212 &1808146214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -122011,6 +122154,7 @@ MonoBehaviour:
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
   deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
+  DeadNumber: 0
 --- !u!212 &2039786777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -122695,11 +122839,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.8930817, g: 0.8930817, b: 0.8930817, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.8805031, b: 0.8805031, a: 1}
+    m_PressedColor: {r: 0, g: 0.8238993, b: 0.8238993, a: 1}
+    m_SelectedColor: {r: 0, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 0, b: 0.917572, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -122730,6 +122874,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 953082742}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2078188868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122737,7 +122893,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078188865}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -123783,6 +123939,7 @@ MonoBehaviour:
   respawnDelay: 1
   BlackScreen: {fileID: 935740325}
   deathSound: {fileID: 8300000, guid: 5dc074bafa0d8064f81cc2ac2ec18706, type: 3}
+  DeadNumber: 0
 --- !u!212 &2145063821
 SpriteRenderer:
   m_ObjectHideFlags: 0

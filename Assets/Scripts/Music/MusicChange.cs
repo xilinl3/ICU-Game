@@ -7,7 +7,7 @@ public class MusicChange : MonoBehaviour
 {
     public List<AudioClip> musicList;
     private AudioSource audioSource;
-    private int currentMusicIndex =0;
+    public int currentMusicIndex =0;
     private bool isPlayerInRoom = false;
     private Animator animator;
     // Start is called before the first frame update

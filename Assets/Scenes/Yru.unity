@@ -5669,7 +5669,7 @@ GameObject:
   - component: {fileID: 101950617}
   - component: {fileID: 101950616}
   m_Layer: 0
-  m_Name: Stop (2)
+  m_Name: pressD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5691,7 +5691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -598.61, y: -347.64993}
   m_SizeDelta: {x: 124.18988, y: 124.18991}
   m_Pivot: {x: 0.5000001, y: 0.4999999}
 --- !u!114 &101950616
@@ -5740,7 +5740,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 953082739}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: StopGame
+        m_MethodName: pressD
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -79756,7 +79756,7 @@ GameObject:
   - component: {fileID: 299826362}
   - component: {fileID: 299826361}
   m_Layer: 0
-  m_Name: Stop (5)
+  m_Name: pressF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79778,7 +79778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 660, y: -127.91}
   m_SizeDelta: {x: 124.18988, y: 124.18991}
   m_Pivot: {x: 0.5000001, y: 0.4999999}
 --- !u!114 &299826361
@@ -79827,7 +79827,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 953082739}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: StopGame
+        m_MethodName: pressF
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -90238,7 +90238,7 @@ GameObject:
   - component: {fileID: 1016442966}
   - component: {fileID: 1016442965}
   m_Layer: 0
-  m_Name: Stop (3)
+  m_Name: pressSpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90260,7 +90260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 660, y: -385.98}
   m_SizeDelta: {x: 124.18988, y: 124.18991}
   m_Pivot: {x: 0.5000001, y: 0.4999999}
 --- !u!114 &1016442965
@@ -90309,7 +90309,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 953082739}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: StopGame
+        m_MethodName: pressSpace
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -113022,8 +113022,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -104.9, y: -84.3}
-  m_SizeDelta: {x: 99.195, y: 99.8615}
+  m_AnchoredPosition: {x: -156, y: -154}
+  m_SizeDelta: {x: 118.47, y: 124.23}
   m_Pivot: {x: 0.5000001, y: 0.4999999}
 --- !u!114 &1619311904
 MonoBehaviour:
@@ -113132,7 +113132,7 @@ GameObject:
   - component: {fileID: 1624169386}
   - component: {fileID: 1624169385}
   m_Layer: 0
-  m_Name: Stop (1)
+  m_Name: pressA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113154,7 +113154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -816.9999, y: -347.64993}
   m_SizeDelta: {x: 124.18988, y: 124.18991}
   m_Pivot: {x: 0.5000001, y: 0.4999999}
 --- !u!114 &1624169385
@@ -113203,7 +113203,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 953082739}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: StopGame
+        m_MethodName: pressA
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -114280,7 +114280,7 @@ GameObject:
   - component: {fileID: 1661997199}
   - component: {fileID: 1661997198}
   m_Layer: 0
-  m_Name: Stop (4)
+  m_Name: pressR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114300,10 +114300,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 899647190}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0.46755558}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 124.18988, y: 124.18991}
+  m_AnchoredPosition: {x: -816.9999, y: 403.52}
+  m_SizeDelta: {x: 124.18988, y: 89.18991}
   m_Pivot: {x: 0.5000001, y: 0.4999999}
 --- !u!114 &1661997198
 MonoBehaviour:
@@ -114351,7 +114351,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 953082739}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: StopGame
+        m_MethodName: pressR
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

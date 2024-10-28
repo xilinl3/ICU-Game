@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,12 @@ public class MusicChange : MonoBehaviour
     private AudioSource audioSource;
     private int currentMusicIndex =0;
     private bool isPlayerInRoom = false;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GameObject.Find("Camera Variant").GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
 
         if(musicList.Count > 0)
         {
@@ -50,6 +53,7 @@ public class MusicChange : MonoBehaviour
         currentMusicIndex = (currentMusicIndex + 1) % musicList.Count;
         audioSource.clip = musicList[currentMusicIndex];
         audioSource.Play();
+        UpdateAnimation();
     }
 
     public void RestMusic()
@@ -59,6 +63,14 @@ public class MusicChange : MonoBehaviour
         {
             audioSource.clip = musicList[currentMusicIndex];
             audioSource.Play();
+        }
+        UpdateAnimation();
+    }
+    private void UpdateAnimation()
+    {
+        if(animator != null)
+        {
+            animator.SetBool("Play", currentMusicIndex != 0);
         }
     }
 }

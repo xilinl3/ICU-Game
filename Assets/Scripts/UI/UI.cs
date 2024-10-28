@@ -14,7 +14,7 @@ public class UI : MonoBehaviour
     //开始键
     public void Starting()
     {
-        SceneManager.LoadScene("AwakeCg");
+        SceneManager.LoadScene("Yru");
         Time.timeScale = 1;
     }
 

@@ -87607,7 +87607,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792567531}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -92405,7 +92405,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1502597884}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -112238,11 +112238,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2000426888941968254, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.550003
+      value: -42.07
       objectReference: {fileID: 0}
     - target: {fileID: 2000426888941968254, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.2394705
+      value: -5.82053
       objectReference: {fileID: 0}
     - target: {fileID: 2633815154985685755, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_Name
@@ -112270,7 +112270,7 @@ PrefabInstance:
       objectReference: {fileID: 521327047}
     - target: {fileID: 6026619990188018325, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6026619990188018325, guid: 50e236f6a63b0b440a258216f39061ec, type: 3}
       propertyPath: m_Lens.OrthographicSize

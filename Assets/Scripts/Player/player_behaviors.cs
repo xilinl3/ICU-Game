@@ -110,7 +110,7 @@ public class player_behaviors : MonoBehaviour
         }
 
 
-        rb.velocity = new Vector2(xInput * moveSpeed * stop, rb.velocity.y);
+        rb.velocity = new Vector2(xInput * moveSpeed *Time.deltaTime* stop, rb.velocity.y);
         HandleJump();
     }
 
@@ -122,7 +122,7 @@ public class player_behaviors : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 0f);
 
             // 添加跳跃力
-            rb.AddForce(Vector2.up * jumpForce * stop, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce *Time.deltaTime* stop, ForceMode2D.Impulse);
 
             // 更新上一次跳跃的时间
             lastJumpTime = Time.time;

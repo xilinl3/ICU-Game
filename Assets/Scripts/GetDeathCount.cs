@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GetDeathCount : MonoBehaviour
 {
-    int deathCount = black.deadNumber;
+    int deathCount = Black.deadNumber;
     // Start is called before the first frame update
     void Start()
     {

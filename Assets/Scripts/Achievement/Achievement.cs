@@ -30,17 +30,12 @@ public class Achievement : MonoBehaviour
 
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
-        ChessNumber = GameObject.FindWithTag("Player")?.GetComponent<player_behaviors>()?.totalCheese ?? 0;
-        canvasGroup = GameObject.Find("EarCanvas")?.GetComponent<CanvasGroup>();
-        BlackScreen = GameObject.Find("Canvas").transform.Find("BlackScreen")?.gameObject;
-        currentMusicIndex = GameObject.Find("MusicRoom2/MusicChange").GetComponent<MusicChange>().currentMusicIndex;
-        DeadNumber = black.deadNumber;
-        gameTime = GameObject.FindObjectOfType<GameTime>();
+        FindReferences();
     }
 
     void Update()
     {
+        FindReferences();
         Chess = GameObject.FindWithTag("Player")?.GetComponent<player_behaviors>()?.collectedCheese ?? 0;
         showAchievement();
     }
@@ -138,5 +133,63 @@ public class Achievement : MonoBehaviour
 
         canvasGroup.alpha = 0;
         if (prompts != null) prompts.SetActive(false);
+    }
+
+    private void FindReferences() 
+    {
+    if (ChessNumber == 0)
+    {
+        ChessNumber = GameObject.FindWithTag("Player")?.GetComponent<player_behaviors>()?.totalCheese ?? 0;
+        if (ChessNumber != 0)
+        {
+            Debug.Log("找到 ChessNumber");
+        }
+    }
+
+    if (canvasGroup == null)
+    {
+        canvasGroup = GameObject.Find("EarCanvas")?.GetComponent<CanvasGroup>();
+        if (canvasGroup != null)
+        {
+            Debug.Log("找到 canvasGroup");
+        }
+    }
+
+    if (BlackScreen == null)
+    {
+        BlackScreen = GameObject.Find("Canvas")?.transform.Find("BlackScreen")?.gameObject;
+        if (BlackScreen != null)
+        {
+            Debug.Log("找到 BlackScreen");
+        }
+    }
+
+    if (currentMusicIndex == 0)
+    {
+        var musicChange = GameObject.Find("MusicRoom2/MusicChange")?.GetComponent<MusicChange>();
+        if (musicChange != null)
+        {
+            currentMusicIndex = musicChange.currentMusicIndex;
+            Debug.Log("找到 currentMusicIndex");
+        }
+    }
+
+    if (DeadNumber == 0)
+    {
+        DeadNumber = Black.deadNumber;
+        if (DeadNumber != 0)
+        {
+            Debug.Log("找到 DeadNumber");
+        }
+    }
+
+    if (gameTime == null)
+    {
+        gameTime = GameObject.FindObjectOfType<GameTime>();
+        if (gameTime != null)
+        {
+            Debug.Log("找到 gameTime");
+        }
+    }
     }
 }

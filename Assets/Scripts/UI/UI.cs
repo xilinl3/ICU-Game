@@ -21,6 +21,7 @@ public class UI : MonoBehaviour
    //退出键
     public void ExitGame()
     {
+        PlayerPrefs.DeleteAll();
          Application.Quit();
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class black : MonoBehaviour
+public class Black : MonoBehaviour
 {
     // Start is called before the first frame update
     public static int deadNumber =0;

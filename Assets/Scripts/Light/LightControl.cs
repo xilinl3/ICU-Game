@@ -10,6 +10,7 @@ public class LightControl : MonoBehaviour
     public GameObject[] lights;
     public bool defaultswithon;  // 控制灯光开关的初始状态
     private SpriteRenderer spriteRenderer;  // 用于控制当前的Sprite
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class LightControl : MonoBehaviour
 
         // 设置初始的Sprite，不改变灯光的初始状态
         SetInitialSpriteState();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnEnable()
@@ -37,6 +39,7 @@ public class LightControl : MonoBehaviour
         // 检查玩家是否在按钮范围内
         if (buttonRangeDetector != null && buttonRangeDetector.IsPlayerInRange())
         {
+            audioSource.Play();
             ToggleLightsAndSprite();  // 切换灯光和Sprite
         }
     }

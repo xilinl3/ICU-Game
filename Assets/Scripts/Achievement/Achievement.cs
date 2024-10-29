@@ -30,6 +30,7 @@ public class Achievement : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
         FindReferences();
     }
 

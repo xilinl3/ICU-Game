@@ -21,8 +21,9 @@ public class UI : MonoBehaviour
    //退出键
     public void ExitGame()
     {
+        Volume.Instance.ResetVolumeChange(); // 重置音量变化标志
         PlayerPrefs.DeleteAll();
-         Application.Quit();
+        Application.Quit();
     }
 
     //继续键

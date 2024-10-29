@@ -19,6 +19,7 @@ public class ButtonLight : MonoBehaviour
     [SerializeField] private Sprite Buttondefault;
     [SerializeField] private Sprite ButtonPress;
     private SpriteRenderer spriteRenderer;
+    private AudioSource audioSource;
     [SerializeField] private float pressDuration = 0.2f;
 
     void Start()
@@ -44,6 +45,7 @@ public class ButtonLight : MonoBehaviour
         // 初始化灯光颜色
         sceneLight.color = colorSequence[currentColorIndex];
         spriteRenderer.sprite = Buttondefault;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnEnable()
@@ -64,6 +66,7 @@ public class ButtonLight : MonoBehaviour
         if (buttonRangeDetector != null && buttonRangeDetector.IsPlayerInRange())
         {
             StartCoroutine(SwitchButtonImage());
+            audioSource.Play();
             ColorLoop();  // 切换灯光颜色
         }
     }

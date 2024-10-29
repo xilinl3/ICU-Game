@@ -35,7 +35,7 @@ public class Achievement : MonoBehaviour
         canvasGroup = GameObject.Find("EarCanvas")?.GetComponent<CanvasGroup>();
         BlackScreen = GameObject.Find("Canvas").transform.Find("BlackScreen")?.gameObject;
         currentMusicIndex = GameObject.Find("MusicRoom2/MusicChange").GetComponent<MusicChange>().currentMusicIndex;
-        DeadNumber = GameObject.Find("Canvas").transform.Find("BlackScreen").GetComponent<black>().deadNumber;
+        DeadNumber = black.deadNumber;
         gameTime = GameObject.FindObjectOfType<GameTime>();
     }
 

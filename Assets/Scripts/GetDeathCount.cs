@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class black : MonoBehaviour
+public class GetDeathCount : MonoBehaviour
 {
+    int deathCount = black.deadNumber;
     // Start is called before the first frame update
-    public static int deadNumber =0;
     void Start()
     {
+        Debug.Log(deathCount);
     }
 
-    void OnEnable()
+    // Update is called once per frame
+    void Update()
     {
-        deadNumber ++;
+        
     }
 }

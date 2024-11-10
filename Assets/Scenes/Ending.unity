@@ -1106,7 +1106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0005493164}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1432500601
@@ -1143,9 +1143,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n\n\n\n\u9879\u76EE\u8D1F\u8D23\u4EBA\nYru\t\n\n\u5173\u5361\u7B56\u5212\nYru      
-    Ricardo\n\n\u7F8E\u672F\n\u7FBD\u6BDB\u7403\t\nMary Zhou\tPb\t\u6BDB\u6BDB\t\u5C24\u91CC\u5361\n\n\u4E3B\u7A0B\u5E8F\n\u6728\u69FF\n\n\u7A0B\u5E8F\n\u68A6\u7F18\tShaCoZha\tTony\n\n\u97F3\u6548/\u97F3\u4E50\nAspedtra\n\u5C24\u5229\u897F\u65AF\n\u5976\u76D6\u751F\u714E\u5305\n\n\u5BA3\u4F20&\u8FD0\u8425\nYru       
-    \u4ED3\u9F20\n\u59DD\u7545\n\n\n\u7279\u522B\u611F\u8C22\nHoro-kok\nManson\n0x3f3f3f\n"
+  m_text: "\n\n\n\n\nProject Manager\nYru\t\n\nLevel Design\nYru       Ricardo\n\nArtist
+    \n\u7FBD\u6BDB\u7403\t\nMary Zhou\tPb\tEvelyn\tEureka\n\nLead Programmer\nCassie\n\nProgrammer\nTom\tShaCoZha\tTony\n\nSFX/Mucis\nAspedtra\n\u5C24\u5229\u897F\u65AF\nYilin
+    Pan\n\nPromotion\nYru        Eric\nShuchang\n\n\nSpecial Thanks\nHoro-kok\nManson\n0x3f3f3f\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8242c9a468bb03d478347cb831ce5bae, type: 2}
   m_sharedMaterial: {fileID: 5488206523053659419, guid: 8242c9a468bb03d478347cb831ce5bae, type: 2}
@@ -1292,7 +1292,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4EBA\u5458\u8868"
+  m_Text: Staffing Table
 --- !u!222 &1456101080
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1785,8 +1785,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 256445877}
   m_HandleRect: {fileID: 256445876}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.13904703
+  m_Value: 1
+  m_Size: 0.139046
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
